@@ -32,7 +32,7 @@ export const EmbeddingAtlas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [size, setSize] = useState({ width: 800, height: 600 });
 
-  const { papers, clusters, loading, loadingProgress, error, reload } = useParquetData();
+  const { papers, clusters, loading, loadingProgress, error, reload } = useParquetData(size.width, size.height);
 
   const [transform, setTransform] = useState<ViewTransform>({ scale: 600, offsetX: 50, offsetY: 50 });
   const [hovered, setHovered] = useState<ProcessedPaper | null>(null);

@@ -1,25 +1,33 @@
 import React, { useMemo } from 'react';
 import { type Cluster, type ViewTransform } from '../types';
 import { hullToSmoothPath, expandHull, type Vec2 } from '../utils/convexHull';
+import { wrapLabel } from '../utils/measureLabels';
 
 interface ClusterRingsProps {
-  clusters: Map<number, Cluster>;
+  clusters:          Map<number, Cluster>;
   selectedClusterId: number | null;
-  hoveredClusterId: number | null;
-  transform: ViewTransform;
-  width: number;
-  height: number;
-  onClusterClick: (id: number) => void;
-  onClusterHover: (id: number | null) => void;
+  hoveredClusterId:  number | null;
+  transform:         ViewTransform;
+  width:             number;
+  height:            number;
+  onClusterClick:    (id: number) => void;
+  onClusterHover:    (id: number | null) => void;
 }
 
-function normToScreen(nx: number, ny: number, transform: ViewTransform, w: number, h: number): [number, number] {
-  // Match the WebGL shader: pos = (position + offset/scale) * scale
+const LABEL_MAX_CHARS     = 16;
+const LABEL_MAX_CHARS_SEL = 20;
+
+function normToScreen(
+  nx: number,
+  ny: number,
+  transform: ViewTransform,
+): [number, number] {
   const ox = transform.offsetX / transform.scale;
   const oy = transform.offsetY / transform.scale;
-  const sx = (nx + ox) * transform.scale;
-  const sy = (ny + oy) * transform.scale;
-  return [sx, sy];
+  return [
+    (nx + ox) * transform.scale,
+    (ny + oy) * transform.scale,
+  ];
 }
 
 export const ClusterRings: React.FC<ClusterRingsProps> = ({
@@ -34,26 +42,34 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
 }) => {
   const rings = useMemo(() => {
     return Array.from(clusters.values()).map(cluster => {
-      // Map hull to screen space
-      const screenHull: Vec2[] = cluster.hull.map(([nx, ny]) => {
-        return normToScreen(nx, ny, transform, width, height);
-      });
+      const screenHull: Vec2[] = cluster.hull.map(([nx, ny]) =>
+        normToScreen(nx, ny, transform),
+      );
 
-      // Extra padding for selected state
-      const isSelected = cluster.id === selectedClusterId;
-      const isHovered = cluster.id === hoveredClusterId;
+      const isSelected  = cluster.id === selectedClusterId;
+      const isHovered   = cluster.id === hoveredClusterId;
       const displayHull = isSelected
         ? expandHull(screenHull, 6)
         : isHovered
-        ? expandHull(screenHull, 3)
-        : screenHull;
+          ? expandHull(screenHull, 3)
+          : screenHull;
 
-      const path = hullToSmoothPath(displayHull);
-      const centroidScreen = normToScreen(cluster.centroid[0], cluster.centroid[1], transform, width, height);
+      const path           = hullToSmoothPath(displayHull);
+      const centroidScreen = normToScreen(cluster.centroid[0], cluster.centroid[1], transform);
 
-      return { cluster, path, centroidScreen, isSelected, isHovered };
+      // Label is visible when:
+      //   - scale has reached or passed the precomputed reveal threshold, OR
+      //   - the cluster is selected / hovered (always show those)
+      const showLabel =
+        isSelected ||
+        isHovered  ||
+        transform.scale >= (cluster.revealScale ?? Infinity);
+
+      console.log(transform.scale)
+
+      return { cluster, path, centroidScreen, isSelected, isHovered, showLabel };
     });
-  }, [clusters, transform, selectedClusterId, hoveredClusterId, width, height]);
+  }, [clusters, transform, selectedClusterId, hoveredClusterId]);
 
   return (
     <svg
@@ -64,24 +80,47 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
     >
       <defs>
         {rings.map(({ cluster }) => (
-          <filter key={`glow-${cluster.id}`} id={`glow-${cluster.id}`} x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation={cluster.id === selectedClusterId ? "4" : "2"} result="blur"/>
-            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          <filter
+            key={`glow-${cluster.id}`}
+            id={`glow-${cluster.id}`}
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%"
+          >
+            <feGaussianBlur
+              stdDeviation={cluster.id === selectedClusterId ? '4' : '2'}
+              result="blur"
+            />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
         ))}
       </defs>
 
-      {rings.map(({ cluster, path, centroidScreen, isSelected, isHovered }) => {
-        const opacity = selectedClusterId !== null && !isSelected ? 0.12 : isSelected ? 1 : isHovered ? 0.75 : 0.35;
+      {rings.map(({ cluster, path, centroidScreen, isSelected, isHovered, showLabel }) => {
+        const opacity =
+          selectedClusterId !== null && !isSelected
+            ? 0.12
+            : isSelected
+              ? 1
+              : isHovered
+                ? 0.75
+                : 0.35;
         const strokeWidth = isSelected ? 2 : isHovered ? 1.5 : 1;
-        const color = cluster.color;
+        const color       = cluster.color;
 
-        // Check if centroid is in viewport
         const inView =
-          centroidScreen[0] > -200 && centroidScreen[0] < width + 200 &&
+          centroidScreen[0] > -200 && centroidScreen[0] < width  + 200 &&
           centroidScreen[1] > -200 && centroidScreen[1] < height + 200;
 
         if (!inView && !isSelected) return null;
+
+        const fontSize    = isSelected ? 14 : 12;
+        const maxChars    = isSelected ? LABEL_MAX_CHARS_SEL : LABEL_MAX_CHARS;
+        const lines       = wrapLabel(cluster.label ?? `Cluster ${cluster.id}`, maxChars);
+        const lineHeight  = fontSize * 1.3;
+        const blockHeight = lines.length * lineHeight;
+        const startY      = centroidScreen[1] - blockHeight / 2 + lineHeight / 2;
 
         return (
           <g
@@ -91,56 +130,31 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
             onMouseEnter={() => onClusterHover(cluster.id)}
             onMouseLeave={() => onClusterHover(null)}
           >
-            {/* Fill */}
-            {/* <path
-              d={path}
-              fill={color}
-              fillOpacity={isSelected ? 0.06 : isHovered ? 0.04 : 0.02}
-              style={{ transition: 'fill-opacity 0.2s' }}
-            /> */}
-
-            {/* Stroke ring */}
-            {/* <path
-              d={path}
-              fill="none"
-              stroke={color}
-              strokeWidth={strokeWidth}
-              strokeOpacity={opacity}
-              strokeDasharray={isSelected ? 'none' : '4 3'}
-              style={{
-                transition: 'stroke-opacity 0.2s, stroke-width 0.2s',
-                filter: isSelected ? `drop-shadow(0 0 6px ${color}80)` : 'none',
-              }}
-            /> */}
-
-            {/* Outer glow ring when selected */}
-            {/* {isSelected && (
-              <path
-                d={path}
-                fill="none"
-                stroke={color}
-                strokeWidth={4}
-                strokeOpacity={0.15}
-                style={{ filter: `blur(4px)` }}
-              />
-            )} */}
-
-            {/* Cluster size label */}
-            {(isSelected || isHovered || transform.scale > 600) && (
-              <text
-                x={centroidScreen[0]}
-                y={centroidScreen[1]}
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fill={color}
-                fontSize={isSelected ? 11 : 9}
-                fontFamily="'JetBrains Mono', monospace"
-                opacity={isSelected ? 0.8 : 0.5}
-                style={{ pointerEvents: 'none', userSelect: 'none' }}
-              >
-                {cluster.size.toLocaleString()} papers
-              </text>
-            )}
+            {showLabel &&
+              lines.map((line, i) => (
+                <text
+                  key={i}
+                  x={centroidScreen[0]}
+                  y={startY + i * lineHeight}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontFamily="'JetBrains Mono', monospace"
+                  fontSize={fontSize}
+                  fontWeight={isSelected ? 600 : 500}
+                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                >
+                  <tspan
+                    fill="white"
+                    stroke="rgba(0,0,0,0.85)"
+                    strokeWidth={isSelected ? 3.5 : 2.5}
+                    strokeLinejoin="round"
+                    paintOrder="stroke"
+                    fillOpacity={1}
+                  >
+                    {line}
+                  </tspan>
+                </text>
+              ))}
           </g>
         );
       })}

@@ -20,6 +20,8 @@ export interface Cluster {
   color: string;
   centroid: [number, number];
   size: number;
+  label: string;
+  revealScale: number; 
 }
 
 export interface ViewTransform {

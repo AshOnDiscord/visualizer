@@ -17,12 +17,13 @@ const server = serve({
       });
     },
     
-    "/public/umap_200k.meta.json": async () => {
-      const file = Bun.file(resolve("public/umap_200k.meta.json"));
+    "/public/cluster_labels.json": async () => {
+      const file = Bun.file(resolve("public/cluster_labels.json"));
       return new Response(file, {
         headers: { "Content-Type": "application/json" },
       });
     },
+
 
     // Serve index.html for all unmatched routes.
     "/*": index,

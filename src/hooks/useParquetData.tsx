@@ -4,15 +4,23 @@ import type { ProcessedPaper, Cluster, AtlasState } from '../types';
 import { computeDensity, type Point2D } from '../utils/dbscan';
 import { convexHull, expandHull, centroid, type Vec2 } from '../utils/convexHull';
 import { clusterColor } from '../utils/colors';
+import { measureLabels } from '../utils/measureLabels';
+import { computeLabelRevealScales } from '../utils/computeLabelRevealScales';
 
-const PARQUET_URL = '/public/umap_200k.parquet';
+const PARQUET_URL        = '/public/umap_200k.parquet';
+const CLUSTER_LABELS_URL = '/public/cluster_labels.json';
 
 const DENSITY_RADIUS = 0.015;
+
+const LABEL_FONT = "500 12px 'JetBrains Mono', monospace";
 
 // ---------------------------------------------------------------------------
 // Hook
 // ---------------------------------------------------------------------------
-export function useParquetData(): AtlasState & { reload: () => void } {
+export function useParquetData(
+  canvasWidth  = 800,
+  canvasHeight = 600,
+): AtlasState & { reload: () => void } {
   const [state, setState] = useState<AtlasState>({
     papers: [],
     clusters: new Map(),
@@ -25,8 +33,16 @@ export function useParquetData(): AtlasState & { reload: () => void } {
     setState(s => ({ ...s, loading: true, error: null, loadingProgress: 'Fetching parquet file…' }));
 
     try {
-      const res = await fetch(PARQUET_URL);
+      const [res, labelsRes] = await Promise.all([
+        fetch(PARQUET_URL),
+        fetch(CLUSTER_LABELS_URL),
+      ]);
+
       if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+
+      const clusterLabelMap: Record<string, string> = labelsRes.ok
+        ? await labelsRes.json()
+        : {};
 
       setState(s => ({ ...s, loadingProgress: 'Reading parquet bytes…' }));
       const buffer = await res.arrayBuffer();
@@ -38,13 +54,12 @@ export function useParquetData(): AtlasState & { reload: () => void } {
 
       const n = table.numRows;
       const ids: (string | number)[] = [];
-      const titles: string[] = [];
-      const dois: string[] = [];
-      const xs: number[] = [];
-      const ys: number[] = [];
+      const titles: string[]  = [];
+      const dois: string[]    = [];
+      const xs: number[]      = [];
+      const ys: number[]      = [];
       const clusterIds: number[] = [];
 
-      // Column name detection (handle case variations)
       const colNames = table.schema.fields.map(f => f.name.toLowerCase());
       const getCol = (names: string[]) => {
         for (const name of names) {
@@ -64,7 +79,6 @@ export function useParquetData(): AtlasState & { reload: () => void } {
       if (!xCol || !yCol) {
         throw new Error('Could not find x/y columns in parquet. Expected: x, y (or umap_x, umap_y)');
       }
-
       if (!clusterCol) {
         throw new Error(
           'No cluster column found in parquet. Expected: cluster, cluster_id, or label. ' +
@@ -83,7 +97,6 @@ export function useParquetData(): AtlasState & { reload: () => void } {
 
       setState(s => ({ ...s, loadingProgress: 'Normalizing coordinates…' }));
 
-      // Normalize to [0, 1]
       let minX = Infinity, maxX = -Infinity;
       let minY = Infinity, maxY = -Infinity;
       for (let i = 0; i < n; i++) {
@@ -105,28 +118,77 @@ export function useParquetData(): AtlasState & { reload: () => void } {
 
       setState(s => ({ ...s, loadingProgress: 'Building cluster hulls…' }));
 
-      // Collect points per cluster for hull computation
       const clusterPoints = new Map<number, Vec2[]>();
       for (let i = 0; i < n; i++) {
         const cid = clusterIds[i];
-        if (cid < 0) continue; // skip noise points if any
+        if (cid < 0) continue;
         if (!clusterPoints.has(cid)) clusterPoints.set(cid, []);
         clusterPoints.get(cid)!.push([nxs[i], nys[i]]);
       }
 
+      // Single-pass density-weighted centroid accumulation
+      const weightedSums = new Map<number, { wx: number; wy: number; w: number }>();
+      for (const id of clusterPoints.keys()) {
+        weightedSums.set(id, { wx: 0, wy: 0, w: 0 });
+      }
+      for (let i = 0; i < n; i++) {
+        const id = clusterIds[i];
+        if (id < 0) continue;
+        const s = weightedSums.get(id);
+        if (!s) continue;
+        const w = density[i];
+        s.wx += nxs[i] * w;
+        s.wy += nys[i] * w;
+        s.w  += w;
+      }
+
+      // Build clusters (without revealScale yet)
       const clusters = new Map<number, Cluster>();
       for (const [id, cpts] of clusterPoints) {
         const hull     = convexHull([...cpts]);
         const expanded = expandHull(hull, 0.008);
-        const c        = centroid(hull);
+        const sums     = weightedSums.get(id)!;
+        const c: Vec2  = sums.w > 0
+          ? [sums.wx / sums.w, sums.wy / sums.w]
+          : centroid(hull);
+
         clusters.set(id, {
           id,
-          hull: expanded,
-          hullNorm: hull,
-          color: clusterColor(id),
-          centroid: c,
-          size: cpts.length,
+          hull:        expanded,
+          hullNorm:    hull,
+          color:       clusterColor(id),
+          centroid:    c,
+          size:        cpts.length,
+          label:       clusterLabelMap[String(id)] ?? `Cluster ${id}`,
+          revealScale: Infinity, // filled in below
         });
+      }
+
+      setState(s => ({ ...s, loadingProgress: 'Computing label visibility…' }));
+
+      // Measure label sizes once (same font as ClusterRings)
+      const ids2       = Array.from(clusters.keys());
+      const strings    = ids2.map(id => clusters.get(id)!.label);
+      const measured   = measureLabels(strings, {
+        font:     LABEL_FONT,
+        maxChars: 16,
+        paddingX: 6,
+        paddingY: 4,
+        fontSize: 12,
+      });
+      const labelSizes = new Map(ids2.map((id, i) => [id, measured[i]]));
+
+      // Compute per-cluster reveal scale
+      const revealScales = computeLabelRevealScales(
+        clusters,
+        labelSizes,
+        canvasWidth,
+        canvasHeight,
+      );
+
+      // Stamp revealScale onto each cluster
+      for (const [id, scale] of revealScales) {
+        clusters.get(id)!.revealScale = scale;
       }
 
       setState(s => ({ ...s, loadingProgress: 'Assembling dataset…' }));
@@ -134,14 +196,14 @@ export function useParquetData(): AtlasState & { reload: () => void } {
       const papers: ProcessedPaper[] = [];
       for (let i = 0; i < n; i++) {
         papers.push({
-          id: ids[i],
-          title: titles[i],
-          doi: dois[i],
-          x: xs[i],
-          y: ys[i],
-          nx: nxs[i],
-          ny: nys[i],
-          density: density[i],
+          id:        ids[i],
+          title:     titles[i],
+          doi:       dois[i],
+          x:         xs[i],
+          y:         ys[i],
+          nx:        nxs[i],
+          ny:        nys[i],
+          density:   density[i],
           clusterId: clusterIds[i],
         });
       }
@@ -149,9 +211,9 @@ export function useParquetData(): AtlasState & { reload: () => void } {
       setState({
         papers,
         clusters,
-        loading: false,
+        loading:         false,
         loadingProgress: '',
-        error: null,
+        error:           null,
       });
     } catch (err) {
       setState(s => ({
@@ -160,7 +222,7 @@ export function useParquetData(): AtlasState & { reload: () => void } {
         error: err instanceof Error ? err.message : String(err),
       }));
     }
-  }, []);
+  }, [canvasWidth, canvasHeight]);
 
   useEffect(() => { load(); }, [load]);
 
