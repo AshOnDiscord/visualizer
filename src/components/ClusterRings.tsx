@@ -92,15 +92,15 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
             onMouseLeave={() => onClusterHover(null)}
           >
             {/* Fill */}
-            <path
+            {/* <path
               d={path}
               fill={color}
               fillOpacity={isSelected ? 0.06 : isHovered ? 0.04 : 0.02}
               style={{ transition: 'fill-opacity 0.2s' }}
-            />
+            /> */}
 
             {/* Stroke ring */}
-            <path
+            {/* <path
               d={path}
               fill="none"
               stroke={color}
@@ -111,10 +111,10 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
                 transition: 'stroke-opacity 0.2s, stroke-width 0.2s',
                 filter: isSelected ? `drop-shadow(0 0 6px ${color}80)` : 'none',
               }}
-            />
+            /> */}
 
             {/* Outer glow ring when selected */}
-            {isSelected && (
+            {/* {isSelected && (
               <path
                 d={path}
                 fill="none"
@@ -123,7 +123,7 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
                 strokeOpacity={0.15}
                 style={{ filter: `blur(4px)` }}
               />
-            )}
+            )} */}
 
             {/* Cluster size label */}
             {(isSelected || isHovered || transform.scale > 600) && (

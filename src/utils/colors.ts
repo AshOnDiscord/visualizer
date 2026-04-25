@@ -24,9 +24,15 @@ export const CLUSTER_PALETTE = [
   '#EF476F', // pink-red
 ];
 
+// export function clusterColor(id: number): string {
+//   if (id < 0) return '#C8C8D8'; // noise: muted
+//   return CLUSTER_PALETTE[id % CLUSTER_PALETTE.length]!;
+// }
+
 export function clusterColor(id: number): string {
-  if (id < 0) return '#C8C8D8'; // noise: muted
-  return CLUSTER_PALETTE[id % CLUSTER_PALETTE.length]!;
+  if (id < 0) return '#C8C8D8';
+  const hue = (id * 137.508) % 360;
+  return `oklch(0.62 0.17 ${hue.toFixed(1)})`;
 }
 
 // Density → color: low density = pale periwinkle, high = rich sapphire
