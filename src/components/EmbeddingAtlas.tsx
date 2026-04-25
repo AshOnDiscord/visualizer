@@ -1,0 +1,508 @@
+import React, {
+  useRef, useState, useEffect, useCallback, useMemo,
+} from 'react';
+import { quadtree as d3Quadtree } from 'd3-quadtree';
+import type { ProcessedPaper, ViewTransform } from '../types';
+import { useWebGLRenderer } from '../hooks/useWebGLRenderer';
+import { ClusterRings } from './ClusterRings';
+import { Tooltip } from './Tooltip';
+import { SearchBar } from './SearchBar';
+import { useParquetData } from '../hooks/useParquetData';
+
+const MIN_SCALE = 100;
+const MAX_SCALE = 80000;
+const HOVER_RADIUS_PX = 12;
+
+// Quadtree for 200k-point hover hit-testing
+function buildQuadtree(papers: ProcessedPaper[]) {
+  return d3Quadtree<ProcessedPaper>()
+    .x(d => d.nx)
+    .y(d => d.ny)
+    .addAll(papers);
+}
+
+function screenToNorm(sx: number, sy: number, transform: ViewTransform): [number, number] {
+  const ox = transform.offsetX / transform.scale;
+  const oy = transform.offsetY / transform.scale;
+  return [sx / transform.scale - ox, sy / transform.scale - oy];
+}
+
+export const EmbeddingAtlas: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [size, setSize] = useState({ width: 800, height: 600 });
+
+  const { papers, clusters, loading, loadingProgress, error, reload } = useParquetData();
+
+  const [transform, setTransform] = useState<ViewTransform>({ scale: 600, offsetX: 50, offsetY: 50 });
+  const [hovered, setHovered] = useState<ProcessedPaper | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [selectedClusterId, setSelectedClusterId] = useState<number | null>(null);
+  const [hoveredClusterId, setHoveredClusterId] = useState<number | null>(null);
+  const [searchResultIds, setSearchResultIds] = useState<Set<string | number> | null>(null);
+
+  const qtRef = useRef<ReturnType<typeof buildQuadtree> | null>(null);
+  const isDragging = useRef(false);
+  const lastMouse = useRef({ x: 0, y: 0 });
+  const transformRef = useRef(transform);
+  transformRef.current = transform;
+
+  // Observe container size
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => {
+      const { width, height } = entry!.contentRect;
+      setSize({ width, height });
+    });
+    ro.observe(el);
+    setSize({ width: el.clientWidth, height: el.clientHeight });
+    return () => ro.disconnect();
+  }, []);
+
+  // Build quadtree when papers load
+  useEffect(() => {
+    if (papers.length > 0) {
+      qtRef.current = buildQuadtree(papers);
+      // Fit transform to data
+      setTransform({ scale: Math.min(size.width, size.height) * 0.9, offsetX: size.width * 0.05, offsetY: size.height * 0.05 });
+    }
+  }, [papers]);
+
+  // WebGL renderer
+  useWebGLRenderer(canvasRef, {
+    papers,
+    width: size.width,
+    height: size.height,
+    transform,
+    hoveredId: hovered?.id ?? null,
+    selectedClusterId,
+    searchResultIds,
+  });
+
+  // ── Pointer Events ───────────────────────────────────────────────
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const sx = e.clientX - rect.left;
+    const sy = e.clientY - rect.top;
+
+    setMousePos({ x: sx, y: sy });
+
+    if (isDragging.current) {
+      const dx = sx - lastMouse.current.x;
+      const dy = sy - lastMouse.current.y;
+      setTransform(t => ({ ...t, offsetX: t.offsetX + dx, offsetY: t.offsetY + dy }));
+      lastMouse.current = { x: sx, y: sy };
+      return;
+    }
+
+    // Hover hit-test via quadtree
+    if (!qtRef.current) return;
+    const t = transformRef.current;
+    const [nx, ny] = screenToNorm(sx, sy, t);
+    const radiusNorm = HOVER_RADIUS_PX / t.scale;
+
+    const found = qtRef.current.find(nx, ny, radiusNorm);
+    setHovered(found ?? null);
+  }, []);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (e.button !== 0) return;
+    isDragging.current = true;
+    lastMouse.current = { x: e.clientX, y: e.clientY };
+  }, []);
+
+  const handleMouseUp = useCallback(() => { isDragging.current = false; }, []);
+
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    if (!hovered) {
+      // Deselect cluster if clicking empty space
+      if (selectedClusterId !== null) setSelectedClusterId(null);
+      return;
+    }
+    // Open DOI
+    const doi = hovered.doi;
+    if (doi && doi !== 'null' && doi.trim()) {
+      const url = doi.startsWith('http') ? doi : `https://doi.org/${doi}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  }, [hovered, selectedClusterId]);
+
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    e.preventDefault();
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+
+    const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
+    setTransform(t => {
+      const newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, t.scale * factor));
+      const scaleDelta = newScale / t.scale;
+      return {
+        scale: newScale,
+        offsetX: mx - scaleDelta * (mx - t.offsetX),
+        offsetY: my - scaleDelta * (my - t.offsetY),
+      };
+    });
+  }, []);
+
+  // Touch/pinch support
+  const lastTouches = useRef<React.TouchList | null>(null);
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    lastTouches.current = e.touches;
+  }, []);
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    e.preventDefault();
+    if (!lastTouches.current) return;
+
+    if (e.touches.length === 1 && lastTouches.current.length === 1) {
+      const dx = e.touches[0].clientX - lastTouches.current[0].clientX;
+      const dy = e.touches[0].clientY - lastTouches.current[0].clientY;
+      setTransform(t => ({ ...t, offsetX: t.offsetX + dx, offsetY: t.offsetY + dy }));
+    } else if (e.touches.length === 2 && lastTouches.current.length === 2) {
+      const d0 = Math.hypot(
+        lastTouches.current[0].clientX - lastTouches.current[1].clientX,
+        lastTouches.current[0].clientY - lastTouches.current[1].clientY,
+      );
+      const d1 = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY,
+      );
+      const factor = d1 / (d0 || 1);
+      const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+      const my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+      setTransform(t => {
+        const newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, t.scale * factor));
+        const sf = newScale / t.scale;
+        return { scale: newScale, offsetX: mx - sf * (mx - t.offsetX), offsetY: my - sf * (my - t.offsetY) };
+      });
+    }
+    lastTouches.current = e.touches;
+  }, []);
+
+  // ── Search callbacks ─────────────────────────────────────────────
+  const handleSearchResults = useCallback((ids: Set<string | number> | null, focusPaper?: ProcessedPaper) => {
+    setSearchResultIds(ids);
+    if (focusPaper) {
+      // Pan to focus paper
+      setTransform(t => ({
+        ...t,
+        offsetX: size.width / 2 - focusPaper.nx * t.scale,
+        offsetY: size.height / 2 - focusPaper.ny * t.scale,
+      }));
+    }
+  }, [size]);
+
+  const handleClusterClick = useCallback((id: number) => {
+    setSelectedClusterId(prev => prev === id ? null : id);
+    setSearchResultIds(null);
+    // Pan to cluster centroid
+    const cluster = clusters.get(id);
+    if (cluster) {
+      setTransform(t => ({
+        ...t,
+        offsetX: size.width / 2 - cluster.centroid[0] * t.scale,
+        offsetY: size.height / 2 - cluster.centroid[1] * t.scale,
+      }));
+    }
+  }, [clusters, size]);
+
+  // Stats
+  const stats = useMemo(() => ({
+    total: papers.length,
+    clusterCount: clusters.size,
+    noiseCount: papers.filter(p => p.clusterId < 0).length,
+  }), [papers, clusters]);
+
+  // ── Render ───────────────────────────────────────────────────────
+  return (
+    <div
+      className="relative w-full h-screen overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #f0f2f8 0%, #e8ecf5 40%, #f2eef8 100%)' }}
+    >
+      {/* Subtle grid texture */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, rgba(120,130,180,0.12) 1px, transparent 1px)`,
+          backgroundSize: '28px 28px',
+          zIndex: 0,
+        }}
+      />
+
+      {/* Canvas */}
+      <div
+        ref={containerRef}
+        className="absolute inset-0"
+        style={{ cursor: isDragging.current ? 'grabbing' : hovered ? 'pointer' : 'grab', zIndex: 1 }}
+        onMouseMove={handleMouseMove}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        onClick={handleClick}
+        onWheel={handleWheel}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={() => { lastTouches.current = null; }}
+      >
+        <canvas
+          ref={canvasRef}
+          width={size.width}
+          height={size.height}
+          className="absolute inset-0"
+          style={{ zIndex: 1 }}
+        />
+
+        {/* Cluster rings SVG overlay */}
+        {!loading && (
+          <ClusterRings
+            clusters={clusters}
+            selectedClusterId={selectedClusterId}
+            hoveredClusterId={hoveredClusterId}
+            transform={transform}
+            width={size.width}
+            height={size.height}
+            onClusterClick={handleClusterClick}
+            onClusterHover={setHoveredClusterId}
+          />
+        )}
+      </div>
+
+      {/* Tooltip */}
+      <Tooltip
+        paper={hovered}
+        x={mousePos.x}
+        y={mousePos.y}
+        containerWidth={size.width}
+        containerHeight={size.height}
+      />
+
+      {/* ── Top bar ── */}
+      <div
+        className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-3"
+        style={{ zIndex: 50 }}
+      >
+        <SearchBar
+          papers={papers}
+          onResults={handleSearchResults}
+          disabled={loading}
+        />
+      </div>
+
+      {/* ── Top-left title ── */}
+      <div className="absolute top-4 left-4" style={{ zIndex: 50 }}>
+        <div
+          style={{
+            background: 'rgba(255,255,255,0.82)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(0,0,0,0.07)',
+            borderRadius: 10,
+            padding: '8px 14px',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.07)',
+          }}
+        >
+          <h1
+            className="text-gray-800 font-semibold tracking-tight"
+            style={{ fontFamily: "'Crimson Pro', Georgia, serif", fontSize: 17, lineHeight: 1 }}
+          >
+            arXiv Atlas
+          </h1>
+          <p
+            className="text-gray-400 mt-0.5"
+            style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '0.04em' }}
+          >
+            {stats.total > 0 ? `${stats.total.toLocaleString()} papers · ${stats.clusterCount} clusters` : 'Loading…'}
+          </p>
+        </div>
+      </div>
+
+      {/* ── Bottom-right controls ── */}
+      <div
+        className="absolute bottom-4 right-4 flex flex-col gap-2"
+        style={{ zIndex: 50 }}
+      >
+        {/* Zoom buttons */}
+        {[
+          { label: '+', delta: 1.5, title: 'Zoom in' },
+          { label: '−', delta: 1 / 1.5, title: 'Zoom out' },
+          { label: '⊙', delta: null, title: 'Reset view' },
+        ].map(({ label, delta, title }) => (
+          <button
+            key={label}
+            title={title}
+            onClick={() => {
+              if (delta === null) {
+                setTransform({ scale: Math.min(size.width, size.height) * 0.9, offsetX: size.width * 0.05, offsetY: size.height * 0.05 });
+                setSelectedClusterId(null);
+                setSearchResultIds(null);
+              } else {
+                setTransform(t => {
+                  const newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, t.scale * delta));
+                  const sf = newScale / t.scale;
+                  return {
+                    scale: newScale,
+                    offsetX: size.width / 2 - sf * (size.width / 2 - t.offsetX),
+                    offsetY: size.height / 2 - sf * (size.height / 2 - t.offsetY),
+                  };
+                });
+              }
+            }}
+            style={{
+              width: 36, height: 36,
+              background: 'rgba(255,255,255,0.9)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(0,0,0,0.08)',
+              borderRadius: 8,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
+              fontSize: label === '⊙' ? 16 : 20,
+              color: '#475569',
+              cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              transition: 'background 0.15s',
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Bottom-left status/legend ── */}
+      {selectedClusterId !== null && (
+        <div
+          className="absolute bottom-4 left-4"
+          style={{ zIndex: 50 }}
+        >
+          <div
+            style={{
+              background: 'rgba(255,255,255,0.92)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: `1px solid ${clusters.get(selectedClusterId)?.color ?? '#ccc'}40`,
+              borderRadius: 10,
+              padding: '10px 14px',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+              maxWidth: 260,
+            }}
+          >
+            <div className="flex items-center gap-2 mb-1">
+              <div
+                style={{
+                  width: 10, height: 10, borderRadius: '50%',
+                  background: clusters.get(selectedClusterId)?.color ?? '#ccc',
+                }}
+              />
+              <span
+                className="text-gray-700 font-medium"
+                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11 }}
+              >
+                Cluster {selectedClusterId}
+              </span>
+              <button
+                onClick={() => setSelectedClusterId(null)}
+                className="ml-auto text-gray-300 hover:text-gray-500"
+                style={{ fontSize: 14 }}
+              >
+                ×
+              </button>
+            </div>
+            <p
+              className="text-gray-500"
+              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10 }}
+            >
+              {clusters.get(selectedClusterId)?.size.toLocaleString() ?? 0} papers
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* ── Loading overlay ── */}
+      {loading && (
+        <div
+          className="absolute inset-0 flex flex-col items-center justify-center"
+          style={{ background: 'rgba(240,242,248,0.9)', zIndex: 100, backdropFilter: 'blur(4px)' }}
+        >
+          <div className="flex flex-col items-center gap-4">
+            {/* Spinner */}
+            <div
+              style={{
+                width: 44, height: 44,
+                border: '3px solid rgba(79,110,247,0.15)',
+                borderTop: '3px solid #4F6EF7',
+                borderRadius: '50%',
+                animation: 'spin 0.8s linear infinite',
+              }}
+            />
+            <div className="text-center">
+              <p
+                className="text-gray-700 font-medium"
+                style={{ fontFamily: "'Crimson Pro', Georgia, serif", fontSize: 18 }}
+              >
+                arXiv Atlas
+              </p>
+              <p
+                className="text-gray-400 mt-1"
+                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11 }}
+              >
+                {loadingProgress}
+              </p>
+            </div>
+          </div>
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        </div>
+      )}
+
+      {/* ── Error overlay ── */}
+      {error && (
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ background: 'rgba(240,242,248,0.95)', zIndex: 100 }}
+        >
+          <div
+            style={{
+              background: 'white',
+              border: '1px solid rgba(232,86,74,0.3)',
+              borderRadius: 12,
+              padding: '24px 28px',
+              maxWidth: 440,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+            }}
+          >
+            <p
+              className="text-gray-800 font-semibold mb-2"
+              style={{ fontFamily: "'Crimson Pro', Georgia, serif", fontSize: 17 }}
+            >
+              Failed to load data
+            </p>
+            <p
+              className="text-gray-500 mb-4"
+              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, wordBreak: 'break-all' }}
+            >
+              {error}
+            </p>
+            <p className="text-gray-400 text-xs mb-4">
+              Make sure <code className="bg-gray-100 px-1 py-0.5 rounded">umap_200k.parquet</code> is in your{' '}
+              <code className="bg-gray-100 px-1 py-0.5 rounded">public/</code> folder.
+            </p>
+            <button
+              onClick={reload}
+              style={{
+                background: '#4F6EF7',
+                color: 'white',
+                border: 'none',
+                borderRadius: 7,
+                padding: '8px 16px',
+                fontSize: 13,
+                cursor: 'pointer',
+                fontFamily: "'JetBrains Mono', monospace",
+              }}
+            >
+              Retry
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
