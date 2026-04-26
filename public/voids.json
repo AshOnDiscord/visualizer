@@ -1,0 +1,5628 @@
+[
+  {
+    "void_id": 0,
+    "void_rank": 0,
+    "centroid": [
+      5.004140477515383,
+      5.224047604611885
+    ],
+    "log_density": -7.157416428030615,
+    "name": "Chaotic Climate Dynamics Driven by Orbital Variability",
+    "name_reasoning": "The surrounding papers link orbital/planetary chaos with Earth system and temperature extremes, but no work directly connects orbital chaos to climate\u2011time\u2011scale chaotic behavior, leaving a gap in understanding how planetary orbital variability can drive chaotic climate dynamics.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.0978593826293945,
+          5.1415019035339355
+        ],
+        [
+          4.969039440155029,
+          5.238709449768066
+        ],
+        [
+          4.934120178222656,
+          5.267008304595947
+        ],
+        [
+          4.99194860458374,
+          5.350358009338379
+        ],
+        [
+          5.022795677185059,
+          5.334353923797607
+        ],
+        [
+          5.108752727508545,
+          5.228357791900635
+        ]
+      ]
+    },
+    "shape_area": 0.017262307895634876,
+    "border_papers": [
+      {
+        "title": "A note on the surface quasi-geostrophic temperature variance cascade",
+        "DOI": "1309.1962",
+        "x": 5.033279895782471,
+        "y": 5.222172260284424,
+        "cluster": 13
+      },
+      {
+        "title": "Solar system chaos and the Paleocene-Eocene boundary age constrained by\n  geology and astronomy",
+        "DOI": "1909.00283",
+        "x": 4.969039440155029,
+        "y": 5.238709449768066,
+        "cluster": 13
+      },
+      {
+        "title": "High-Temperature Majorana Corner States",
+        "DOI": "1804.04711",
+        "x": 4.960641860961914,
+        "y": 5.259839057922363,
+        "cluster": 36
+      },
+      {
+        "title": "Planetary chaotic zone clearing: destinations and timescales",
+        "DOI": "1411.1378",
+        "x": 4.980369567871094,
+        "y": 5.302151679992676,
+        "cluster": 13
+      },
+      {
+        "title": "Extended planetary chaotic zones",
+        "DOI": "2207.12747",
+        "x": 4.934120178222656,
+        "y": 5.267008304595947,
+        "cluster": 13
+      },
+      {
+        "title": "Chaotic dynamics of the planet in HD 196885 AB",
+        "DOI": "1401.1268",
+        "x": 4.990042686462402,
+        "y": 5.327520847320557,
+        "cluster": 13
+      },
+      {
+        "title": "Chaotic Behaviour of the Earth System in the Anthropocene",
+        "DOI": "2204.08955",
+        "x": 5.108752727508545,
+        "y": 5.228357791900635,
+        "cluster": 13
+      },
+      {
+        "title": "Chaos in the Solar System",
+        "DOI": "astro-ph/0111600",
+        "x": 5.022795677185059,
+        "y": 5.334353923797607,
+        "cluster": 13
+      },
+      {
+        "title": "Changing U.S. Extreme Temperature Statistics",
+        "DOI": "1701.05224",
+        "x": 5.0978593826293945,
+        "y": 5.1415019035339355,
+        "cluster": 36
+      },
+      {
+        "title": "Do N-planet systems have a boundary between chaotic and regular motions?",
+        "DOI": "0705.3124",
+        "x": 4.99194860458374,
+        "y": 5.350358009338379,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 1,
+    "void_rank": 1,
+    "centroid": [
+      7.774247353690923,
+      10.71196377895349
+    ],
+    "log_density": -7.130605474418555,
+    "name": "Monogamy of quantum steering",
+    "name_reasoning": "The surrounding works focus on monogamy of entanglement across various settings, yet the analogous constraints for quantum steering\u2014a distinct type of quantum correlation\u2014are largely absent, representing a natural bridge between these topics.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          7.6623663902282715,
+          10.662724494934082
+        ],
+        [
+          7.652251720428467,
+          10.694692611694336
+        ],
+        [
+          7.654724597930908,
+          10.740537643432617
+        ],
+        [
+          7.65567684173584,
+          10.74407958984375
+        ],
+        [
+          7.656550407409668,
+          10.745979309082031
+        ],
+        [
+          7.65769624710083,
+          10.746709823608398
+        ]
+      ]
+    },
+    "shape_area": 0.00041367355743204826,
+    "border_papers": [
+      {
+        "title": "Generalized W-Class State and its Monogamy Relation",
+        "DOI": "0805.1690",
+        "x": 7.656046390533447,
+        "y": 10.734383583068848,
+        "cluster": 24
+      },
+      {
+        "title": "A monogamy-of-entanglement game for subspace coset states",
+        "DOI": "2107.13324",
+        "x": 7.656255722045898,
+        "y": 10.741058349609375,
+        "cluster": 47
+      },
+      {
+        "title": "Rigidity for Monogamy-of-Entanglement Games",
+        "DOI": "2111.08081",
+        "x": 7.657525539398193,
+        "y": 10.745923042297363,
+        "cluster": 11
+      },
+      {
+        "title": "A monogamy paradox in empty flat space",
+        "DOI": "2107.06919",
+        "x": 7.65769624710083,
+        "y": 10.746709823608398,
+        "cluster": 47
+      },
+      {
+        "title": "Multi-linear Monogamy Relations for Three Qubit States",
+        "DOI": "1810.09926",
+        "x": 7.655767440795898,
+        "y": 10.740918159484863,
+        "cluster": 1
+      },
+      {
+        "title": "The human monogamy behavior can influence the transmission of AIDS",
+        "DOI": "1909.06504",
+        "x": 7.6623663902282715,
+        "y": 10.662724494934082,
+        "cluster": 36
+      },
+      {
+        "title": "Monogamy equalities for qubit entanglement from Lorentz invariance",
+        "DOI": "1407.8195",
+        "x": 7.656550407409668,
+        "y": 10.745979309082031,
+        "cluster": 1
+      },
+      {
+        "title": "Monogamy equality in $2\\otimes 2 \\otimes d$ quantum systems",
+        "DOI": "0804.0181",
+        "x": 7.65567684173584,
+        "y": 10.74407958984375,
+        "cluster": 1
+      },
+      {
+        "title": "On Monogamy of four qubit entanglement",
+        "DOI": "1703.09861",
+        "x": 7.654724597930908,
+        "y": 10.740537643432617,
+        "cluster": 1
+      },
+      {
+        "title": "Schur complement inequalities for covariance matrices and monogamy of\n  quantum correlations",
+        "DOI": "1607.05285",
+        "x": 7.652251720428467,
+        "y": 10.694692611694336,
+        "cluster": 10
+      }
+    ]
+  },
+  {
+    "void_id": 2,
+    "void_rank": 2,
+    "centroid": [
+      4.920197844904004,
+      5.293077996741967
+    ],
+    "log_density": -7.124747458110111,
+    "name": "Chaotic Climate Modeling of Exoplanets",
+    "name_reasoning": "The surrounding works link orbital chaos, planetary terrain, and high\u2011resolution atmospheric dynamics, yet no research explicitly connects chaotic orbital dynamics with turbulent, multifractal climate and atmospheric modeling on exoplanets, leaving a gap for a unified chaotic climate modeling field.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          4.969039440155029,
+          5.238709449768066
+        ],
+        [
+          4.850225448608398,
+          5.241570472717285
+        ],
+        [
+          4.888854026794434,
+          5.341160297393799
+        ],
+        [
+          4.922132968902588,
+          5.401854515075684
+        ],
+        [
+          5.022795677185059,
+          5.334353923797607
+        ]
+      ]
+    },
+    "shape_area": 0.01673791908444855,
+    "border_papers": [
+      {
+        "title": "Extended planetary chaotic zones",
+        "DOI": "2207.12747",
+        "x": 4.934120178222656,
+        "y": 5.267008304595947,
+        "cluster": 13
+      },
+      {
+        "title": "High-Temperature Majorana Corner States",
+        "DOI": "1804.04711",
+        "x": 4.960641860961914,
+        "y": 5.259839057922363,
+        "cluster": 36
+      },
+      {
+        "title": "Multifractality of Cloud Base Height Profiles",
+        "DOI": "cond-mat/0108395",
+        "x": 4.888854026794434,
+        "y": 5.341160297393799,
+        "cluster": 8
+      },
+      {
+        "title": "Planetary chaotic zone clearing: destinations and timescales",
+        "DOI": "1411.1378",
+        "x": 4.980369567871094,
+        "y": 5.302151679992676,
+        "cluster": 13
+      },
+      {
+        "title": "Solar system chaos and the Paleocene-Eocene boundary age constrained by\n  geology and astronomy",
+        "DOI": "1909.00283",
+        "x": 4.969039440155029,
+        "y": 5.238709449768066,
+        "cluster": 13
+      },
+      {
+        "title": "Chaotic dynamics of the planet in HD 196885 AB",
+        "DOI": "1401.1268",
+        "x": 4.990042686462402,
+        "y": 5.327520847320557,
+        "cluster": 13
+      },
+      {
+        "title": "H$_2$O$_2$ within chaos terrain on Europa's leading hemisphere",
+        "DOI": "1908.01093",
+        "x": 4.850225448608398,
+        "y": 5.241570472717285,
+        "cluster": 36
+      },
+      {
+        "title": "Do N-planet systems have a boundary between chaotic and regular motions?",
+        "DOI": "0705.3124",
+        "x": 4.99194860458374,
+        "y": 5.350358009338379,
+        "cluster": 13
+      },
+      {
+        "title": "Establishing a non-hydrostatic global atmospheric modeling system\n  (iAMAS) at 3-km horizontal resolution with online integrated aerosol\n  feedbacks on the Sunway supercomputer of China",
+        "DOI": "2112.04668",
+        "x": 4.922132968902588,
+        "y": 5.401854515075684,
+        "cluster": 13
+      },
+      {
+        "title": "Chaos in the Solar System",
+        "DOI": "astro-ph/0111600",
+        "x": 5.022795677185059,
+        "y": 5.334353923797607,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 3,
+    "void_rank": 3,
+    "centroid": [
+      7.774247353690923,
+      10.74647897501853
+    ],
+    "log_density": -7.119887444748902,
+    "name": "Monogamy of entanglement in continuous-variable systems",
+    "name_reasoning": "The surrounding works address monogamy relations for qubits and finite-dimensional multipartite states, but there is no research bridging the gap to continuous-variable (Gaussian) quantum systems, leaving a clear gap in the literature.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          7.656046390533447,
+          10.734383583068848
+        ],
+        [
+          7.654724597930908,
+          10.740537643432617
+        ],
+        [
+          7.6553754806518555,
+          10.748612403869629
+        ],
+        [
+          7.657061576843262,
+          10.752397537231445
+        ],
+        [
+          7.65769624710083,
+          10.746709823608398
+        ]
+      ]
+    },
+    "shape_area": 2.9208192017904366e-05,
+    "border_papers": [
+      {
+        "title": "A monogamy paradox in empty flat space",
+        "DOI": "2107.06919",
+        "x": 7.65769624710083,
+        "y": 10.746709823608398,
+        "cluster": 47
+      },
+      {
+        "title": "Rigidity for Monogamy-of-Entanglement Games",
+        "DOI": "2111.08081",
+        "x": 7.657525539398193,
+        "y": 10.745923042297363,
+        "cluster": 11
+      },
+      {
+        "title": "Polygamy relations of multipartite entanglement beyond qubits",
+        "DOI": "1903.11350",
+        "x": 7.657061576843262,
+        "y": 10.752397537231445,
+        "cluster": 1
+      },
+      {
+        "title": "Monogamy equalities for qubit entanglement from Lorentz invariance",
+        "DOI": "1407.8195",
+        "x": 7.656550407409668,
+        "y": 10.745979309082031,
+        "cluster": 1
+      },
+      {
+        "title": "A monogamy-of-entanglement game for subspace coset states",
+        "DOI": "2107.13324",
+        "x": 7.656255722045898,
+        "y": 10.741058349609375,
+        "cluster": 47
+      },
+      {
+        "title": "Monogamy equality in $2\\otimes 2 \\otimes d$ quantum systems",
+        "DOI": "0804.0181",
+        "x": 7.65567684173584,
+        "y": 10.74407958984375,
+        "cluster": 1
+      },
+      {
+        "title": "Multi-linear Monogamy Relations for Three Qubit States",
+        "DOI": "1810.09926",
+        "x": 7.655767440795898,
+        "y": 10.740918159484863,
+        "cluster": 1
+      },
+      {
+        "title": "Generalized W-Class State and its Monogamy Relation",
+        "DOI": "0805.1690",
+        "x": 7.656046390533447,
+        "y": 10.734383583068848,
+        "cluster": 24
+      },
+      {
+        "title": "Monogamy properties of qubit systems",
+        "DOI": "1812.01134",
+        "x": 7.6553754806518555,
+        "y": 10.748612403869629,
+        "cluster": 1
+      },
+      {
+        "title": "On Monogamy of four qubit entanglement",
+        "DOI": "1703.09861",
+        "x": 7.654724597930908,
+        "y": 10.740537643432617,
+        "cluster": 1
+      }
+    ]
+  },
+  {
+    "void_id": 4,
+    "void_rank": 4,
+    "centroid": [
+      4.920197844904004,
+      5.3966235849370925
+    ],
+    "log_density": -7.114736254118403,
+    "name": "Chaotic orbital forcing of climate dynamics",
+    "name_reasoning": "The surrounding papers focus separately on high\u2011resolution atmospheric/cloud modeling and on chaotic behavior of planetary orbits. The missing bridge is a systematic study of how chaotic variations in orbital parameters (e.g., eccentricity, inclination) propagate to atmospheric circulation, cloud formation, and climate variability.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          4.934120178222656,
+          5.267008304595947
+        ],
+        [
+          4.820051193237305,
+          5.441784858703613
+        ],
+        [
+          5.049553871154785,
+          5.403502464294434
+        ],
+        [
+          5.038552284240723,
+          5.361569404602051
+        ],
+        [
+          5.022795677185059,
+          5.334353923797607
+        ]
+      ]
+    },
+    "shape_area": 0.020217948394019913,
+    "border_papers": [
+      {
+        "title": "Establishing a non-hydrostatic global atmospheric modeling system\n  (iAMAS) at 3-km horizontal resolution with online integrated aerosol\n  feedbacks on the Sunway supercomputer of China",
+        "DOI": "2112.04668",
+        "x": 4.922132968902588,
+        "y": 5.401854515075684,
+        "cluster": 13
+      },
+      {
+        "title": "Multifractality of Cloud Base Height Profiles",
+        "DOI": "cond-mat/0108395",
+        "x": 4.888854026794434,
+        "y": 5.341160297393799,
+        "cluster": 8
+      },
+      {
+        "title": "Do N-planet systems have a boundary between chaotic and regular motions?",
+        "DOI": "0705.3124",
+        "x": 4.99194860458374,
+        "y": 5.350358009338379,
+        "cluster": 13
+      },
+      {
+        "title": "Chaotic dynamics of the planet in HD 196885 AB",
+        "DOI": "1401.1268",
+        "x": 4.990042686462402,
+        "y": 5.327520847320557,
+        "cluster": 13
+      },
+      {
+        "title": "Improving stratocumulus cloud amounts in a 200-m resolution multi-scale\n  modeling framework through tuning of its interior physics",
+        "DOI": "2303.17064",
+        "x": 4.820051193237305,
+        "y": 5.441784858703613,
+        "cluster": 13
+      },
+      {
+        "title": "Planetary chaotic zone clearing: destinations and timescales",
+        "DOI": "1411.1378",
+        "x": 4.980369567871094,
+        "y": 5.302151679992676,
+        "cluster": 13
+      },
+      {
+        "title": "Chaos in the Solar System",
+        "DOI": "astro-ph/0111600",
+        "x": 5.022795677185059,
+        "y": 5.334353923797607,
+        "cluster": 13
+      },
+      {
+        "title": "Impact of atmospheric pressure variations on methane ebullition and lake\n  turbidity during ice-cover",
+        "DOI": "2105.06383",
+        "x": 5.038552284240723,
+        "y": 5.361569404602051,
+        "cluster": 33
+      },
+      {
+        "title": "A Criterion for the Onset of Chaos in Compact, Eccentric Multiplanet\n  Systems",
+        "DOI": "2106.14863",
+        "x": 5.049553871154785,
+        "y": 5.403502464294434,
+        "cluster": 13
+      },
+      {
+        "title": "Extended planetary chaotic zones",
+        "DOI": "2207.12747",
+        "x": 4.934120178222656,
+        "y": 5.267008304595947,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 5,
+    "void_rank": 5,
+    "centroid": [
+      0.30335305127810486,
+      5.051471624286677
+    ],
+    "log_density": -7.095281863762466,
+    "name": "Gravitational-Wave Astronomy of Supermassive Black Hole Binaries",
+    "name_reasoning": "The surrounding papers cover SMBH dynamics, growth, and host galaxy relations, but none address detecting or characterizing SMBH binaries through low-frequency gravitational waves, a crucial bridge between galaxy mergers and observable SMBH coalescence.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          0.3255418539047241,
+          4.93168830871582
+        ],
+        [
+          0.19781328737735748,
+          5.082792282104492
+        ],
+        [
+          0.2466161698102951,
+          5.171534538269043
+        ],
+        [
+          0.34611639380455017,
+          5.128343105316162
+        ]
+      ]
+    },
+    "shape_area": 0.019582535395318956,
+    "border_papers": [
+      {
+        "title": "3D stellar kinematics at the Galactic center: measuring the nuclear star\n  cluster spatial density profile, black hole mass, and distance",
+        "DOI": "1311.0886",
+        "x": 0.33272823691368103,
+        "y": 5.043850421905518,
+        "cluster": 23
+      },
+      {
+        "title": "Formation of Nuclear Disks and Supermassive Black Hole Binaries in\n  Multi-Scale Hydrodynamical Galaxy Mergers",
+        "DOI": "0807.3329",
+        "x": 0.27537864446640015,
+        "y": 5.063414573669434,
+        "cluster": 30
+      },
+      {
+        "title": "Active Galactic Nuclei as scaled-up Galactic black holes",
+        "DOI": "astro-ph/0612273",
+        "x": 0.32743269205093384,
+        "y": 5.078539848327637,
+        "cluster": 6
+      },
+      {
+        "title": "A tidal disruption flare in a massive galaxy? Implications for the\n  fuelling mechanisms of nuclear black holes",
+        "DOI": "1503.04870",
+        "x": 0.27648934721946716,
+        "y": 5.127196311950684,
+        "cluster": 6
+      },
+      {
+        "title": "Determining the surface density distribution in massive galactic disks\n  with a central black hole",
+        "DOI": "astro-ph/0209200",
+        "x": 0.34611639380455017,
+        "y": 5.128343105316162,
+        "cluster": 6
+      },
+      {
+        "title": "The Nuclear Stellar Disk in Andromeda: A Fossil from the Era of Black\n  Hole Growth",
+        "DOI": "1002.1079",
+        "x": 0.32102170586586,
+        "y": 4.959587097167969,
+        "cluster": 30
+      },
+      {
+        "title": "MOCCA-Survey Database: Extra Galactic Globular Clusters. III. The\n  population of black holes in Milky Way and Andromeda-like galaxies",
+        "DOI": "2209.01564",
+        "x": 0.2289687842130661,
+        "y": 5.118127346038818,
+        "cluster": 23
+      },
+      {
+        "title": "Nuclear star formation activity and black hole accretion in nearby\n  Seyfert galaxies",
+        "DOI": "1311.0703",
+        "x": 0.19781328737735748,
+        "y": 5.082792282104492,
+        "cluster": 30
+      },
+      {
+        "title": "Correlation Between the Total Gravitating Mass of Groups and Clusters\n  and the Supermassive Black Hole Mass of Brightest Galaxies",
+        "DOI": "1711.09900",
+        "x": 0.3255418539047241,
+        "y": 4.93168830871582,
+        "cluster": 23
+      },
+      {
+        "title": "Dynamical friction on Globular Clusters in core-triaxial galaxies: is it\n  a cause of massive black hole accretion?",
+        "DOI": "astro-ph/0309488",
+        "x": 0.2466161698102951,
+        "y": 5.171534538269043,
+        "cluster": 6
+      }
+    ]
+  },
+  {
+    "void_id": 6,
+    "void_rank": 6,
+    "centroid": [
+      3.828943620956064,
+      5.224047604611885
+    ],
+    "log_density": -7.0928648916467365,
+    "name": "Coincidence-based Point Spread Function Calibration",
+    "name_reasoning": "The surrounding works split between mathematical coincidence theory and optical point\u2011spread\u2011function engineering; the missing research would bridge these fields by using coincidence concepts to model, calibrate, or design PSFs for imaging systems.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.910752773284912,
+          5.110306739807129
+        ],
+        [
+          3.89774751663208,
+          5.117508411407471
+        ],
+        [
+          3.7750985622406006,
+          5.224321365356445
+        ],
+        [
+          3.8003599643707275,
+          5.283019065856934
+        ],
+        [
+          3.8562850952148438,
+          5.278048038482666
+        ],
+        [
+          3.9556806087493896,
+          5.20559549331665
+        ]
+      ]
+    },
+    "shape_area": 0.01659260815978314,
+    "border_papers": [
+      {
+        "title": "Cyclotomic Coincidences",
+        "DOI": "1903.01962",
+        "x": 3.8362603187561035,
+        "y": 5.263812065124512,
+        "cluster": 36
+      },
+      {
+        "title": "New algorithms for adaptive optics point-spread function reconstruction",
+        "DOI": "astro-ph/0606681",
+        "x": 3.7750985622406006,
+        "y": 5.224321365356445,
+        "cluster": 28
+      },
+      {
+        "title": "Coincidences in 4 dimensions",
+        "DOI": "0712.0363",
+        "x": 3.8562850952148438,
+        "y": 5.278048038482666,
+        "cluster": 8
+      },
+      {
+        "title": "Strong coincidence and Overlap coincidence",
+        "DOI": "1509.04471",
+        "x": 3.8820371627807617,
+        "y": 5.257125377655029,
+        "cluster": 36
+      },
+      {
+        "title": "Is the `IR Coincidence' Just That?",
+        "DOI": "astro-ph/0503334",
+        "x": 3.8003599643707275,
+        "y": 5.283019065856934,
+        "cluster": 36
+      },
+      {
+        "title": "Towards optimal point spread function design for resolving closely\n  spaced emitters in three dimensions",
+        "DOI": "2111.14334",
+        "x": 3.8861937522888184,
+        "y": 5.162818431854248,
+        "cluster": 28
+      },
+      {
+        "title": "SDSS-IV MaNGA: Modeling the Spectral Line Spread Function to Sub-Percent\n  Accuracy",
+        "DOI": "2011.04675",
+        "x": 3.89774751663208,
+        "y": 5.117508411407471,
+        "cluster": 40
+      },
+      {
+        "title": "Coincidence and Self-coincidence of Many Maps between Digital Images",
+        "DOI": "1911.07113",
+        "x": 3.9556806087493896,
+        "y": 5.20559549331665,
+        "cluster": 38
+      },
+      {
+        "title": "Correcting the influence of an asymmetric line spread function in\n  2-degree Field spectrograph data",
+        "DOI": "astro-ph/0503703",
+        "x": 3.910891532897949,
+        "y": 5.117538928985596,
+        "cluster": 26
+      },
+      {
+        "title": "The point spread function in interferometric scattering microscopy\n  (iSCAT). I. Aberrations in defocusing and axial localization",
+        "DOI": "2006.15332",
+        "x": 3.910752773284912,
+        "y": 5.110306739807129,
+        "cluster": 26
+      }
+    ]
+  },
+  {
+    "void_id": 7,
+    "void_rank": 7,
+    "centroid": [
+      4.920197844904004,
+      5.362108388872051
+    ],
+    "log_density": -7.087402734447933,
+    "name": "Chaotic Exoplanet Atmospheric Dynamics",
+    "name_reasoning": "The surrounding papers cover planetary orbital chaos, atmospheric modeling, and cloud physics, but there is no work linking chaotic dynamical systems to the atmospheric and cloud processes of exoplanets, a gap that would bridge planetary chaos with climate modeling.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          4.960641860961914,
+          5.259839057922363
+        ],
+        [
+          4.934120178222656,
+          5.267008304595947
+        ],
+        [
+          4.820051193237305,
+          5.441784858703613
+        ],
+        [
+          5.038552284240723,
+          5.361569404602051
+        ],
+        [
+          5.022795677185059,
+          5.334353923797607
+        ]
+      ]
+    },
+    "shape_area": 0.016406417939151652,
+    "border_papers": [
+      {
+        "title": "Multifractality of Cloud Base Height Profiles",
+        "DOI": "cond-mat/0108395",
+        "x": 4.888854026794434,
+        "y": 5.341160297393799,
+        "cluster": 8
+      },
+      {
+        "title": "Establishing a non-hydrostatic global atmospheric modeling system\n  (iAMAS) at 3-km horizontal resolution with online integrated aerosol\n  feedbacks on the Sunway supercomputer of China",
+        "DOI": "2112.04668",
+        "x": 4.922132968902588,
+        "y": 5.401854515075684,
+        "cluster": 13
+      },
+      {
+        "title": "Do N-planet systems have a boundary between chaotic and regular motions?",
+        "DOI": "0705.3124",
+        "x": 4.99194860458374,
+        "y": 5.350358009338379,
+        "cluster": 13
+      },
+      {
+        "title": "Chaotic dynamics of the planet in HD 196885 AB",
+        "DOI": "1401.1268",
+        "x": 4.990042686462402,
+        "y": 5.327520847320557,
+        "cluster": 13
+      },
+      {
+        "title": "Planetary chaotic zone clearing: destinations and timescales",
+        "DOI": "1411.1378",
+        "x": 4.980369567871094,
+        "y": 5.302151679992676,
+        "cluster": 13
+      },
+      {
+        "title": "Extended planetary chaotic zones",
+        "DOI": "2207.12747",
+        "x": 4.934120178222656,
+        "y": 5.267008304595947,
+        "cluster": 13
+      },
+      {
+        "title": "Chaos in the Solar System",
+        "DOI": "astro-ph/0111600",
+        "x": 5.022795677185059,
+        "y": 5.334353923797607,
+        "cluster": 13
+      },
+      {
+        "title": "High-Temperature Majorana Corner States",
+        "DOI": "1804.04711",
+        "x": 4.960641860961914,
+        "y": 5.259839057922363,
+        "cluster": 36
+      },
+      {
+        "title": "Impact of atmospheric pressure variations on methane ebullition and lake\n  turbidity during ice-cover",
+        "DOI": "2105.06383",
+        "x": 5.038552284240723,
+        "y": 5.361569404602051,
+        "cluster": 33
+      },
+      {
+        "title": "Improving stratocumulus cloud amounts in a 200-m resolution multi-scale\n  modeling framework through tuning of its interior physics",
+        "DOI": "2303.17064",
+        "x": 4.820051193237305,
+        "y": 5.441784858703613,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 8,
+    "void_rank": 8,
+    "centroid": [
+      4.920197844904004,
+      5.32759319280701
+    ],
+    "log_density": -7.086053120250575,
+    "name": "Chaotic Atmospheric Dynamics of Terrestrial Planets",
+    "name_reasoning": "The surrounding papers focus on orbital/planetary chaos, cloud fractality, and high\u2011resolution atmospheric modeling, but no work connects chaotic dynamics to the weather and cloud systems of Earth\u2011like planets, representing a clear gap.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          4.969039440155029,
+          5.238709449768066
+        ],
+        [
+          4.850225448608398,
+          5.241570472717285
+        ],
+        [
+          4.888854026794434,
+          5.341160297393799
+        ],
+        [
+          4.922132968902588,
+          5.401854515075684
+        ],
+        [
+          5.022795677185059,
+          5.334353923797607
+        ]
+      ]
+    },
+    "shape_area": 0.01673791908444855,
+    "border_papers": [
+      {
+        "title": "Multifractality of Cloud Base Height Profiles",
+        "DOI": "cond-mat/0108395",
+        "x": 4.888854026794434,
+        "y": 5.341160297393799,
+        "cluster": 8
+      },
+      {
+        "title": "Extended planetary chaotic zones",
+        "DOI": "2207.12747",
+        "x": 4.934120178222656,
+        "y": 5.267008304595947,
+        "cluster": 13
+      },
+      {
+        "title": "Planetary chaotic zone clearing: destinations and timescales",
+        "DOI": "1411.1378",
+        "x": 4.980369567871094,
+        "y": 5.302151679992676,
+        "cluster": 13
+      },
+      {
+        "title": "Chaotic dynamics of the planet in HD 196885 AB",
+        "DOI": "1401.1268",
+        "x": 4.990042686462402,
+        "y": 5.327520847320557,
+        "cluster": 13
+      },
+      {
+        "title": "Establishing a non-hydrostatic global atmospheric modeling system\n  (iAMAS) at 3-km horizontal resolution with online integrated aerosol\n  feedbacks on the Sunway supercomputer of China",
+        "DOI": "2112.04668",
+        "x": 4.922132968902588,
+        "y": 5.401854515075684,
+        "cluster": 13
+      },
+      {
+        "title": "Do N-planet systems have a boundary between chaotic and regular motions?",
+        "DOI": "0705.3124",
+        "x": 4.99194860458374,
+        "y": 5.350358009338379,
+        "cluster": 13
+      },
+      {
+        "title": "High-Temperature Majorana Corner States",
+        "DOI": "1804.04711",
+        "x": 4.960641860961914,
+        "y": 5.259839057922363,
+        "cluster": 36
+      },
+      {
+        "title": "Solar system chaos and the Paleocene-Eocene boundary age constrained by\n  geology and astronomy",
+        "DOI": "1909.00283",
+        "x": 4.969039440155029,
+        "y": 5.238709449768066,
+        "cluster": 13
+      },
+      {
+        "title": "Chaos in the Solar System",
+        "DOI": "astro-ph/0111600",
+        "x": 5.022795677185059,
+        "y": 5.334353923797607,
+        "cluster": 13
+      },
+      {
+        "title": "H$_2$O$_2$ within chaos terrain on Europa's leading hemisphere",
+        "DOI": "1908.01093",
+        "x": 4.850225448608398,
+        "y": 5.241570472717285,
+        "cluster": 36
+      }
+    ]
+  },
+  {
+    "void_id": 9,
+    "void_rank": 9,
+    "centroid": [
+      11.131952658146123,
+      7.467535348839585
+    ],
+    "log_density": -7.065014814249453,
+    "name": "Empirical validation of theoretical physics conjectures",
+    "name_reasoning": "The surrounding papers are all replies or comments on theoretical works across high\u2011energy, condensed\u2011matter, and quantum information; the conspicuous gap is a research area that provides experimental or observational tests of those theoretical ideas.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          11.025232315063477,
+          7.411412715911865
+        ],
+        [
+          10.990007400512695,
+          7.445634841918945
+        ],
+        [
+          11.095013618469238,
+          7.470345973968506
+        ],
+        [
+          11.083279609680176,
+          7.44125509262085
+        ],
+        [
+          11.065825462341309,
+          7.416421890258789
+        ]
+      ]
+    },
+    "shape_area": 0.003361543380378862,
+    "border_papers": [
+      {
+        "title": "Reply to K A Kirkpatrick",
+        "DOI": "quant-ph/0111081",
+        "x": 11.095013618469238,
+        "y": 7.470345973968506,
+        "cluster": 36
+      },
+      {
+        "title": "Reply to Professor Peter van Nieuwenhuizen in connection with\n  hep-th/0408137",
+        "DOI": "hep-th/0410204",
+        "x": 11.083279609680176,
+        "y": 7.44125509262085,
+        "cluster": 36
+      },
+      {
+        "title": "Reply to Wang and Unruh",
+        "DOI": "2008.10701",
+        "x": 11.07677936553955,
+        "y": 7.432471752166748,
+        "cluster": 36
+      },
+      {
+        "title": "Comment to the review by L. Glozman, hep-ph/0701081",
+        "DOI": "hep-ph/0702257",
+        "x": 11.065825462341309,
+        "y": 7.416421890258789,
+        "cluster": 36
+      },
+      {
+        "title": "A reply to P W Shor",
+        "DOI": "quant-ph/0602075",
+        "x": 11.051097869873047,
+        "y": 7.441466808319092,
+        "cluster": 36
+      },
+      {
+        "title": "Reply to Jarzynski's comment cond-mat/0509344",
+        "DOI": "cond-mat/0509648",
+        "x": 11.043513298034668,
+        "y": 7.427298069000244,
+        "cluster": 36
+      },
+      {
+        "title": "Comment on hep-ph/0404212 by D. Diakonov, V. Petrov, and M. Polyakov",
+        "DOI": "hep-ph/0405268",
+        "x": 11.037219047546387,
+        "y": 7.428292751312256,
+        "cluster": 36
+      },
+      {
+        "title": "Anderson et al. Reply (to the Comment by Murphy on Pioneer 10/11)",
+        "DOI": "gr-qc/9906113",
+        "x": 11.022357940673828,
+        "y": 7.441040992736816,
+        "cluster": 36
+      },
+      {
+        "title": "Remark on the Comment (cond-mat/0304626) by Fal'ko, Lerner,\n  Tsyplyatyev,Aleiner",
+        "DOI": "cond-mat/0305706",
+        "x": 11.025232315063477,
+        "y": 7.411412715911865,
+        "cluster": 36
+      },
+      {
+        "title": "Remarks on Lin-Nakamura-Wang's paper",
+        "DOI": "1904.05029",
+        "x": 10.990007400512695,
+        "y": 7.445634841918945,
+        "cluster": 9
+      }
+    ]
+  },
+  {
+    "void_id": 10,
+    "void_rank": 10,
+    "centroid": [
+      3.535144406816234,
+      5.0169564282216355
+    ],
+    "log_density": -7.060376260033834,
+    "name": "Data-driven Inverse Modeling of Coronal Magnetic Fields",
+    "name_reasoning": "The surrounding papers cover coronal loop structure, MHD wave heating, field topology, and uncertainty quantification, but lack a field that directly combines observational data with computational inversion techniques to reconstruct and predict coronal magnetic configurations, a crucial bridge between theory and observation.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.5797252655029297,
+          4.923585891723633
+        ],
+        [
+          3.44575572013855,
+          4.972722053527832
+        ],
+        [
+          3.4238436222076416,
+          4.981475830078125
+        ],
+        [
+          3.425967216491699,
+          5.015531539916992
+        ],
+        [
+          3.455010175704956,
+          5.071261405944824
+        ],
+        [
+          3.4966437816619873,
+          5.109342098236084
+        ],
+        [
+          3.55533504486084,
+          5.106930732727051
+        ],
+        [
+          3.571706533432007,
+          5.10142707824707
+        ]
+      ]
+    },
+    "shape_area": 0.020616883672516906,
+    "border_papers": [
+      {
+        "title": "Effect of Coronal Loop Structure on Wave Heating by Phase Mixing",
+        "DOI": "2009.04366",
+        "x": 3.4470319747924805,
+        "y": 5.036820888519287,
+        "cluster": 33
+      },
+      {
+        "title": "Uncertainty Quantification Techniques for Space Weather Modeling:\n  Thermospheric Density Application",
+        "DOI": "2201.02067",
+        "x": 3.571706533432007,
+        "y": 5.10142707824707,
+        "cluster": 13
+      },
+      {
+        "title": "The Sloan Digital Sky Survey extended point spread functions",
+        "DOI": "1911.01430",
+        "x": 3.55533504486084,
+        "y": 5.106930732727051,
+        "cluster": 5
+      },
+      {
+        "title": "MHD Waves and Coronal Heating: Unifying Empirical and MHD Turbulence\n  Models",
+        "DOI": "1208.3141",
+        "x": 3.4404702186584473,
+        "y": 5.0159807205200195,
+        "cluster": 33
+      },
+      {
+        "title": "Effects of field-aligned flows on standing kink and sausage modes\n  supported by coronal loops",
+        "DOI": "1309.3484",
+        "x": 3.455010175704956,
+        "y": 5.071261405944824,
+        "cluster": 33
+      },
+      {
+        "title": "Core-corona separation in the UrQMD hybrid model",
+        "DOI": "1104.3981",
+        "x": 3.44575572013855,
+        "y": 4.972722053527832,
+        "cluster": 38
+      },
+      {
+        "title": "Manifold Damping of Transverse Wakefields in High Phase Advance\n  Traveling Wave Structures and Local Damping of Dipole Wakefields in Standing\n  Wave Accelerators",
+        "DOI": "physics/0107048",
+        "x": 3.4966437816619873,
+        "y": 5.109342098236084,
+        "cluster": 33
+      },
+      {
+        "title": "Characterisation of Fourteenth-Century Bell-Casting Pit in Old Town Hall\n  Sibiu, Romania",
+        "DOI": "nucl-ex/9908006",
+        "x": 3.5797252655029297,
+        "y": 4.923585891723633,
+        "cluster": 36
+      },
+      {
+        "title": "Uncertainties in polarimetric 3D reconstructions of coronal mass\n  ejections",
+        "DOI": "1503.00314",
+        "x": 3.425967216491699,
+        "y": 5.015531539916992,
+        "cluster": 13
+      },
+      {
+        "title": "Effects of Fieldline Topology on Energy Propagation in the Corona",
+        "DOI": "1611.03325",
+        "x": 3.4238436222076416,
+        "y": 4.981475830078125,
+        "cluster": 2
+      }
+    ]
+  },
+  {
+    "void_id": 11,
+    "void_rank": 11,
+    "centroid": [
+      4.584427314458484,
+      5.5691995652623
+    ],
+    "log_density": -7.060284476495756,
+    "name": "Swampland constraints on neutron star equation of state",
+    "name_reasoning": "The surrounding works discuss Swampland conjectures and astrophysical phenomena like neutron\u2011star crust cooling and heavy\u2011ion collisions, but there is no research directly linking Swampland criteria to the dense matter physics governing neutron star interiors, a natural bridge between the two clusters.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          4.487062931060791,
+          5.490573883056641
+        ],
+        [
+          4.530295372009277,
+          5.631638050079346
+        ],
+        [
+          4.579638957977295,
+          5.667736053466797
+        ],
+        [
+          4.609585285186768,
+          5.680819034576416
+        ],
+        [
+          4.699754238128662,
+          5.591858863830566
+        ],
+        [
+          4.675477981567383,
+          5.565375804901123
+        ]
+      ]
+    },
+    "shape_area": 0.020360952431701662,
+    "border_papers": [
+      {
+        "title": "Swampland Distance Conjecture, Inflation and $\\alpha$-attractors",
+        "DOI": "1812.07558",
+        "x": 4.530295372009277,
+        "y": 5.631638050079346,
+        "cluster": 49
+      },
+      {
+        "title": "The Swampland Distance Conjecture for Kahler moduli",
+        "DOI": "1812.07548",
+        "x": 4.599277019500732,
+        "y": 5.652713775634766,
+        "cluster": 49
+      },
+      {
+        "title": "The Swampland Conjecture Bound Conjecture",
+        "DOI": "2103.16583",
+        "x": 4.631649494171143,
+        "y": 5.642306327819824,
+        "cluster": 49
+      },
+      {
+        "title": "Transplanckian Censorship and the Local Swampland Distance Conjecture",
+        "DOI": "1910.04804",
+        "x": 4.608375549316406,
+        "y": 5.654005527496338,
+        "cluster": 36
+      },
+      {
+        "title": "Rapidity dependence of HBT correlation radii in non-boost invariant\n  models",
+        "DOI": "hep-ph/0509053",
+        "x": 4.675477981567383,
+        "y": 5.565375804901123,
+        "cluster": 40
+      },
+      {
+        "title": "Large Field Inflation/Quintessence and the Refined Swampland Distance\n  Conjecture",
+        "DOI": "1804.10504",
+        "x": 4.579638957977295,
+        "y": 5.667736053466797,
+        "cluster": 49
+      },
+      {
+        "title": "A Spin-2 Conjecture on the Swampland",
+        "DOI": "1811.07908",
+        "x": 4.619455337524414,
+        "y": 5.670846462249756,
+        "cluster": 49
+      },
+      {
+        "title": "Axion Hilltops, Kahler Modulus Quintessence and the Swampland Criteria",
+        "DOI": "1811.07378",
+        "x": 4.609585285186768,
+        "y": 5.680819034576416,
+        "cluster": 36
+      },
+      {
+        "title": "Atmospheric instability as a loss of a metastable equilibrium",
+        "DOI": "0708.3136",
+        "x": 4.699754238128662,
+        "y": 5.591858863830566,
+        "cluster": 13
+      },
+      {
+        "title": "Mapping crustal heating with the cooling lightcurves of quasi-persistent\n  transients",
+        "DOI": "0901.3115",
+        "x": 4.487062931060791,
+        "y": 5.490573883056641,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 12,
+    "void_rank": 12,
+    "centroid": [
+      0.2613817349724148,
+      5.051471624286677
+    ],
+    "log_density": -7.054243490462625,
+    "name": "Co-evolution of nuclear star clusters and supermassive black holes",
+    "name_reasoning": "The surrounding works address SMBH binaries, nuclear disks, and AGN activity, but none focus on how dense nuclear star clusters grow together with, or compete against, central black holes\u2014a key bridge between galaxy\u2011scale dynamics and black\u2011hole growth.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          0.32102170586586,
+          4.959587097167969
+        ],
+        [
+          0.14408528804779053,
+          5.067737579345703
+        ],
+        [
+          0.22760874032974243,
+          5.1670684814453125
+        ],
+        [
+          0.34611639380455017,
+          5.128343105316162
+        ]
+      ]
+    },
+    "shape_area": 0.023789517699135843,
+    "border_papers": [
+      {
+        "title": "Formation of Nuclear Disks and Supermassive Black Hole Binaries in\n  Multi-Scale Hydrodynamical Galaxy Mergers",
+        "DOI": "0807.3329",
+        "x": 0.27537864446640015,
+        "y": 5.063414573669434,
+        "cluster": 30
+      },
+      {
+        "title": "Nuclear star formation activity and black hole accretion in nearby\n  Seyfert galaxies",
+        "DOI": "1311.0703",
+        "x": 0.19781328737735748,
+        "y": 5.082792282104492,
+        "cluster": 30
+      },
+      {
+        "title": "Active Galactic Nuclei as scaled-up Galactic black holes",
+        "DOI": "astro-ph/0612273",
+        "x": 0.32743269205093384,
+        "y": 5.078539848327637,
+        "cluster": 6
+      },
+      {
+        "title": "3D stellar kinematics at the Galactic center: measuring the nuclear star\n  cluster spatial density profile, black hole mass, and distance",
+        "DOI": "1311.0886",
+        "x": 0.33272823691368103,
+        "y": 5.043850421905518,
+        "cluster": 23
+      },
+      {
+        "title": "MOCCA-Survey Database: Extra Galactic Globular Clusters. III. The\n  population of black holes in Milky Way and Andromeda-like galaxies",
+        "DOI": "2209.01564",
+        "x": 0.2289687842130661,
+        "y": 5.118127346038818,
+        "cluster": 23
+      },
+      {
+        "title": "A tidal disruption flare in a massive galaxy? Implications for the\n  fuelling mechanisms of nuclear black holes",
+        "DOI": "1503.04870",
+        "x": 0.27648934721946716,
+        "y": 5.127196311950684,
+        "cluster": 6
+      },
+      {
+        "title": "The Nuclear Stellar Disk in Andromeda: A Fossil from the Era of Black\n  Hole Growth",
+        "DOI": "1002.1079",
+        "x": 0.32102170586586,
+        "y": 4.959587097167969,
+        "cluster": 30
+      },
+      {
+        "title": "Determining the surface density distribution in massive galactic disks\n  with a central black hole",
+        "DOI": "astro-ph/0209200",
+        "x": 0.34611639380455017,
+        "y": 5.128343105316162,
+        "cluster": 6
+      },
+      {
+        "title": "In-situ star formation in accretion disk and explanation for correlation\n  between black hole mass and metallicity in AGNs",
+        "DOI": "2212.06363",
+        "x": 0.14408528804779053,
+        "y": 5.067737579345703,
+        "cluster": 6
+      },
+      {
+        "title": "Offset Active Galactic Nuclei as Tracers of Galaxy Mergers and\n  Supermassive Black Hole Growth",
+        "DOI": "1405.6711",
+        "x": 0.22760874032974243,
+        "y": 5.1670684814453125,
+        "cluster": 23
+      }
+    ]
+  },
+  {
+    "void_id": 13,
+    "void_rank": 13,
+    "centroid": [
+      0.21941041866672473,
+      5.051471624286677
+    ],
+    "log_density": -7.048917582561053,
+    "name": "Unnamed Void 13",
+    "name_reasoning": "",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          0.33272823691368103,
+          5.043850421905518
+        ],
+        [
+          0.14408528804779053,
+          5.067737579345703
+        ],
+        [
+          0.14223220944404602,
+          5.119150161743164
+        ],
+        [
+          0.22760874032974243,
+          5.1670684814453125
+        ],
+        [
+          0.2466161698102951,
+          5.171534538269043
+        ],
+        [
+          0.32743269205093384,
+          5.078539848327637
+        ]
+      ]
+    },
+    "shape_area": 0.015166992976979543,
+    "border_papers": [
+      {
+        "title": "Nuclear star formation activity and black hole accretion in nearby\n  Seyfert galaxies",
+        "DOI": "1311.0703",
+        "x": 0.19781328737735748,
+        "y": 5.082792282104492,
+        "cluster": 30
+      },
+      {
+        "title": "Formation of Nuclear Disks and Supermassive Black Hole Binaries in\n  Multi-Scale Hydrodynamical Galaxy Mergers",
+        "DOI": "0807.3329",
+        "x": 0.27537864446640015,
+        "y": 5.063414573669434,
+        "cluster": 30
+      },
+      {
+        "title": "MOCCA-Survey Database: Extra Galactic Globular Clusters. III. The\n  population of black holes in Milky Way and Andromeda-like galaxies",
+        "DOI": "2209.01564",
+        "x": 0.2289687842130661,
+        "y": 5.118127346038818,
+        "cluster": 23
+      },
+      {
+        "title": "In-situ star formation in accretion disk and explanation for correlation\n  between black hole mass and metallicity in AGNs",
+        "DOI": "2212.06363",
+        "x": 0.14408528804779053,
+        "y": 5.067737579345703,
+        "cluster": 6
+      },
+      {
+        "title": "A tidal disruption flare in a massive galaxy? Implications for the\n  fuelling mechanisms of nuclear black holes",
+        "DOI": "1503.04870",
+        "x": 0.27648934721946716,
+        "y": 5.127196311950684,
+        "cluster": 6
+      },
+      {
+        "title": "The Effect of Self-gravity of Gas on Gas Fueling in Barred Galaxies with\n  a Supermassive Black Hole",
+        "DOI": "astro-ph/9810052",
+        "x": 0.14223220944404602,
+        "y": 5.119150161743164,
+        "cluster": 6
+      },
+      {
+        "title": "Active Galactic Nuclei as scaled-up Galactic black holes",
+        "DOI": "astro-ph/0612273",
+        "x": 0.32743269205093384,
+        "y": 5.078539848327637,
+        "cluster": 6
+      },
+      {
+        "title": "3D stellar kinematics at the Galactic center: measuring the nuclear star\n  cluster spatial density profile, black hole mass, and distance",
+        "DOI": "1311.0886",
+        "x": 0.33272823691368103,
+        "y": 5.043850421905518,
+        "cluster": 23
+      },
+      {
+        "title": "Offset Active Galactic Nuclei as Tracers of Galaxy Mergers and\n  Supermassive Black Hole Growth",
+        "DOI": "1405.6711",
+        "x": 0.22760874032974243,
+        "y": 5.1670684814453125,
+        "cluster": 23
+      },
+      {
+        "title": "Dynamical friction on Globular Clusters in core-triaxial galaxies: is it\n  a cause of massive black hole accretion?",
+        "DOI": "astro-ph/0309488",
+        "x": 0.2466161698102951,
+        "y": 5.171534538269043,
+        "cluster": 6
+      }
+    ]
+  },
+  {
+    "void_id": 14,
+    "void_rank": 14,
+    "centroid": [
+      4.626398630764173,
+      5.5691995652623
+    ],
+    "log_density": -7.030115694518855,
+    "name": "Swampland constraints on non-equilibrium hydrodynamics",
+    "name_reasoning": "The surrounding papers cluster around Swampland conjectures in string cosmology and around metastable equilibria and hydrodynamic stability in heavy\u2011ion and climate systems; the missing bridge is a study of how Swampland criteria would restrict or inform effective field theories describing non\u2011equilibrium fluid dynamics.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          4.734403610229492,
+          5.559706211090088
+        ],
+        [
+          4.675477981567383,
+          5.565375804901123
+        ],
+        [
+          4.530295372009277,
+          5.631638050079346
+        ],
+        [
+          4.579638957977295,
+          5.667736053466797
+        ],
+        [
+          4.609585285186768,
+          5.680819034576416
+        ]
+      ]
+    },
+    "shape_area": 0.009629286407403015,
+    "border_papers": [
+      {
+        "title": "Rapidity dependence of HBT correlation radii in non-boost invariant\n  models",
+        "DOI": "hep-ph/0509053",
+        "x": 4.675477981567383,
+        "y": 5.565375804901123,
+        "cluster": 40
+      },
+      {
+        "title": "The Swampland Conjecture Bound Conjecture",
+        "DOI": "2103.16583",
+        "x": 4.631649494171143,
+        "y": 5.642306327819824,
+        "cluster": 49
+      },
+      {
+        "title": "Atmospheric instability as a loss of a metastable equilibrium",
+        "DOI": "0708.3136",
+        "x": 4.699754238128662,
+        "y": 5.591858863830566,
+        "cluster": 13
+      },
+      {
+        "title": "Transplanckian Censorship and the Local Swampland Distance Conjecture",
+        "DOI": "1910.04804",
+        "x": 4.608375549316406,
+        "y": 5.654005527496338,
+        "cluster": 36
+      },
+      {
+        "title": "The Swampland Distance Conjecture for Kahler moduli",
+        "DOI": "1812.07548",
+        "x": 4.599277019500732,
+        "y": 5.652713775634766,
+        "cluster": 49
+      },
+      {
+        "title": "A Spin-2 Conjecture on the Swampland",
+        "DOI": "1811.07908",
+        "x": 4.619455337524414,
+        "y": 5.670846462249756,
+        "cluster": 49
+      },
+      {
+        "title": "Stability Analysis of Interface Conditions for Ocean-Atmosphere Coupling",
+        "DOI": "1909.00916",
+        "x": 4.734403610229492,
+        "y": 5.559706211090088,
+        "cluster": 13
+      },
+      {
+        "title": "Large Field Inflation/Quintessence and the Refined Swampland Distance\n  Conjecture",
+        "DOI": "1804.10504",
+        "x": 4.579638957977295,
+        "y": 5.667736053466797,
+        "cluster": 49
+      },
+      {
+        "title": "Axion Hilltops, Kahler Modulus Quintessence and the Swampland Criteria",
+        "DOI": "1811.07378",
+        "x": 4.609585285186768,
+        "y": 5.680819034576416,
+        "cluster": 36
+      },
+      {
+        "title": "Swampland Distance Conjecture, Inflation and $\\alpha$-attractors",
+        "DOI": "1812.07558",
+        "x": 4.530295372009277,
+        "y": 5.631638050079346,
+        "cluster": 49
+      }
+    ]
+  },
+  {
+    "void_id": 15,
+    "void_rank": 15,
+    "centroid": [
+      11.131952658146123,
+      7.433020152774543
+    ],
+    "log_density": -7.025641899874746,
+    "name": "Quantitative analysis of comment-reply dynamics",
+    "name_reasoning": "The surrounding papers are isolated reply/comment notes across various physics subfields; a systematic, quantitative study of how such comment\u2013reply cycles influence scientific discourse and citation patterns is conspicuously missing.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          10.997867584228516,
+          7.407062530517578
+        ],
+        [
+          11.022357940673828,
+          7.441040992736816
+        ],
+        [
+          11.095013618469238,
+          7.470345973968506
+        ],
+        [
+          11.083279609680176,
+          7.44125509262085
+        ],
+        [
+          11.065825462341309,
+          7.416421890258789
+        ]
+      ]
+    },
+    "shape_area": 0.002679393068092395,
+    "border_papers": [
+      {
+        "title": "Reply to Professor Peter van Nieuwenhuizen in connection with\n  hep-th/0408137",
+        "DOI": "hep-th/0410204",
+        "x": 11.083279609680176,
+        "y": 7.44125509262085,
+        "cluster": 36
+      },
+      {
+        "title": "Reply to K A Kirkpatrick",
+        "DOI": "quant-ph/0111081",
+        "x": 11.095013618469238,
+        "y": 7.470345973968506,
+        "cluster": 36
+      },
+      {
+        "title": "Reply to Wang and Unruh",
+        "DOI": "2008.10701",
+        "x": 11.07677936553955,
+        "y": 7.432471752166748,
+        "cluster": 36
+      },
+      {
+        "title": "Comment to the review by L. Glozman, hep-ph/0701081",
+        "DOI": "hep-ph/0702257",
+        "x": 11.065825462341309,
+        "y": 7.416421890258789,
+        "cluster": 36
+      },
+      {
+        "title": "A reply to P W Shor",
+        "DOI": "quant-ph/0602075",
+        "x": 11.051097869873047,
+        "y": 7.441466808319092,
+        "cluster": 36
+      },
+      {
+        "title": "Reply to Jarzynski's comment cond-mat/0509344",
+        "DOI": "cond-mat/0509648",
+        "x": 11.043513298034668,
+        "y": 7.427298069000244,
+        "cluster": 36
+      },
+      {
+        "title": "Comment on hep-ph/0404212 by D. Diakonov, V. Petrov, and M. Polyakov",
+        "DOI": "hep-ph/0405268",
+        "x": 11.037219047546387,
+        "y": 7.428292751312256,
+        "cluster": 36
+      },
+      {
+        "title": "Remark on the Comment (cond-mat/0304626) by Fal'ko, Lerner,\n  Tsyplyatyev,Aleiner",
+        "DOI": "cond-mat/0305706",
+        "x": 11.025232315063477,
+        "y": 7.411412715911865,
+        "cluster": 36
+      },
+      {
+        "title": "Anderson et al. Reply (to the Comment by Murphy on Pioneer 10/11)",
+        "DOI": "gr-qc/9906113",
+        "x": 11.022357940673828,
+        "y": 7.441040992736816,
+        "cluster": 36
+      },
+      {
+        "title": "Reply to arXiv:1211.3957 and arXiv:1211.4731 by Leader et al. and\n  arXiv:1212.0761 by Harindranath et al",
+        "DOI": "1304.1009",
+        "x": 10.997867584228516,
+        "y": 7.407062530517578,
+        "cluster": 49
+      }
+    ]
+  },
+  {
+    "void_id": 16,
+    "void_rank": 16,
+    "centroid": [
+      3.535144406816234,
+      5.051471624286677
+    ],
+    "log_density": -7.023079425657739,
+    "name": "Unnamed Void 16",
+    "name_reasoning": "",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.5797252655029297,
+          4.923585891723633
+        ],
+        [
+          3.44575572013855,
+          4.972722053527832
+        ],
+        [
+          3.4238436222076416,
+          4.981475830078125
+        ],
+        [
+          3.425967216491699,
+          5.015531539916992
+        ],
+        [
+          3.455010175704956,
+          5.071261405944824
+        ],
+        [
+          3.4966437816619873,
+          5.109342098236084
+        ],
+        [
+          3.55533504486084,
+          5.106930732727051
+        ],
+        [
+          3.571706533432007,
+          5.10142707824707
+        ]
+      ]
+    },
+    "shape_area": 0.020616883672516906,
+    "border_papers": [
+      {
+        "title": "The Sloan Digital Sky Survey extended point spread functions",
+        "DOI": "1911.01430",
+        "x": 3.55533504486084,
+        "y": 5.106930732727051,
+        "cluster": 5
+      },
+      {
+        "title": "Uncertainty Quantification Techniques for Space Weather Modeling:\n  Thermospheric Density Application",
+        "DOI": "2201.02067",
+        "x": 3.571706533432007,
+        "y": 5.10142707824707,
+        "cluster": 13
+      },
+      {
+        "title": "Manifold Damping of Transverse Wakefields in High Phase Advance\n  Traveling Wave Structures and Local Damping of Dipole Wakefields in Standing\n  Wave Accelerators",
+        "DOI": "physics/0107048",
+        "x": 3.4966437816619873,
+        "y": 5.109342098236084,
+        "cluster": 33
+      },
+      {
+        "title": "Effects of field-aligned flows on standing kink and sausage modes\n  supported by coronal loops",
+        "DOI": "1309.3484",
+        "x": 3.455010175704956,
+        "y": 5.071261405944824,
+        "cluster": 33
+      },
+      {
+        "title": "Effect of Coronal Loop Structure on Wave Heating by Phase Mixing",
+        "DOI": "2009.04366",
+        "x": 3.4470319747924805,
+        "y": 5.036820888519287,
+        "cluster": 33
+      },
+      {
+        "title": "MHD Waves and Coronal Heating: Unifying Empirical and MHD Turbulence\n  Models",
+        "DOI": "1208.3141",
+        "x": 3.4404702186584473,
+        "y": 5.0159807205200195,
+        "cluster": 33
+      },
+      {
+        "title": "Uncertainties in polarimetric 3D reconstructions of coronal mass\n  ejections",
+        "DOI": "1503.00314",
+        "x": 3.425967216491699,
+        "y": 5.015531539916992,
+        "cluster": 13
+      },
+      {
+        "title": "Core-corona separation in the UrQMD hybrid model",
+        "DOI": "1104.3981",
+        "x": 3.44575572013855,
+        "y": 4.972722053527832,
+        "cluster": 38
+      },
+      {
+        "title": "Effects of Fieldline Topology on Energy Propagation in the Corona",
+        "DOI": "1611.03325",
+        "x": 3.4238436222076416,
+        "y": 4.981475830078125,
+        "cluster": 2
+      },
+      {
+        "title": "Characterisation of Fourteenth-Century Bell-Casting Pit in Old Town Hall\n  Sibiu, Romania",
+        "DOI": "nucl-ex/9908006",
+        "x": 3.5797252655029297,
+        "y": 4.923585891723633,
+        "cluster": 36
+      }
+    ]
+  },
+  {
+    "void_id": 17,
+    "void_rank": 17,
+    "centroid": [
+      3.4931730905105436,
+      4.464713291180971
+    ],
+    "log_density": -7.022272904848854,
+    "name": "Joint Spatio-Temporal Forecasting of Ozone and Solar Irradiance",
+    "name_reasoning": "The surrounding works focus separately on ozone concentration modeling and solar/photovoltaic forecasting; a unified framework that simultaneously predicts both atmospheric pollutants and solar irradiance\u2014linking air quality and renewable energy\u2014remains largely unexplored.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.432810068130493,
+          4.428497314453125
+        ],
+        [
+          3.3856308460235596,
+          4.459024906158447
+        ],
+        [
+          3.3821749687194824,
+          4.538029193878174
+        ],
+        [
+          3.4011828899383545,
+          4.553845405578613
+        ],
+        [
+          3.5055646896362305,
+          4.59433126449585
+        ],
+        [
+          3.53031587600708,
+          4.543283462524414
+        ],
+        [
+          3.503129005432129,
+          4.456433296203613
+        ]
+      ]
+    },
+    "shape_area": 0.017017736411503392,
+    "border_papers": [
+      {
+        "title": "A class of covariate-dependent spatiotemporal covariance functions for\n  the analysis of daily ozone concentration",
+        "DOI": "1202.6172",
+        "x": 3.503129005432129,
+        "y": 4.456433296203613,
+        "cluster": 40
+      },
+      {
+        "title": "A real-time hourly ozone prediction system using deep convolutional\n  neural network",
+        "DOI": "1901.11079",
+        "x": 3.425358533859253,
+        "y": 4.449305057525635,
+        "cluster": 19
+      },
+      {
+        "title": "A copula-based time series model for global horizontal irradiation",
+        "DOI": "2002.09267",
+        "x": 3.432810068130493,
+        "y": 4.428497314453125,
+        "cluster": 26
+      },
+      {
+        "title": "A data-driven approach to the forecasting of ground-level ozone\n  concentration",
+        "DOI": "2012.00685",
+        "x": 3.4070301055908203,
+        "y": 4.471874237060547,
+        "cluster": 40
+      },
+      {
+        "title": "In-Network Distributed Solar Current Prediction",
+        "DOI": "1410.7367",
+        "x": 3.53031587600708,
+        "y": 4.543283462524414,
+        "cluster": 14
+      },
+      {
+        "title": "Deep Photovoltaic Nowcasting",
+        "DOI": "1810.06327",
+        "x": 3.516852617263794,
+        "y": 4.552506923675537,
+        "cluster": 5
+      },
+      {
+        "title": "Robust modelling framework for short-term forecasting of global\n  horizontal irradiance",
+        "DOI": "2212.05978",
+        "x": 3.3856308460235596,
+        "y": 4.459024906158447,
+        "cluster": 40
+      },
+      {
+        "title": "SolarStat: Modeling Photovoltaic Sources through Stochastic Markov\n  Processes",
+        "DOI": "1311.1025",
+        "x": 3.4011828899383545,
+        "y": 4.553845405578613,
+        "cluster": 40
+      },
+      {
+        "title": "In-Situ Self-Monitoring of Real-Time Photovoltaic Degradation Only Using\n  Maximum Power Point: the Suns-Vmp Method",
+        "DOI": "1802.01206",
+        "x": 3.5055646896362305,
+        "y": 4.59433126449585,
+        "cluster": 26
+      },
+      {
+        "title": "Transfer Learning in Spatial-Temporal Forecasting of the Solar Magnetic\n  Field",
+        "DOI": "1911.03193",
+        "x": 3.3821749687194824,
+        "y": 4.538029193878174,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 18,
+    "void_rank": 18,
+    "centroid": [
+      10.418440280949392,
+      4.775350055766345
+    ],
+    "log_density": -7.019520288185052,
+    "name": "Algebraic Effects and Handlers",
+    "name_reasoning": "While the surrounding works cover monads from pure category theory to program verification and probability, the systematic study of algebraic effects and their handlers\u2014an alternative to monadic structuring of effects\u2014is notably missing, representing the bridging gap.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          10.452276229858398,
+          4.85117769241333
+        ],
+        [
+          10.38894271850586,
+          4.863178730010986
+        ],
+        [
+          10.388031959533691,
+          4.887218952178955
+        ],
+        [
+          10.403297424316406,
+          4.888020038604736
+        ],
+        [
+          10.417274475097656,
+          4.878316879272461
+        ]
+      ]
+    },
+    "shape_area": 0.001076485807516292,
+    "border_papers": [
+      {
+        "title": "What we talk about when we talk about monads",
+        "DOI": "1803.10195",
+        "x": 10.452276229858398,
+        "y": 4.85117769241333,
+        "cluster": 11
+      },
+      {
+        "title": "Waiting Times for Ties in Random Competitions",
+        "DOI": "2105.01310",
+        "x": 10.414243698120117,
+        "y": 4.862223148345947,
+        "cluster": 4
+      },
+      {
+        "title": "Interactive Realizers and Monads",
+        "DOI": "1005.2907",
+        "x": 10.38894271850586,
+        "y": 4.863178730010986,
+        "cluster": 11
+      },
+      {
+        "title": "Theories of analytic monads",
+        "DOI": "1204.2703",
+        "x": 10.406631469726562,
+        "y": 4.87430477142334,
+        "cluster": 18
+      },
+      {
+        "title": "Leibniz's Definition of Monad",
+        "DOI": "math/0608298",
+        "x": 10.417274475097656,
+        "y": 4.878316879272461,
+        "cluster": 11
+      },
+      {
+        "title": "Monads and comonads in module categories",
+        "DOI": "0804.1460",
+        "x": 10.399867057800293,
+        "y": 4.879051208496094,
+        "cluster": 11
+      },
+      {
+        "title": "One Monad to Prove Them All",
+        "DOI": "1805.08059",
+        "x": 10.40567398071289,
+        "y": 4.884087562561035,
+        "cluster": 49
+      },
+      {
+        "title": "Quantales and Hyperstructures: Monads, Mo' Problems",
+        "DOI": "1707.09227",
+        "x": 10.395384788513184,
+        "y": 4.883784294128418,
+        "cluster": 11
+      },
+      {
+        "title": "The nucleus of an adjunction and the Street monad on monads",
+        "DOI": "2004.07353",
+        "x": 10.403297424316406,
+        "y": 4.888020038604736,
+        "cluster": 11
+      },
+      {
+        "title": "Dijkstra Monads for All",
+        "DOI": "1903.01237",
+        "x": 10.388031959533691,
+        "y": 4.887218952178955,
+        "cluster": 11
+      }
+    ]
+  },
+  {
+    "void_id": 19,
+    "void_rank": 19,
+    "centroid": [
+      5.088083110126764,
+      5.258562800676926
+    ],
+    "log_density": -7.018970900794864,
+    "name": "Chaotic Climate Impacts on Ancient Societies",
+    "name_reasoning": "The surrounding papers link chaotic dynamics in Earth and planetary systems with extreme climate and a single archaeological study, but the interdisciplinary field that connects chaotic climate variability to societal and cultural responses in the archaeological record is missing.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.0978593826293945,
+          5.1415019035339355
+        ],
+        [
+          4.969039440155029,
+          5.238709449768066
+        ],
+        [
+          4.980369567871094,
+          5.302151679992676
+        ],
+        [
+          4.990042686462402,
+          5.327520847320557
+        ],
+        [
+          5.038552284240723,
+          5.361569404602051
+        ],
+        [
+          5.072043418884277,
+          5.377018451690674
+        ],
+        [
+          5.158447742462158,
+          5.311201095581055
+        ]
+      ]
+    },
+    "shape_area": 0.026720183294514754,
+    "border_papers": [
+      {
+        "title": "Chaotic Behaviour of the Earth System in the Anthropocene",
+        "DOI": "2204.08955",
+        "x": 5.108752727508545,
+        "y": 5.228357791900635,
+        "cluster": 13
+      },
+      {
+        "title": "A note on the surface quasi-geostrophic temperature variance cascade",
+        "DOI": "1309.1962",
+        "x": 5.033279895782471,
+        "y": 5.222172260284424,
+        "cluster": 13
+      },
+      {
+        "title": "Dynamic sea level changes following changes in the thermohaline\n  circulation",
+        "DOI": "physics/0408062",
+        "x": 5.158447742462158,
+        "y": 5.311201095581055,
+        "cluster": 33
+      },
+      {
+        "title": "Chaos in the Solar System",
+        "DOI": "astro-ph/0111600",
+        "x": 5.022795677185059,
+        "y": 5.334353923797607,
+        "cluster": 13
+      },
+      {
+        "title": "Impact of atmospheric pressure variations on methane ebullition and lake\n  turbidity during ice-cover",
+        "DOI": "2105.06383",
+        "x": 5.038552284240723,
+        "y": 5.361569404602051,
+        "cluster": 33
+      },
+      {
+        "title": "Planetary chaotic zone clearing: destinations and timescales",
+        "DOI": "1411.1378",
+        "x": 4.980369567871094,
+        "y": 5.302151679992676,
+        "cluster": 13
+      },
+      {
+        "title": "Changing U.S. Extreme Temperature Statistics",
+        "DOI": "1701.05224",
+        "x": 5.0978593826293945,
+        "y": 5.1415019035339355,
+        "cluster": 36
+      },
+      {
+        "title": "Mineralogical and Thermal Analyses of a Bangle Shard from Harrappa, an\n  Indus Valley Settlement in Pakistan",
+        "DOI": "1202.3004",
+        "x": 5.072043418884277,
+        "y": 5.377018451690674,
+        "cluster": 36
+      },
+      {
+        "title": "Chaotic dynamics of the planet in HD 196885 AB",
+        "DOI": "1401.1268",
+        "x": 4.990042686462402,
+        "y": 5.327520847320557,
+        "cluster": 13
+      },
+      {
+        "title": "Solar system chaos and the Paleocene-Eocene boundary age constrained by\n  geology and astronomy",
+        "DOI": "1909.00283",
+        "x": 4.969039440155029,
+        "y": 5.238709449768066,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 20,
+    "void_rank": 20,
+    "centroid": [
+      11.006038709229053,
+      4.050530938400472
+    ],
+    "log_density": -7.018224935446572,
+    "name": "Benford's Law in Graph Spectra",
+    "name_reasoning": "The surrounding works apply Benford's law to textual, musical, and citation data, while the other edge papers focus on graph-theoretic games and PDEs; the missing research connects Benford's law to graph structures, e.g., the leading\u2011digit distribution of eigenvalues or other graph invariants.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          11.04946517944336,
+          3.949431896209717
+        ],
+        [
+          10.961567878723145,
+          3.9840152263641357
+        ],
+        [
+          11.016975402832031,
+          4.108941555023193
+        ],
+        [
+          11.089383125305176,
+          4.12417459487915
+        ],
+        [
+          11.107263565063477,
+          3.9706931114196777
+        ]
+      ]
+    },
+    "shape_area": 0.01709632739539302,
+    "border_papers": [
+      {
+        "title": "The Inverse Gamma Distribution and Benford's Law",
+        "DOI": "1609.04106",
+        "x": 11.008184432983398,
+        "y": 4.067274570465088,
+        "cluster": 4
+      },
+      {
+        "title": "Citations to articles citing Benford's law: a Benford analysis",
+        "DOI": "1602.01205",
+        "x": 11.031725883483887,
+        "y": 4.01613712310791,
+        "cluster": 11
+      },
+      {
+        "title": "Benford's Law and First Letter of Word",
+        "DOI": "1712.06074",
+        "x": 11.049635887145996,
+        "y": 4.018858432769775,
+        "cluster": 11
+      },
+      {
+        "title": "Discussion on Benford's Law and its Application",
+        "DOI": "math/0408057",
+        "x": 11.062711715698242,
+        "y": 4.0389556884765625,
+        "cluster": 11
+      },
+      {
+        "title": "Benford's law: a 'sleeping beauty' sleeping in the dirty pages of\n  logarithmic tables",
+        "DOI": "1702.00554",
+        "x": 11.016975402832031,
+        "y": 4.108941555023193,
+        "cluster": 11
+      },
+      {
+        "title": "Co-occurrence of the Benford-like and Zipf Laws Arising from the Texts\n  Representing Human and Artificial Languages",
+        "DOI": "1803.03667",
+        "x": 10.961567878723145,
+        "y": 3.9840152263641357,
+        "cluster": 11
+      },
+      {
+        "title": "Benford's Law: Textbook Exercises and Multiple-choice Testbanks",
+        "DOI": "1311.4787",
+        "x": 11.076639175415039,
+        "y": 3.97226881980896,
+        "cluster": 11
+      },
+      {
+        "title": "Emergence of Benford's Law in Music",
+        "DOI": "1805.06506",
+        "x": 11.04946517944336,
+        "y": 3.949431896209717,
+        "cluster": 36
+      },
+      {
+        "title": "The Cops & Robber game on series-parallel graphs",
+        "DOI": "0712.2908",
+        "x": 11.089383125305176,
+        "y": 4.12417459487915,
+        "cluster": 7
+      },
+      {
+        "title": "Tug-of-war and infinity Laplace equation with vanishing Neumann boundary\n  condition",
+        "DOI": "1109.4918",
+        "x": 11.107263565063477,
+        "y": 3.9706931114196777,
+        "cluster": 44
+      }
+    ]
+  },
+  {
+    "void_id": 21,
+    "void_rank": 21,
+    "centroid": [
+      5.885538119934873,
+      4.499228487246013
+    ],
+    "log_density": -7.010793960209531,
+    "name": "Deep Learning for Ultrasound Imaging",
+    "name_reasoning": "The surrounding works link deep learning with optical microscopy and wave\u2011physics domains (impedance sensing, wind\u2011wave modeling) but lack a bridge that applies deep learning to acoustic\u2011based microscopic imaging, a natural intersection of those fields.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.950973033905029,
+          4.427217483520508
+        ],
+        [
+          5.917869567871094,
+          4.4967827796936035
+        ],
+        [
+          5.96299934387207,
+          4.543020248413086
+        ],
+        [
+          6.001228332519531,
+          4.524021625518799
+        ],
+        [
+          5.996216297149658,
+          4.451230049133301
+        ],
+        [
+          5.9827680587768555,
+          4.427798748016357
+        ]
+      ]
+    },
+    "shape_area": 0.006617875531901518,
+    "border_papers": [
+      {
+        "title": "Toward a Thinking Microscope: Deep Learning in Optical Microscopy and\n  Image Reconstruction",
+        "DOI": "1805.08970",
+        "x": 5.917869567871094,
+        "y": 4.4967827796936035,
+        "cluster": 38
+      },
+      {
+        "title": "Machine learning opens a doorway for microrheology with optical tweezers\n  in living systems",
+        "DOI": "2211.09689",
+        "x": 5.956003665924072,
+        "y": 4.531094551086426,
+        "cluster": 38
+      },
+      {
+        "title": "Model-inspired Deep Learning for Light-Field Microscopy with Application\n  to Neuron Localization",
+        "DOI": "2103.06164",
+        "x": 5.964605808258057,
+        "y": 4.510537624359131,
+        "cluster": 38
+      },
+      {
+        "title": "DeepFocus: a Few-Shot Microscope Slide Auto-Focus using a Sample\n  Invariant CNN-based Sharpness Function",
+        "DOI": "2001.00667",
+        "x": 5.957808017730713,
+        "y": 4.464357376098633,
+        "cluster": 38
+      },
+      {
+        "title": "Towards Augmented Microscopy with Reinforcement Learning-Enhanced\n  Workflows",
+        "DOI": "2208.02865",
+        "x": 5.96299934387207,
+        "y": 4.543020248413086,
+        "cluster": 38
+      },
+      {
+        "title": "Analysis of High Frequency Impedance Measurement Techniques for Power\n  Line Network Sensing",
+        "DOI": "1709.06025",
+        "x": 5.950973033905029,
+        "y": 4.427217483520508,
+        "cluster": 15
+      },
+      {
+        "title": "Fast 3D cell tracking with wide-field fluorescence microscopy through\n  deep learning",
+        "DOI": "1805.05139",
+        "x": 5.993703842163086,
+        "y": 4.465134620666504,
+        "cluster": 38
+      },
+      {
+        "title": "Advances in Electron Microscopy with Deep Learning",
+        "DOI": "2101.01178",
+        "x": 6.001228332519531,
+        "y": 4.524021625518799,
+        "cluster": 19
+      },
+      {
+        "title": "Deep-Learning-Aided Extraction of Optical Constants in Scanning\n  Near-Field Optical Microscopy",
+        "DOI": "2202.02979",
+        "x": 5.996216297149658,
+        "y": 4.451230049133301,
+        "cluster": 26
+      },
+      {
+        "title": "Numerical Modelling of Wind-Waves. Problem and Results",
+        "DOI": "1009.2056",
+        "x": 5.9827680587768555,
+        "y": 4.427798748016357,
+        "cluster": 29
+      }
+    ]
+  },
+  {
+    "void_id": 22,
+    "void_rank": 22,
+    "centroid": [
+      10.796182127700602,
+      2.462831919408562
+    ],
+    "log_density": -7.009933251429471,
+    "name": "Formal Verification of Spreadsheet Correctness",
+    "name_reasoning": "The surrounding works address guidelines, analytics, search, compliance, and maintainability, but none tackle rigorous, formal methods for proving spreadsheet logic and behavior, leaving a clear gap in verification research.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          10.790010452270508,
+          2.555996894836426
+        ],
+        [
+          10.782341957092285,
+          2.557582378387451
+        ],
+        [
+          10.764452934265137,
+          2.563007116317749
+        ],
+        [
+          10.759897232055664,
+          2.5656039714813232
+        ],
+        [
+          10.787947654724121,
+          2.5654397010803223
+        ],
+        [
+          10.8009614944458,
+          2.5638043880462646
+        ],
+        [
+          10.81302261352539,
+          2.556044340133667
+        ]
+      ]
+    },
+    "shape_area": 0.0003054334653143087,
+    "border_papers": [
+      {
+        "title": "New Guidelines For Spreadsheets",
+        "DOI": "0807.3186",
+        "x": 10.790010452270508,
+        "y": 2.555996894836426,
+        "cluster": 36
+      },
+      {
+        "title": "A Primer on Spreadsheet Analytics",
+        "DOI": "0809.3586",
+        "x": 10.80676555633545,
+        "y": 2.556786060333252,
+        "cluster": 20
+      },
+      {
+        "title": "XLSearch: A Search Engine for Spreadsheets",
+        "DOI": "1401.7584",
+        "x": 10.81302261352539,
+        "y": 2.556044340133667,
+        "cluster": 20
+      },
+      {
+        "title": "Needles in the 'Sheet'stack: Augmented Analytics to get Insights from\n  Spreadsheets",
+        "DOI": "2006.08224",
+        "x": 10.782341957092285,
+        "y": 2.557582378387451,
+        "cluster": 20
+      },
+      {
+        "title": "Spreadsheet Hell",
+        "DOI": "0801.3118",
+        "x": 10.804922103881836,
+        "y": 2.5601961612701416,
+        "cluster": 36
+      },
+      {
+        "title": "Strategies for Addressing Spreadsheet Compliance Challenges",
+        "DOI": "0711.4634",
+        "x": 10.8009614944458,
+        "y": 2.5638043880462646,
+        "cluster": 41
+      },
+      {
+        "title": "Spreadsheet good practice: is there any such thing?",
+        "DOI": "1001.3967",
+        "x": 10.785133361816406,
+        "y": 2.5644798278808594,
+        "cluster": 20
+      },
+      {
+        "title": "Requirements for Automated Assessment of Spreadsheet Maintainability",
+        "DOI": "1111.6902",
+        "x": 10.787947654724121,
+        "y": 2.5654397010803223,
+        "cluster": 20
+      },
+      {
+        "title": "Spreadsheet Development Methodologies using Resolver: Moving\n  spreadsheets into the 21st Century",
+        "DOI": "0802.3475",
+        "x": 10.764452934265137,
+        "y": 2.563007116317749,
+        "cluster": 20
+      },
+      {
+        "title": "Drivers of the Cost of Spreadsheet Audit",
+        "DOI": "1111.5002",
+        "x": 10.759897232055664,
+        "y": 2.5656039714813232,
+        "cluster": 0
+      }
+    ]
+  },
+  {
+    "void_id": 23,
+    "void_rank": 23,
+    "centroid": [
+      3.828943620956064,
+      5.258562800676926
+    ],
+    "log_density": -7.007840111911304,
+    "name": "Coincidence theory for point spread functions",
+    "name_reasoning": "The surrounding papers focus separately on mathematical coincidence theorems and on point\u2011spread function design/reconstruction; no work currently bridges coincidence theory with PSF analysis, leaving a gap in applying coincidence concepts to imaging optics.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.89774751663208,
+          5.117508411407471
+        ],
+        [
+          3.7750985622406006,
+          5.224321365356445
+        ],
+        [
+          3.8268227577209473,
+          5.3846282958984375
+        ],
+        [
+          3.9314768314361572,
+          5.330010890960693
+        ],
+        [
+          3.9556806087493896,
+          5.20559549331665
+        ]
+      ]
+    },
+    "shape_area": 0.02930377906727699,
+    "border_papers": [
+      {
+        "title": "Cyclotomic Coincidences",
+        "DOI": "1903.01962",
+        "x": 3.8362603187561035,
+        "y": 5.263812065124512,
+        "cluster": 36
+      },
+      {
+        "title": "Coincidences in 4 dimensions",
+        "DOI": "0712.0363",
+        "x": 3.8562850952148438,
+        "y": 5.278048038482666,
+        "cluster": 8
+      },
+      {
+        "title": "Is the `IR Coincidence' Just That?",
+        "DOI": "astro-ph/0503334",
+        "x": 3.8003599643707275,
+        "y": 5.283019065856934,
+        "cluster": 36
+      },
+      {
+        "title": "Strong coincidence and Overlap coincidence",
+        "DOI": "1509.04471",
+        "x": 3.8820371627807617,
+        "y": 5.257125377655029,
+        "cluster": 36
+      },
+      {
+        "title": "New algorithms for adaptive optics point-spread function reconstruction",
+        "DOI": "astro-ph/0606681",
+        "x": 3.7750985622406006,
+        "y": 5.224321365356445,
+        "cluster": 28
+      },
+      {
+        "title": "Towards optimal point spread function design for resolving closely\n  spaced emitters in three dimensions",
+        "DOI": "2111.14334",
+        "x": 3.8861937522888184,
+        "y": 5.162818431854248,
+        "cluster": 28
+      },
+      {
+        "title": "A Lefschetz type coincidence theorem",
+        "DOI": "math/9806021",
+        "x": 3.9314768314361572,
+        "y": 5.330010890960693,
+        "cluster": 49
+      },
+      {
+        "title": "The Problem of Coincidence in A Theory of Temporal Multiple Recurrence",
+        "DOI": "1705.00969",
+        "x": 3.8268227577209473,
+        "y": 5.3846282958984375,
+        "cluster": 4
+      },
+      {
+        "title": "Coincidence and Self-coincidence of Many Maps between Digital Images",
+        "DOI": "1911.07113",
+        "x": 3.9556806087493896,
+        "y": 5.20559549331665,
+        "cluster": 38
+      },
+      {
+        "title": "SDSS-IV MaNGA: Modeling the Spectral Line Spread Function to Sub-Percent\n  Accuracy",
+        "DOI": "2011.04675",
+        "x": 3.89774751663208,
+        "y": 5.117508411407471,
+        "cluster": 40
+      }
+    ]
+  },
+  {
+    "void_id": 24,
+    "void_rank": 24,
+    "centroid": [
+      6.095394701463324,
+      3.498287801359808
+    ],
+    "log_density": -7.004149035345581,
+    "name": "Data-driven estimation of optical channel degrees of freedom",
+    "name_reasoning": "The surrounding papers focus on statistical degrees of freedom in regression models and on physical degrees of freedom in optical and quantum signaling, but no work bridges them by using machine\u2011learning techniques to quantify and model the degrees of freedom of free\u2011space optical communication channels.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          6.0778279304504395,
+          3.4058291912078857
+        ],
+        [
+          6.020003795623779,
+          3.437392473220825
+        ],
+        [
+          5.9993391036987305,
+          3.4524688720703125
+        ],
+        [
+          6.079215049743652,
+          3.5832736492156982
+        ],
+        [
+          6.137340545654297,
+          3.541550636291504
+        ],
+        [
+          6.158092021942139,
+          3.448382616043091
+        ]
+      ]
+    },
+    "shape_area": 0.01647232557343159,
+    "border_papers": [
+      {
+        "title": "On Delay-Doppler Plane Orthogonal Pulse",
+        "DOI": "2301.06721",
+        "x": 6.122134208679199,
+        "y": 3.513627052307129,
+        "cluster": 26
+      },
+      {
+        "title": "Diversity and degrees of freedom in regression ensembles",
+        "DOI": "1803.00314",
+        "x": 6.068230628967285,
+        "y": 3.4531753063201904,
+        "cluster": 40
+      },
+      {
+        "title": "Time-Frequency Packing for High Capacity Coherent Optical Links",
+        "DOI": "1404.4164",
+        "x": 6.137340545654297,
+        "y": 3.541550636291504,
+        "cluster": 31
+      },
+      {
+        "title": "The Degrees of Freedom of Partial Least Squares Regression",
+        "DOI": "1002.4112",
+        "x": 6.025909423828125,
+        "y": 3.486266613006592,
+        "cluster": 40
+      },
+      {
+        "title": "When Does More Regularization Imply Fewer Degrees of Freedom? Sufficient\n  Conditions and Counter Examples from Lasso and Ridge Regression",
+        "DOI": "1311.2791",
+        "x": 6.020602703094482,
+        "y": 3.475186586380005,
+        "cluster": 11
+      },
+      {
+        "title": "Line-of-Sight Extrapolation Noise in Dust Polarization",
+        "DOI": "1606.08922",
+        "x": 6.158092021942139,
+        "y": 3.448382616043091,
+        "cluster": 31
+      },
+      {
+        "title": "Optical two-way time and frequency transfer over free space",
+        "DOI": "1211.4902",
+        "x": 6.079215049743652,
+        "y": 3.5832736492156982,
+        "cluster": 31
+      },
+      {
+        "title": "Perfect signaling among three parties violating predefined causal order",
+        "DOI": "1312.5916",
+        "x": 6.0778279304504395,
+        "y": 3.4058291912078857,
+        "cluster": 3
+      },
+      {
+        "title": "The Degrees of Freedom of the Group Lasso",
+        "DOI": "1205.1481",
+        "x": 6.020003795623779,
+        "y": 3.437392473220825,
+        "cluster": 8
+      },
+      {
+        "title": "Degrees of freedom in lasso problems",
+        "DOI": "1111.0653",
+        "x": 5.9993391036987305,
+        "y": 3.4524688720703125,
+        "cluster": 11
+      }
+    ]
+  },
+  {
+    "void_id": 25,
+    "void_rank": 25,
+    "centroid": [
+      5.339911007960904,
+      4.87889564396147
+    ],
+    "log_density": -7.000737344327423,
+    "name": "Low-cost micro-analytical techniques for paleoclimate reconstruction",
+    "name_reasoning": "The surrounding papers span climate oscillations, geodetic monitoring, and low-cost microscopy, but no work connects inexpensive microscopic tools with the analysis of climate proxies for reconstructing past climate.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.457287788391113,
+          4.827891826629639
+        ],
+        [
+          5.246819972991943,
+          4.913278102874756
+        ],
+        [
+          5.267387866973877,
+          4.93388032913208
+        ],
+        [
+          5.390841484069824,
+          4.998512268066406
+        ],
+        [
+          5.4440016746521,
+          4.9547905921936035
+        ],
+        [
+          5.458539009094238,
+          4.82839298248291
+        ]
+      ]
+    },
+    "shape_area": 0.0188905468695566,
+    "border_papers": [
+      {
+        "title": "Foldscope: Origami-based paper microscope",
+        "DOI": "1403.1211",
+        "x": 5.367048263549805,
+        "y": 4.9050703048706055,
+        "cluster": 36
+      },
+      {
+        "title": "The Great Season Climatic Oscillation",
+        "DOI": "physics/0701283",
+        "x": 5.390172004699707,
+        "y": 4.895328998565674,
+        "cluster": 36
+      },
+      {
+        "title": "Earth's surface fluid variations and deformations from GPS and GRACE in\n  global warming",
+        "DOI": "1105.1841",
+        "x": 5.267387866973877,
+        "y": 4.93388032913208,
+        "cluster": 13
+      },
+      {
+        "title": "Statistics of the seasonal cycle of the 1951-2000 surface temperature\n  records in Italy",
+        "DOI": "physics/0407145",
+        "x": 5.246819972991943,
+        "y": 4.913278102874756,
+        "cluster": 36
+      },
+      {
+        "title": "A link between an ice age era and a rapid polar shift",
+        "DOI": "physics/0407082",
+        "x": 5.4303789138793945,
+        "y": 4.948257923126221,
+        "cluster": 36
+      },
+      {
+        "title": "A similarity in patterns of global seismicity after St. Patrick's Day\n  geomagnetic storms of 2013 and 2015",
+        "DOI": "2302.14173",
+        "x": 5.383240699768066,
+        "y": 4.989443778991699,
+        "cluster": 36
+      },
+      {
+        "title": "Dynamical anomalies in terrestrial proxies of North Atlantic climate\n  variability during the last 2 ka",
+        "DOI": "1809.09996",
+        "x": 5.457287788391113,
+        "y": 4.827891826629639,
+        "cluster": 36
+      },
+      {
+        "title": "Fluctuations in some climate parameters",
+        "DOI": "1104.3231",
+        "x": 5.4440016746521,
+        "y": 4.9547905921936035,
+        "cluster": 33
+      },
+      {
+        "title": "Microscope Project for Undergraduate Laboratories",
+        "DOI": "1606.03052",
+        "x": 5.458539009094238,
+        "y": 4.82839298248291,
+        "cluster": 26
+      },
+      {
+        "title": "Chaotic background of large-scale climate oscillations",
+        "DOI": "1003.0392",
+        "x": 5.390841484069824,
+        "y": 4.998512268066406,
+        "cluster": 4
+      }
+    ]
+  },
+  {
+    "void_id": 26,
+    "void_rank": 26,
+    "centroid": [
+      5.2979396916552135,
+      4.947926036091553
+    ],
+    "log_density": -6.999226157800789,
+    "name": "Climate\u2011induced lithospheric stress and earthquake triggering",
+    "name_reasoning": "The surrounding works link climate variability, surface fluid changes, and seismicity, but no research directly bridges atmospheric or hydrological loading from climate change to stress alterations that could trigger earthquakes, leaving a clear gap.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.390172004699707,
+          4.895328998565674
+        ],
+        [
+          5.246819972991943,
+          4.913278102874756
+        ],
+        [
+          5.168809413909912,
+          4.932967662811279
+        ],
+        [
+          5.271303176879883,
+          5.006629467010498
+        ],
+        [
+          5.397480487823486,
+          5.0053019523620605
+        ],
+        [
+          5.413497447967529,
+          4.988280296325684
+        ]
+      ]
+    },
+    "shape_area": 0.01867882175918112,
+    "border_papers": [
+      {
+        "title": "Earth's surface fluid variations and deformations from GPS and GRACE in\n  global warming",
+        "DOI": "1105.1841",
+        "x": 5.267387866973877,
+        "y": 4.93388032913208,
+        "cluster": 13
+      },
+      {
+        "title": "Statistics of the seasonal cycle of the 1951-2000 surface temperature\n  records in Italy",
+        "DOI": "physics/0407145",
+        "x": 5.246819972991943,
+        "y": 4.913278102874756,
+        "cluster": 36
+      },
+      {
+        "title": "Chaotic response of global climate to long-term solar forcing\n  variability",
+        "DOI": "0903.2795",
+        "x": 5.271303176879883,
+        "y": 5.006629467010498,
+        "cluster": 13
+      },
+      {
+        "title": "Foldscope: Origami-based paper microscope",
+        "DOI": "1403.1211",
+        "x": 5.367048263549805,
+        "y": 4.9050703048706055,
+        "cluster": 36
+      },
+      {
+        "title": "A similarity in patterns of global seismicity after St. Patrick's Day\n  geomagnetic storms of 2013 and 2015",
+        "DOI": "2302.14173",
+        "x": 5.383240699768066,
+        "y": 4.989443778991699,
+        "cluster": 36
+      },
+      {
+        "title": "Chaotic background of large-scale climate oscillations",
+        "DOI": "1003.0392",
+        "x": 5.390841484069824,
+        "y": 4.998512268066406,
+        "cluster": 4
+      },
+      {
+        "title": "The Great Season Climatic Oscillation",
+        "DOI": "physics/0701283",
+        "x": 5.390172004699707,
+        "y": 4.895328998565674,
+        "cluster": 36
+      },
+      {
+        "title": "Ice formation in the Arctic during summer: false-bottoms",
+        "DOI": "0807.2272",
+        "x": 5.397480487823486,
+        "y": 5.0053019523620605,
+        "cluster": 36
+      },
+      {
+        "title": "Correlation measurements of Atmospheric Pressure variations and\n  Seismicity during Hurricane Dennis",
+        "DOI": "physics/0507137",
+        "x": 5.413497447967529,
+        "y": 4.988280296325684,
+        "cluster": 13
+      },
+      {
+        "title": "Warming trend in cold season of the Yangtze River Delta and its\n  correlation with Siberian high",
+        "DOI": "1806.06380",
+        "x": 5.168809413909912,
+        "y": 4.932967662811279,
+        "cluster": 36
+      }
+    ]
+  },
+  {
+    "void_id": 27,
+    "void_rank": 27,
+    "centroid": [
+      3.535144406816234,
+      5.085986820351719
+    ],
+    "log_density": -6.996822535490873,
+    "name": "Coronal wave\u2013thermosphere coupling",
+    "name_reasoning": "The surrounding papers link solar coronal MHD wave physics with space\u2011weather thermospheric density modeling, yet no work directly bridges coronal wave heating to thermospheric response, leaving a gap in integrated solar\u2011to\u2011Earth coupling studies.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.425967216491699,
+          5.015531539916992
+        ],
+        [
+          3.395287036895752,
+          5.099150657653809
+        ],
+        [
+          3.5779011249542236,
+          5.220274925231934
+        ],
+        [
+          3.5854921340942383,
+          5.220841407775879
+        ],
+        [
+          3.571706533432007,
+          5.10142707824707
+        ],
+        [
+          3.4404702186584473,
+          5.0159807205200195
+        ]
+      ]
+    },
+    "shape_area": 0.0189269026736838,
+    "border_papers": [
+      {
+        "title": "The Sloan Digital Sky Survey extended point spread functions",
+        "DOI": "1911.01430",
+        "x": 3.55533504486084,
+        "y": 5.106930732727051,
+        "cluster": 5
+      },
+      {
+        "title": "Uncertainty Quantification Techniques for Space Weather Modeling:\n  Thermospheric Density Application",
+        "DOI": "2201.02067",
+        "x": 3.571706533432007,
+        "y": 5.10142707824707,
+        "cluster": 13
+      },
+      {
+        "title": "Manifold Damping of Transverse Wakefields in High Phase Advance\n  Traveling Wave Structures and Local Damping of Dipole Wakefields in Standing\n  Wave Accelerators",
+        "DOI": "physics/0107048",
+        "x": 3.4966437816619873,
+        "y": 5.109342098236084,
+        "cluster": 33
+      },
+      {
+        "title": "Effects of field-aligned flows on standing kink and sausage modes\n  supported by coronal loops",
+        "DOI": "1309.3484",
+        "x": 3.455010175704956,
+        "y": 5.071261405944824,
+        "cluster": 33
+      },
+      {
+        "title": "Effect of Coronal Loop Structure on Wave Heating by Phase Mixing",
+        "DOI": "2009.04366",
+        "x": 3.4470319747924805,
+        "y": 5.036820888519287,
+        "cluster": 33
+      },
+      {
+        "title": "MHD Waves and Coronal Heating: Unifying Empirical and MHD Turbulence\n  Models",
+        "DOI": "1208.3141",
+        "x": 3.4404702186584473,
+        "y": 5.0159807205200195,
+        "cluster": 33
+      },
+      {
+        "title": "Uncertainties in polarimetric 3D reconstructions of coronal mass\n  ejections",
+        "DOI": "1503.00314",
+        "x": 3.425967216491699,
+        "y": 5.015531539916992,
+        "cluster": 13
+      },
+      {
+        "title": "Standing Sausage Modes In Nonuniform Magnetic Tubes: An Inversion Scheme\n  For Inferring Flare Loop Parameters",
+        "DOI": "1509.01442",
+        "x": 3.395287036895752,
+        "y": 5.099150657653809,
+        "cluster": 42
+      },
+      {
+        "title": "Theoretical uncertainties in sparticle mass predictions from\n  computational tools",
+        "DOI": "hep-ph/0302102",
+        "x": 3.5779011249542236,
+        "y": 5.220274925231934,
+        "cluster": 12
+      },
+      {
+        "title": "Satellite observations of the Alfv\\'enic Transition from Weak to Strong\n  Magnetohydrodynamic Turbulence",
+        "DOI": "2301.06709",
+        "x": 3.5854921340942383,
+        "y": 5.220841407775879,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 28,
+    "void_rank": 28,
+    "centroid": [
+      10.544354229866462,
+      5.224047604611885
+    ],
+    "log_density": -6.992502311949012,
+    "name": "Computational Complexity of Stochastic Dominance Coalitions",
+    "name_reasoning": "The surrounding works cover graph coalition structures, Church\u2011Turing/type\u2011theory formalizations, and stochastic dominance testing, yet no research exists that unifies coalition formation in graphs with stochastic\u2011dominance criteria and studies its algorithmic complexity.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          10.492682456970215,
+          5.191376209259033
+        ],
+        [
+          10.443098068237305,
+          5.2303595542907715
+        ],
+        [
+          10.412797927856445,
+          5.261439323425293
+        ],
+        [
+          10.514029502868652,
+          5.340265274047852
+        ],
+        [
+          10.586853981018066,
+          5.352233409881592
+        ],
+        [
+          10.59044075012207,
+          5.291594505310059
+        ],
+        [
+          10.562215805053711,
+          5.224002838134766
+        ]
+      ]
+    },
+    "shape_area": 0.017201566891799303,
+    "border_papers": [
+      {
+        "title": "Graph Coalition Structure Generation",
+        "DOI": "1102.1747",
+        "x": 10.562215805053711,
+        "y": 5.224002838134766,
+        "cluster": 7
+      },
+      {
+        "title": "The Rise and Fall of the Church-Turing Thesis",
+        "DOI": "cs/0207055",
+        "x": 10.492682456970215,
+        "y": 5.191376209259033,
+        "cluster": 36
+      },
+      {
+        "title": "Incorporating Quotation and Evaluation Into Church's Type Theory",
+        "DOI": "1612.02785",
+        "x": 10.473237991333008,
+        "y": 5.245299339294434,
+        "cluster": 36
+      },
+      {
+        "title": "Offensive alliances in cubic graphs",
+        "DOI": "math/0610023",
+        "x": 10.59044075012207,
+        "y": 5.291594505310059,
+        "cluster": 7
+      },
+      {
+        "title": "A Formalization and Proof of the Extended Church-Turing Thesis -Extended\n  Abstract-",
+        "DOI": "1207.7148",
+        "x": 10.455573081970215,
+        "y": 5.246252059936523,
+        "cluster": 11
+      },
+      {
+        "title": "Random Tie-breaking with Stochastic Dominance",
+        "DOI": "1609.01682",
+        "x": 10.443098068237305,
+        "y": 5.2303595542907715,
+        "cluster": 4
+      },
+      {
+        "title": "Spanning Tests for Markowitz Stochastic Dominance",
+        "DOI": "1810.10800",
+        "x": 10.516477584838867,
+        "y": 5.331803321838379,
+        "cluster": 40
+      },
+      {
+        "title": "Church's thesis and related axioms in Coq's type theory",
+        "DOI": "2009.00416",
+        "x": 10.514029502868652,
+        "y": 5.340265274047852,
+        "cluster": 11
+      },
+      {
+        "title": "Singleton Coalition Graph Chains",
+        "DOI": "2304.07606",
+        "x": 10.586853981018066,
+        "y": 5.352233409881592,
+        "cluster": 7
+      },
+      {
+        "title": "Forecast dominance testing via sign randomization",
+        "DOI": "1707.03035",
+        "x": 10.412797927856445,
+        "y": 5.261439323425293,
+        "cluster": 40
+      }
+    ]
+  },
+  {
+    "void_id": 29,
+    "void_rank": 29,
+    "centroid": [
+      3.577115723121924,
+      5.224047604611885
+    ],
+    "log_density": -6.99215595409305,
+    "name": "End-to-end uncertainty quantification for multimessenger observatories",
+    "name_reasoning": "The surrounding papers focus on isolated uncertainty, PSF, and instrumentation issues in particle physics, space weather, adaptive optics, and accelerator wakefields, but lack a unified framework that propagates and combines uncertainties across the entire chain from source modeling to multimessenger detection and instrument response.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.571706533432007,
+          5.10142707824707
+        ],
+        [
+          3.4966437816619873,
+          5.109342098236084
+        ],
+        [
+          3.5104126930236816,
+          5.305041313171387
+        ],
+        [
+          3.525148630142212,
+          5.348391532897949
+        ],
+        [
+          3.5479702949523926,
+          5.334954261779785
+        ],
+        [
+          3.598099708557129,
+          5.229393482208252
+        ]
+      ]
+    },
+    "shape_area": 0.01733387229046457,
+    "border_papers": [
+      {
+        "title": "Theoretical uncertainties in sparticle mass predictions from\n  computational tools",
+        "DOI": "hep-ph/0302102",
+        "x": 3.5779011249542236,
+        "y": 5.220274925231934,
+        "cluster": 12
+      },
+      {
+        "title": "Satellite observations of the Alfv\\'enic Transition from Weak to Strong\n  Magnetohydrodynamic Turbulence",
+        "DOI": "2301.06709",
+        "x": 3.5854921340942383,
+        "y": 5.220841407775879,
+        "cluster": 13
+      },
+      {
+        "title": "Direction dependent Point spread function reconstruction for\n  Multi-Conjugate Adaptive Optics on Giant Segmented Mirror Telescopes",
+        "DOI": "2012.11429",
+        "x": 3.598099708557129,
+        "y": 5.229393482208252,
+        "cluster": 5
+      },
+      {
+        "title": "Point-spread function reconstruction of adaptive-optics imaging: Meeting\n  the astrometric requirements for time-delay cosmography",
+        "DOI": "2106.11060",
+        "x": 3.542267322540283,
+        "y": 5.260339736938477,
+        "cluster": 5
+      },
+      {
+        "title": "Evidence for the Absence of a Stream-Disk Shock Interaction (Hot Spot)\n  in Semi-Detached Binary Systems. Comparison of Numerical Simulation Results\n  and Observations",
+        "DOI": "astro-ph/9802134",
+        "x": 3.5104126930236816,
+        "y": 5.305041313171387,
+        "cluster": 39
+      },
+      {
+        "title": "Steiner Point Removal --- Distant Terminals Don't (Really) Bother",
+        "DOI": "1703.08790",
+        "x": 3.5479702949523926,
+        "y": 5.334954261779785,
+        "cluster": 36
+      },
+      {
+        "title": "The Sloan Digital Sky Survey extended point spread functions",
+        "DOI": "1911.01430",
+        "x": 3.55533504486084,
+        "y": 5.106930732727051,
+        "cluster": 5
+      },
+      {
+        "title": "Uncertainty Quantification Techniques for Space Weather Modeling:\n  Thermospheric Density Application",
+        "DOI": "2201.02067",
+        "x": 3.571706533432007,
+        "y": 5.10142707824707,
+        "cluster": 13
+      },
+      {
+        "title": "Coincident detection significance in multimessenger astronomy",
+        "DOI": "1712.05392",
+        "x": 3.525148630142212,
+        "y": 5.348391532897949,
+        "cluster": 5
+      },
+      {
+        "title": "Manifold Damping of Transverse Wakefields in High Phase Advance\n  Traveling Wave Structures and Local Damping of Dipole Wakefields in Standing\n  Wave Accelerators",
+        "DOI": "physics/0107048",
+        "x": 3.4966437816619873,
+        "y": 5.109342098236084,
+        "cluster": 33
+      }
+    ]
+  },
+  {
+    "void_id": 30,
+    "void_rank": 30,
+    "centroid": [
+      2.989517294842264,
+      4.154076526595597
+    ],
+    "log_density": -6.991822472381003,
+    "name": "Envelope Methods for Asteroid Trajectory Uncertainty",
+    "name_reasoning": "The surrounding works combine asteroid dynamics, non\u2011gravitational perturbations, surface motion planning, and mathematical envelope theory, but lack a unified framework that uses envelope techniques to quantify and bound uncertainties in asteroid trajectories and impact probabilities.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          2.902851104736328,
+          4.044262409210205
+        ],
+        [
+          2.86820125579834,
+          4.2097320556640625
+        ],
+        [
+          2.9104506969451904,
+          4.270697593688965
+        ],
+        [
+          3.0255041122436523,
+          4.227573394775391
+        ],
+        [
+          3.0108959674835205,
+          4.056807994842529
+        ]
+      ]
+    },
+    "shape_area": 0.026875185441610938,
+    "border_papers": [
+      {
+        "title": "DREAM I. Orbital architecture orrery",
+        "DOI": "2301.07727",
+        "x": 2.9787635803222656,
+        "y": 4.160284519195557,
+        "cluster": 13
+      },
+      {
+        "title": "Motion Planning on an Asteroid Surface with Irregular Gravity Fields",
+        "DOI": "1902.02065",
+        "x": 2.9385480880737305,
+        "y": 4.181460857391357,
+        "cluster": 13
+      },
+      {
+        "title": "The Binary Nature of PSR J2032+4127",
+        "DOI": "1502.01465",
+        "x": 3.0255041122436523,
+        "y": 4.227573394775391,
+        "cluster": 11
+      },
+      {
+        "title": "The sunspot number record supports the existence of Planet 9 and the\n  effect of planetary motion on solar activity",
+        "DOI": "2201.06745",
+        "x": 2.916710138320923,
+        "y": 4.195190906524658,
+        "cluster": 43
+      },
+      {
+        "title": "Model-free Envelope Dimension Selection",
+        "DOI": "1709.03945",
+        "x": 3.0108959674835205,
+        "y": 4.056807994842529,
+        "cluster": 8
+      },
+      {
+        "title": "New ellipsometric approach for determining small light ellipticities",
+        "DOI": "1706.06174",
+        "x": 2.8868186473846436,
+        "y": 4.161179065704346,
+        "cluster": 29
+      },
+      {
+        "title": "Analysis of the latitudinal data of Eratosthenes and Hipparchus",
+        "DOI": "1412.3150",
+        "x": 2.8730251789093018,
+        "y": 4.212479591369629,
+        "cluster": 36
+      },
+      {
+        "title": "Non-gravitational Perturbations and Virtual Impactors: the case of\n  asteroid 2009 FD",
+        "DOI": "1408.0736",
+        "x": 2.86820125579834,
+        "y": 4.2097320556640625,
+        "cluster": 13
+      },
+      {
+        "title": "Envelopes of $\\alpha$-sections",
+        "DOI": "1509.02084",
+        "x": 2.902851104736328,
+        "y": 4.044262409210205,
+        "cluster": 11
+      },
+      {
+        "title": "The Dayside Ionopause of Mars: Solar Wind Interaction, Pressure Balance,\n  and Comparisons with Venus",
+        "DOI": "2103.12785",
+        "x": 2.9104506969451904,
+        "y": 4.270697593688965,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 31,
+    "void_rank": 31,
+    "centroid": [
+      5.004140477515383,
+      5.258562800676926
+    ],
+    "log_density": -6.991502929351309,
+    "name": "Quantum chaos in topological superconductors",
+    "name_reasoning": "The surrounding papers link planetary and Earth system chaos with a lone study of high\u2011temperature Majorana corner states; the missing bridge is a field that investigates chaotic dynamics within topological quantum materials, uniting classical chaos and quantum topological physics.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.033279895782471,
+          5.222172260284424
+        ],
+        [
+          4.969039440155029,
+          5.238709449768066
+        ],
+        [
+          4.934120178222656,
+          5.267008304595947
+        ],
+        [
+          4.99194860458374,
+          5.350358009338379
+        ],
+        [
+          5.038552284240723,
+          5.361569404602051
+        ],
+        [
+          5.108752727508545,
+          5.228357791900635
+        ]
+      ]
+    },
+    "shape_area": 0.014511794831491898,
+    "border_papers": [
+      {
+        "title": "Solar system chaos and the Paleocene-Eocene boundary age constrained by\n  geology and astronomy",
+        "DOI": "1909.00283",
+        "x": 4.969039440155029,
+        "y": 5.238709449768066,
+        "cluster": 13
+      },
+      {
+        "title": "High-Temperature Majorana Corner States",
+        "DOI": "1804.04711",
+        "x": 4.960641860961914,
+        "y": 5.259839057922363,
+        "cluster": 36
+      },
+      {
+        "title": "A note on the surface quasi-geostrophic temperature variance cascade",
+        "DOI": "1309.1962",
+        "x": 5.033279895782471,
+        "y": 5.222172260284424,
+        "cluster": 13
+      },
+      {
+        "title": "Planetary chaotic zone clearing: destinations and timescales",
+        "DOI": "1411.1378",
+        "x": 4.980369567871094,
+        "y": 5.302151679992676,
+        "cluster": 13
+      },
+      {
+        "title": "Chaotic dynamics of the planet in HD 196885 AB",
+        "DOI": "1401.1268",
+        "x": 4.990042686462402,
+        "y": 5.327520847320557,
+        "cluster": 13
+      },
+      {
+        "title": "Extended planetary chaotic zones",
+        "DOI": "2207.12747",
+        "x": 4.934120178222656,
+        "y": 5.267008304595947,
+        "cluster": 13
+      },
+      {
+        "title": "Chaos in the Solar System",
+        "DOI": "astro-ph/0111600",
+        "x": 5.022795677185059,
+        "y": 5.334353923797607,
+        "cluster": 13
+      },
+      {
+        "title": "Do N-planet systems have a boundary between chaotic and regular motions?",
+        "DOI": "0705.3124",
+        "x": 4.99194860458374,
+        "y": 5.350358009338379,
+        "cluster": 13
+      },
+      {
+        "title": "Impact of atmospheric pressure variations on methane ebullition and lake\n  turbidity during ice-cover",
+        "DOI": "2105.06383",
+        "x": 5.038552284240723,
+        "y": 5.361569404602051,
+        "cluster": 33
+      },
+      {
+        "title": "Chaotic Behaviour of the Earth System in the Anthropocene",
+        "DOI": "2204.08955",
+        "x": 5.108752727508545,
+        "y": 5.228357791900635,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 32,
+    "void_rank": 32,
+    "centroid": [
+      5.2979396916552135,
+      5.0169564282216355
+    ],
+    "log_density": -6.990507456017081,
+    "name": "Unnamed Void 32",
+    "name_reasoning": "",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.367048263549805,
+          4.9050703048706055
+        ],
+        [
+          5.246819972991943,
+          4.913278102874756
+        ],
+        [
+          5.271303176879883,
+          5.006629467010498
+        ],
+        [
+          5.3672776222229,
+          5.05817174911499
+        ],
+        [
+          5.40853214263916,
+          5.065652370452881
+        ],
+        [
+          5.413497447967529,
+          4.988280296325684
+        ]
+      ]
+    },
+    "shape_area": 0.018213938156122822,
+    "border_papers": [
+      {
+        "title": "Chaotic response of global climate to long-term solar forcing\n  variability",
+        "DOI": "0903.2795",
+        "x": 5.271303176879883,
+        "y": 5.006629467010498,
+        "cluster": 13
+      },
+      {
+        "title": "Some Mathematical and Numerical Issues in Geophysical Fluid Dynamics and\n  Climate Dynamics",
+        "DOI": "0711.1886",
+        "x": 5.3672776222229,
+        "y": 5.05817174911499,
+        "cluster": 33
+      },
+      {
+        "title": "Earth's surface fluid variations and deformations from GPS and GRACE in\n  global warming",
+        "DOI": "1105.1841",
+        "x": 5.267387866973877,
+        "y": 4.93388032913208,
+        "cluster": 13
+      },
+      {
+        "title": "A similarity in patterns of global seismicity after St. Patrick's Day\n  geomagnetic storms of 2013 and 2015",
+        "DOI": "2302.14173",
+        "x": 5.383240699768066,
+        "y": 4.989443778991699,
+        "cluster": 36
+      },
+      {
+        "title": "Chaotic background of large-scale climate oscillations",
+        "DOI": "1003.0392",
+        "x": 5.390841484069824,
+        "y": 4.998512268066406,
+        "cluster": 4
+      },
+      {
+        "title": "Ice formation in the Arctic during summer: false-bottoms",
+        "DOI": "0807.2272",
+        "x": 5.397480487823486,
+        "y": 5.0053019523620605,
+        "cluster": 36
+      },
+      {
+        "title": "Statistics of the seasonal cycle of the 1951-2000 surface temperature\n  records in Italy",
+        "DOI": "physics/0407145",
+        "x": 5.246819972991943,
+        "y": 4.913278102874756,
+        "cluster": 36
+      },
+      {
+        "title": "Correlation measurements of Atmospheric Pressure variations and\n  Seismicity during Hurricane Dennis",
+        "DOI": "physics/0507137",
+        "x": 5.413497447967529,
+        "y": 4.988280296325684,
+        "cluster": 13
+      },
+      {
+        "title": "Triple Junction and Grain Boundary Influences on Climate Signals in\n  Polar Ice",
+        "DOI": "2005.14268",
+        "x": 5.40853214263916,
+        "y": 5.065652370452881,
+        "cluster": 36
+      },
+      {
+        "title": "Foldscope: Origami-based paper microscope",
+        "DOI": "1403.1211",
+        "x": 5.367048263549805,
+        "y": 4.9050703048706055,
+        "cluster": 36
+      }
+    ]
+  },
+  {
+    "void_id": 33,
+    "void_rank": 33,
+    "centroid": [
+      3.8709149372617535,
+      5.189532408546843
+    ],
+    "log_density": -6.987256079103226,
+    "name": "Coincidence-based Point Spread Function Estimation",
+    "name_reasoning": "The surrounding papers focus separately on point spread/line spread function design, measurement, and deconvolution, and on mathematical coincidence theory; the missing bridge is a unified framework that employs coincidence concepts to estimate and calibrate PSFs across imaging systems.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.895157814025879,
+          5.090888500213623
+        ],
+        [
+          3.8362603187561035,
+          5.263812065124512
+        ],
+        [
+          3.8562850952148438,
+          5.278048038482666
+        ],
+        [
+          3.9556806087493896,
+          5.20559549331665
+        ],
+        [
+          3.910752773284912,
+          5.110306739807129
+        ],
+        [
+          3.90390682220459,
+          5.097601890563965
+        ]
+      ]
+    },
+    "shape_area": 0.010383204976221805,
+    "border_papers": [
+      {
+        "title": "Towards optimal point spread function design for resolving closely\n  spaced emitters in three dimensions",
+        "DOI": "2111.14334",
+        "x": 3.8861937522888184,
+        "y": 5.162818431854248,
+        "cluster": 28
+      },
+      {
+        "title": "Strong coincidence and Overlap coincidence",
+        "DOI": "1509.04471",
+        "x": 3.8820371627807617,
+        "y": 5.257125377655029,
+        "cluster": 36
+      },
+      {
+        "title": "SDSS-IV MaNGA: Modeling the Spectral Line Spread Function to Sub-Percent\n  Accuracy",
+        "DOI": "2011.04675",
+        "x": 3.89774751663208,
+        "y": 5.117508411407471,
+        "cluster": 40
+      },
+      {
+        "title": "Cyclotomic Coincidences",
+        "DOI": "1903.01962",
+        "x": 3.8362603187561035,
+        "y": 5.263812065124512,
+        "cluster": 36
+      },
+      {
+        "title": "Correcting the influence of an asymmetric line spread function in\n  2-degree Field spectrograph data",
+        "DOI": "astro-ph/0503703",
+        "x": 3.910891532897949,
+        "y": 5.117538928985596,
+        "cluster": 26
+      },
+      {
+        "title": "Coincidence and Self-coincidence of Many Maps between Digital Images",
+        "DOI": "1911.07113",
+        "x": 3.9556806087493896,
+        "y": 5.20559549331665,
+        "cluster": 38
+      },
+      {
+        "title": "The point spread function in interferometric scattering microscopy\n  (iSCAT). I. Aberrations in defocusing and axial localization",
+        "DOI": "2006.15332",
+        "x": 3.910752773284912,
+        "y": 5.110306739807129,
+        "cluster": 26
+      },
+      {
+        "title": "Coincidences in 4 dimensions",
+        "DOI": "0712.0363",
+        "x": 3.8562850952148438,
+        "y": 5.278048038482666,
+        "cluster": 8
+      },
+      {
+        "title": "Point-spread function ramifications and deconvolution of a signal\n  dependent blur kernel due to interpixel capacitive coupling",
+        "DOI": "1805.09413",
+        "x": 3.90390682220459,
+        "y": 5.097601890563965,
+        "cluster": 10
+      },
+      {
+        "title": "Digital Deblurring of CMB Maps II: Asymmetric Point Spread Function",
+        "DOI": "astro-ph/0309145",
+        "x": 3.895157814025879,
+        "y": 5.090888500213623,
+        "cluster": 8
+      }
+    ]
+  },
+  {
+    "void_id": 34,
+    "void_rank": 34,
+    "centroid": [
+      5.0461117938210736,
+      5.258562800676926
+    ],
+    "log_density": -6.985525600064954,
+    "name": "Orbital chaos-driven climate variability",
+    "name_reasoning": "The surrounding works cover planetary orbital chaos, Earth system chaos, and fluid turbulence, but lack a study linking chaotic orbital dynamics to climate variability and habitability on planets.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.033279895782471,
+          5.222172260284424
+        ],
+        [
+          4.969039440155029,
+          5.238709449768066
+        ],
+        [
+          4.934120178222656,
+          5.267008304595947
+        ],
+        [
+          4.99194860458374,
+          5.350358009338379
+        ],
+        [
+          5.038552284240723,
+          5.361569404602051
+        ],
+        [
+          5.108752727508545,
+          5.228357791900635
+        ]
+      ]
+    },
+    "shape_area": 0.014511794831491898,
+    "border_papers": [
+      {
+        "title": "A note on the surface quasi-geostrophic temperature variance cascade",
+        "DOI": "1309.1962",
+        "x": 5.033279895782471,
+        "y": 5.222172260284424,
+        "cluster": 13
+      },
+      {
+        "title": "Chaotic Behaviour of the Earth System in the Anthropocene",
+        "DOI": "2204.08955",
+        "x": 5.108752727508545,
+        "y": 5.228357791900635,
+        "cluster": 13
+      },
+      {
+        "title": "Planetary chaotic zone clearing: destinations and timescales",
+        "DOI": "1411.1378",
+        "x": 4.980369567871094,
+        "y": 5.302151679992676,
+        "cluster": 13
+      },
+      {
+        "title": "Chaos in the Solar System",
+        "DOI": "astro-ph/0111600",
+        "x": 5.022795677185059,
+        "y": 5.334353923797607,
+        "cluster": 13
+      },
+      {
+        "title": "Solar system chaos and the Paleocene-Eocene boundary age constrained by\n  geology and astronomy",
+        "DOI": "1909.00283",
+        "x": 4.969039440155029,
+        "y": 5.238709449768066,
+        "cluster": 13
+      },
+      {
+        "title": "High-Temperature Majorana Corner States",
+        "DOI": "1804.04711",
+        "x": 4.960641860961914,
+        "y": 5.259839057922363,
+        "cluster": 36
+      },
+      {
+        "title": "Chaotic dynamics of the planet in HD 196885 AB",
+        "DOI": "1401.1268",
+        "x": 4.990042686462402,
+        "y": 5.327520847320557,
+        "cluster": 13
+      },
+      {
+        "title": "Impact of atmospheric pressure variations on methane ebullition and lake\n  turbidity during ice-cover",
+        "DOI": "2105.06383",
+        "x": 5.038552284240723,
+        "y": 5.361569404602051,
+        "cluster": 33
+      },
+      {
+        "title": "Do N-planet systems have a boundary between chaotic and regular motions?",
+        "DOI": "0705.3124",
+        "x": 4.99194860458374,
+        "y": 5.350358009338379,
+        "cluster": 13
+      },
+      {
+        "title": "Extended planetary chaotic zones",
+        "DOI": "2207.12747",
+        "x": 4.934120178222656,
+        "y": 5.267008304595947,
+        "cluster": 13
+      }
+    ]
+  },
+  {
+    "void_id": 35,
+    "void_rank": 35,
+    "centroid": [
+      5.5497675894893534,
+      4.7408348597013035
+    ],
+    "log_density": -6.978031687417484,
+    "name": "Computer Vision for Paleoclimate Proxy Analysis",
+    "name_reasoning": "The surrounding works cover paleoclimate reconstruction, statistical proxy evaluation, and microscopy software, yet no research connects high\u2011resolution microscopy imaging with automated extraction of climate proxy data, leaving a gap for computer\u2011vision\u2011driven paleoclimate proxy analysis.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.645025253295898,
+          4.688360214233398
+        ],
+        [
+          5.471320629119873,
+          4.768590450286865
+        ],
+        [
+          5.458539009094238,
+          4.82839298248291
+        ],
+        [
+          5.569108009338379,
+          4.86044454574585
+        ],
+        [
+          5.650171756744385,
+          4.7248921394348145
+        ]
+      ]
+    },
+    "shape_area": 0.017240999255932365,
+    "border_papers": [
+      {
+        "title": "Software for Microscopy Workshop White Paper",
+        "DOI": "2005.00082",
+        "x": 5.54934024810791,
+        "y": 4.7937211990356445,
+        "cluster": 26
+      },
+      {
+        "title": "Spurious predictions with random time series: The Lasso in the context\n  of paleoclimatic reconstructions. Discussion of: A statistical analysis of\n  multiple temperature proxies: Are reconstructions of surface temperatures\n  over the last 1000 years reliable?",
+        "DOI": "1104.4191",
+        "x": 5.52079963684082,
+        "y": 4.791642189025879,
+        "cluster": 40
+      },
+      {
+        "title": "The episode of Quasi-Biennial Oscillation in 2016 did not have its roots\n  in its distant past; the role of the strong El Ni\\~no event",
+        "DOI": "1708.05581",
+        "x": 5.618313312530518,
+        "y": 4.768671035766602,
+        "cluster": 36
+      },
+      {
+        "title": "On the Warming of the Southern Hemisphere since 1955 and Recent\n  Slowing-Down: Role of Sea Ice, Sun Spot and El Nino Variability",
+        "DOI": "1807.05676",
+        "x": 5.471320629119873,
+        "y": 4.768590450286865,
+        "cluster": 36
+      },
+      {
+        "title": "Archean Paleo-climate: The first snowball?",
+        "DOI": "1006.4336",
+        "x": 5.575437545776367,
+        "y": 4.820389270782471,
+        "cluster": 36
+      },
+      {
+        "title": "PaleoJump: A database for abrupt transitions in past climates",
+        "DOI": "2206.06832",
+        "x": 5.567310333251953,
+        "y": 4.839754104614258,
+        "cluster": 36
+      },
+      {
+        "title": "Evaluating proxy influence in assimilated paleoclimate reconstructions\n  -- Testing the exchangeability of two ensembles of spatial processes",
+        "DOI": "1909.01273",
+        "x": 5.650171756744385,
+        "y": 4.7248921394348145,
+        "cluster": 36
+      },
+      {
+        "title": "Investigation of condominium building collapse in Surfside, Florida: A\n  video feature tracking approach",
+        "DOI": "2109.06629",
+        "x": 5.645025253295898,
+        "y": 4.688360214233398,
+        "cluster": 36
+      },
+      {
+        "title": "Stochastic Paleoclimatology: Modeling the EPICA Ice Core Climate Records",
+        "DOI": "2210.00308",
+        "x": 5.569108009338379,
+        "y": 4.86044454574585,
+        "cluster": 40
+      },
+      {
+        "title": "Microscope Project for Undergraduate Laboratories",
+        "DOI": "1606.03052",
+        "x": 5.458539009094238,
+        "y": 4.82839298248291,
+        "cluster": 26
+      }
+    ]
+  },
+  {
+    "void_id": 36,
+    "void_rank": 36,
+    "centroid": [
+      0.30335305127810486,
+      5.085986820351719
+    ],
+    "log_density": -6.977992301489827,
+    "name": "Intermediate-Mass Black Hole Seed Formation",
+    "name_reasoning": "The surrounding papers explore supermassive black holes, their scaling with stellar-mass black holes, and dynamics in galaxies, but omit the crucial intermediate-mass black hole regime that would link these scales and explain SMBH seeding.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          0.33272823691368103,
+          5.043850421905518
+        ],
+        [
+          0.19781328737735748,
+          5.082792282104492
+        ],
+        [
+          0.22760874032974243,
+          5.1670684814453125
+        ],
+        [
+          0.2466161698102951,
+          5.171534538269043
+        ],
+        [
+          0.3384154140949249,
+          5.187557697296143
+        ],
+        [
+          0.34611639380455017,
+          5.128343105316162
+        ]
+      ]
+    },
+    "shape_area": 0.014943240594980978,
+    "border_papers": [
+      {
+        "title": "Active Galactic Nuclei as scaled-up Galactic black holes",
+        "DOI": "astro-ph/0612273",
+        "x": 0.32743269205093384,
+        "y": 5.078539848327637,
+        "cluster": 6
+      },
+      {
+        "title": "Formation of Nuclear Disks and Supermassive Black Hole Binaries in\n  Multi-Scale Hydrodynamical Galaxy Mergers",
+        "DOI": "0807.3329",
+        "x": 0.27537864446640015,
+        "y": 5.063414573669434,
+        "cluster": 30
+      },
+      {
+        "title": "A tidal disruption flare in a massive galaxy? Implications for the\n  fuelling mechanisms of nuclear black holes",
+        "DOI": "1503.04870",
+        "x": 0.27648934721946716,
+        "y": 5.127196311950684,
+        "cluster": 6
+      },
+      {
+        "title": "3D stellar kinematics at the Galactic center: measuring the nuclear star\n  cluster spatial density profile, black hole mass, and distance",
+        "DOI": "1311.0886",
+        "x": 0.33272823691368103,
+        "y": 5.043850421905518,
+        "cluster": 23
+      },
+      {
+        "title": "Determining the surface density distribution in massive galactic disks\n  with a central black hole",
+        "DOI": "astro-ph/0209200",
+        "x": 0.34611639380455017,
+        "y": 5.128343105316162,
+        "cluster": 6
+      },
+      {
+        "title": "MOCCA-Survey Database: Extra Galactic Globular Clusters. III. The\n  population of black holes in Milky Way and Andromeda-like galaxies",
+        "DOI": "2209.01564",
+        "x": 0.2289687842130661,
+        "y": 5.118127346038818,
+        "cluster": 23
+      },
+      {
+        "title": "Dynamical friction on Globular Clusters in core-triaxial galaxies: is it\n  a cause of massive black hole accretion?",
+        "DOI": "astro-ph/0309488",
+        "x": 0.2466161698102951,
+        "y": 5.171534538269043,
+        "cluster": 6
+      },
+      {
+        "title": "Nuclear star formation activity and black hole accretion in nearby\n  Seyfert galaxies",
+        "DOI": "1311.0703",
+        "x": 0.19781328737735748,
+        "y": 5.082792282104492,
+        "cluster": 30
+      },
+      {
+        "title": "Low-Luminosity AGN as analogues of Galactic Black Holes in the low/hard\n  state: Evidence from X-ray timing of NGC 4258",
+        "DOI": "astro-ph/0504152",
+        "x": 0.3384154140949249,
+        "y": 5.187557697296143,
+        "cluster": 23
+      },
+      {
+        "title": "Offset Active Galactic Nuclei as Tracers of Galaxy Mergers and\n  Supermassive Black Hole Growth",
+        "DOI": "1405.6711",
+        "x": 0.22760874032974243,
+        "y": 5.1670684814453125,
+        "cluster": 23
+      }
+    ]
+  },
+  {
+    "void_id": 37,
+    "void_rank": 37,
+    "centroid": [
+      10.502382913560773,
+      4.982441232156594
+    ],
+    "log_density": -6.974611343781666,
+    "name": "Monadic Framework for Puzzle Solving",
+    "name_reasoning": "The neighboring papers focus separately on puzzle complexity and on monads/category theory, but there is no work that unites them; a monadic approach to modeling and solving combinatorial puzzles would fill this intellectual gap.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          10.417274475097656,
+          4.878316879272461
+        ],
+        [
+          10.402284622192383,
+          4.891744613647461
+        ],
+        [
+          10.38131046295166,
+          4.942991733551025
+        ],
+        [
+          10.371122360229492,
+          4.971757888793945
+        ],
+        [
+          10.418846130371094,
+          5.041861534118652
+        ],
+        [
+          10.589340209960938,
+          5.012779712677002
+        ]
+      ]
+    },
+    "shape_area": 0.018243037198772072,
+    "border_papers": [
+      {
+        "title": "Even $1 \\times n$ Edge-Matching and Jigsaw Puzzles are Really Hard",
+        "DOI": "1701.00146",
+        "x": 10.411164283752441,
+        "y": 4.972149848937988,
+        "cluster": 11
+      },
+      {
+        "title": "Rigorous results for the distribution of money on connected graphs",
+        "DOI": "1801.00485",
+        "x": 10.589340209960938,
+        "y": 5.012779712677002,
+        "cluster": 7
+      },
+      {
+        "title": "A new perspective of paramodulation complexity by solving massive 8\n  puzzles",
+        "DOI": "2012.08231",
+        "x": 10.407081604003906,
+        "y": 5.010788440704346,
+        "cluster": 11
+      },
+      {
+        "title": "An experimental study of exhaustive solutions for the Mastermind puzzle",
+        "DOI": "1207.1315",
+        "x": 10.418846130371094,
+        "y": 5.041861534118652,
+        "cluster": 11
+      },
+      {
+        "title": "The enriched Vietoris monad on representable spaces",
+        "DOI": "1212.5539",
+        "x": 10.414144515991211,
+        "y": 4.925949573516846,
+        "cluster": 47
+      },
+      {
+        "title": "Codensity Lifting of Monads and its Dual",
+        "DOI": "1810.07972",
+        "x": 10.404932975769043,
+        "y": 4.908732891082764,
+        "cluster": 11
+      },
+      {
+        "title": "Ordinals in Frobenius Monads",
+        "DOI": "0809.2495",
+        "x": 10.38131046295166,
+        "y": 4.942991733551025,
+        "cluster": 18
+      },
+      {
+        "title": "PuzzLing Machines: A Challenge on Learning From Small Data",
+        "DOI": "2004.13161",
+        "x": 10.371122360229492,
+        "y": 4.971757888793945,
+        "cluster": 11
+      },
+      {
+        "title": "Leibniz's Definition of Monad",
+        "DOI": "math/0608298",
+        "x": 10.417274475097656,
+        "y": 4.878316879272461,
+        "cluster": 11
+      },
+      {
+        "title": "Notions of Monad Strength",
+        "DOI": "1309.5132",
+        "x": 10.402284622192383,
+        "y": 4.891744613647461,
+        "cluster": 11
+      }
+    ]
+  },
+  {
+    "void_id": 38,
+    "void_rank": 38,
+    "centroid": [
+      4.962169161209694,
+      5.500169173132217
+    ],
+    "log_density": -6.972363922796484,
+    "name": "Chaotic Dynamics of Urban Atmospheric Aerosol Transport",
+    "name_reasoning": "The surrounding papers link chaos theory in astrophysics with urban microclimate, aerosol, and atmospheric modeling, but no work integrates nonlinear chaotic dynamics into the prediction of aerosol dispersion and microclimate in city environments, a clear interdisciplinary gap.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          4.922132968902588,
+          5.401854515075684
+        ],
+        [
+          4.94767427444458,
+          5.630063056945801
+        ],
+        [
+          5.0328593254089355,
+          5.602029800415039
+        ],
+        [
+          5.070891857147217,
+          5.51835823059082
+        ],
+        [
+          5.088792324066162,
+          5.455587863922119
+        ],
+        [
+          5.049553871154785,
+          5.403502464294434
+        ]
+      ]
+    },
+    "shape_area": 0.027514504852774735,
+    "border_papers": [
+      {
+        "title": "The time-evolving impact of tree size on nighttime street canyon\n  microclimate: Wind tunnel modeling of aerodynamic effects and heat removal",
+        "DOI": "2301.05766",
+        "x": 4.9950103759765625,
+        "y": 5.5082502365112305,
+        "cluster": 36
+      },
+      {
+        "title": "The Impact of Orography and Latent Heating on the Location of the\n  Tropical Easterly Jet",
+        "DOI": "1308.0140",
+        "x": 4.984940528869629,
+        "y": 5.531268119812012,
+        "cluster": 36
+      },
+      {
+        "title": "Chaos in core-halo gravitating systems",
+        "DOI": "astro-ph/0701491",
+        "x": 4.949106693267822,
+        "y": 5.54214334487915,
+        "cluster": 21
+      },
+      {
+        "title": "Chaotic dynamics around cometary nuclei",
+        "DOI": "1710.10110",
+        "x": 4.975093841552734,
+        "y": 5.588259696960449,
+        "cluster": 12
+      },
+      {
+        "title": "Establishing a non-hydrostatic global atmospheric modeling system\n  (iAMAS) at 3-km horizontal resolution with online integrated aerosol\n  feedbacks on the Sunway supercomputer of China",
+        "DOI": "2112.04668",
+        "x": 4.922132968902588,
+        "y": 5.401854515075684,
+        "cluster": 13
+      },
+      {
+        "title": "Time in quantum gravity and black-hole information paradox",
+        "DOI": "1101.2744",
+        "x": 5.070891857147217,
+        "y": 5.51835823059082,
+        "cluster": 6
+      },
+      {
+        "title": "Simulation of Urban Effects of Cloud Physical Parameters",
+        "DOI": "physics/0006031",
+        "x": 5.0328593254089355,
+        "y": 5.602029800415039,
+        "cluster": 39
+      },
+      {
+        "title": "A Criterion for the Onset of Chaos in Compact, Eccentric Multiplanet\n  Systems",
+        "DOI": "2106.14863",
+        "x": 5.049553871154785,
+        "y": 5.403502464294434,
+        "cluster": 13
+      },
+      {
+        "title": "Generation of concentration density maxima of small dispersive coal dust\n  particles in horizontal iodine air filter at air-dust aerosol blow",
+        "DOI": "1306.2853",
+        "x": 4.94767427444458,
+        "y": 5.630063056945801,
+        "cluster": 33
+      },
+      {
+        "title": "Isotopic profiles imply strong convective influence on water near the\n  tropical tropopause",
+        "DOI": "1612.01900",
+        "x": 5.088792324066162,
+        "y": 5.455587863922119,
+        "cluster": 33
+      }
+    ]
+  },
+  {
+    "void_id": 39,
+    "void_rank": 39,
+    "centroid": [
+      6.137366017769013,
+      3.5328029974248496
+    ],
+    "log_density": -6.970673249663969,
+    "name": "Machine-Learning-Driven Degrees of Freedom for Optical Time-Frequency Modulation",
+    "name_reasoning": "The surrounding papers link optical time\u2011frequency communication techniques with statistical notions of degrees of freedom in regression and regularization, but no work yet unifies these by applying ML\u2011based degrees\u2011of\u2011freedom analysis to optimize optical time\u2011frequency modulation schemes.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          6.0778279304504395,
+          3.4058291912078857
+        ],
+        [
+          6.020602703094482,
+          3.475186586380005
+        ],
+        [
+          6.025909423828125,
+          3.486266613006592
+        ],
+        [
+          6.079215049743652,
+          3.5832736492156982
+        ],
+        [
+          6.251379013061523,
+          3.5939857959747314
+        ],
+        [
+          6.277632236480713,
+          3.5465948581695557
+        ],
+        [
+          6.158092021942139,
+          3.448382616043091
+        ]
+      ]
+    },
+    "shape_area": 0.0284107819349515,
+    "border_papers": [
+      {
+        "title": "Time-Frequency Packing for High Capacity Coherent Optical Links",
+        "DOI": "1404.4164",
+        "x": 6.137340545654297,
+        "y": 3.541550636291504,
+        "cluster": 31
+      },
+      {
+        "title": "On Delay-Doppler Plane Orthogonal Pulse",
+        "DOI": "2301.06721",
+        "x": 6.122134208679199,
+        "y": 3.513627052307129,
+        "cluster": 26
+      },
+      {
+        "title": "Optical two-way time and frequency transfer over free space",
+        "DOI": "1211.4902",
+        "x": 6.079215049743652,
+        "y": 3.5832736492156982,
+        "cluster": 31
+      },
+      {
+        "title": "Line-of-Sight Extrapolation Noise in Dust Polarization",
+        "DOI": "1606.08922",
+        "x": 6.158092021942139,
+        "y": 3.448382616043091,
+        "cluster": 31
+      },
+      {
+        "title": "Diversity and degrees of freedom in regression ensembles",
+        "DOI": "1803.00314",
+        "x": 6.068230628967285,
+        "y": 3.4531753063201904,
+        "cluster": 40
+      },
+      {
+        "title": "The Degrees of Freedom of Partial Least Squares Regression",
+        "DOI": "1002.4112",
+        "x": 6.025909423828125,
+        "y": 3.486266613006592,
+        "cluster": 40
+      },
+      {
+        "title": "Correlated Non-Linear Phase Noise in Multi-Subcarrier Systems",
+        "DOI": "1812.07502",
+        "x": 6.251379013061523,
+        "y": 3.5939857959747314,
+        "cluster": 15
+      },
+      {
+        "title": "When Does More Regularization Imply Fewer Degrees of Freedom? Sufficient\n  Conditions and Counter Examples from Lasso and Ridge Regression",
+        "DOI": "1311.2791",
+        "x": 6.020602703094482,
+        "y": 3.475186586380005,
+        "cluster": 11
+      },
+      {
+        "title": "Perfect signaling among three parties violating predefined causal order",
+        "DOI": "1312.5916",
+        "x": 6.0778279304504395,
+        "y": 3.4058291912078857,
+        "cluster": 3
+      },
+      {
+        "title": "Orthogonal Time Frequency Space Modulation -- Part II: Transceiver\n  Designs",
+        "DOI": "2209.05012",
+        "x": 6.277632236480713,
+        "y": 3.5465948581695557,
+        "cluster": 31
+      }
+    ]
+  },
+  {
+    "void_id": 40,
+    "void_rank": 40,
+    "centroid": [
+      3.535144406816234,
+      5.1205020164167605
+    ],
+    "log_density": -6.969266788858407,
+    "name": "Ionospheric Turbulence\u2011Aware Adaptive Optics",
+    "name_reasoning": "The surrounding works link adaptive\u2011optics PSF reconstruction with space\u2011weather and magnetohydrodynamic turbulence, yet no research directly integrates ionospheric plasma turbulence into adaptive\u2011optics correction models, leaving a gap for an optics\u2011plasma bridging field.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.4470319747924805,
+          5.036820888519287
+        ],
+        [
+          3.425130844116211,
+          5.204739570617676
+        ],
+        [
+          3.542267322540283,
+          5.260339736938477
+        ],
+        [
+          3.598099708557129,
+          5.229393482208252
+        ],
+        [
+          3.571706533432007,
+          5.10142707824707
+        ]
+      ]
+    },
+    "shape_area": 0.02528143500171609,
+    "border_papers": [
+      {
+        "title": "The Sloan Digital Sky Survey extended point spread functions",
+        "DOI": "1911.01430",
+        "x": 3.55533504486084,
+        "y": 5.106930732727051,
+        "cluster": 5
+      },
+      {
+        "title": "Manifold Damping of Transverse Wakefields in High Phase Advance\n  Traveling Wave Structures and Local Damping of Dipole Wakefields in Standing\n  Wave Accelerators",
+        "DOI": "physics/0107048",
+        "x": 3.4966437816619873,
+        "y": 5.109342098236084,
+        "cluster": 33
+      },
+      {
+        "title": "Uncertainty Quantification Techniques for Space Weather Modeling:\n  Thermospheric Density Application",
+        "DOI": "2201.02067",
+        "x": 3.571706533432007,
+        "y": 5.10142707824707,
+        "cluster": 13
+      },
+      {
+        "title": "Effects of field-aligned flows on standing kink and sausage modes\n  supported by coronal loops",
+        "DOI": "1309.3484",
+        "x": 3.455010175704956,
+        "y": 5.071261405944824,
+        "cluster": 33
+      },
+      {
+        "title": "Theoretical uncertainties in sparticle mass predictions from\n  computational tools",
+        "DOI": "hep-ph/0302102",
+        "x": 3.5779011249542236,
+        "y": 5.220274925231934,
+        "cluster": 12
+      },
+      {
+        "title": "Satellite observations of the Alfv\\'enic Transition from Weak to Strong\n  Magnetohydrodynamic Turbulence",
+        "DOI": "2301.06709",
+        "x": 3.5854921340942383,
+        "y": 5.220841407775879,
+        "cluster": 13
+      },
+      {
+        "title": "Effect of Coronal Loop Structure on Wave Heating by Phase Mixing",
+        "DOI": "2009.04366",
+        "x": 3.4470319747924805,
+        "y": 5.036820888519287,
+        "cluster": 33
+      },
+      {
+        "title": "Direction dependent Point spread function reconstruction for\n  Multi-Conjugate Adaptive Optics on Giant Segmented Mirror Telescopes",
+        "DOI": "2012.11429",
+        "x": 3.598099708557129,
+        "y": 5.229393482208252,
+        "cluster": 5
+      },
+      {
+        "title": "Explicit IMF $B_y$-effect maximizes at subauroral latitudes (Dedicated\n  to the memory of Eigil Friis-Christensen)",
+        "DOI": "1904.04568",
+        "x": 3.425130844116211,
+        "y": 5.204739570617676,
+        "cluster": 36
+      },
+      {
+        "title": "Point-spread function reconstruction of adaptive-optics imaging: Meeting\n  the astrometric requirements for time-delay cosmography",
+        "DOI": "2106.11060",
+        "x": 3.542267322540283,
+        "y": 5.260339736938477,
+        "cluster": 5
+      }
+    ]
+  },
+  {
+    "void_id": 41,
+    "void_rank": 41,
+    "centroid": [
+      4.962169161209694,
+      5.465653977067175
+    ],
+    "log_density": -6.9660919574332985,
+    "name": "Chaotic dynamics in Earth\u2019s atmospheric circulation",
+    "name_reasoning": "The surrounding papers span high\u2011resolution climate modeling, tropical jet dynamics, and chaos theory in astrophysical systems, but they omit a field that applies nonlinear and chaos concepts directly to atmospheric circulation and jet stream behavior, which would bridge planetary dynamics with climate science.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          4.99194860458374,
+          5.350358009338379
+        ],
+        [
+          4.922132968902588,
+          5.401854515075684
+        ],
+        [
+          4.949106693267822,
+          5.54214334487915
+        ],
+        [
+          4.975093841552734,
+          5.588259696960449
+        ],
+        [
+          5.070891857147217,
+          5.51835823059082
+        ],
+        [
+          5.088792324066162,
+          5.455587863922119
+        ],
+        [
+          5.076347351074219,
+          5.41485595703125
+        ]
+      ]
+    },
+    "shape_area": 0.025176517955742383,
+    "border_papers": [
+      {
+        "title": "The time-evolving impact of tree size on nighttime street canyon\n  microclimate: Wind tunnel modeling of aerodynamic effects and heat removal",
+        "DOI": "2301.05766",
+        "x": 4.9950103759765625,
+        "y": 5.5082502365112305,
+        "cluster": 36
+      },
+      {
+        "title": "The Impact of Orography and Latent Heating on the Location of the\n  Tropical Easterly Jet",
+        "DOI": "1308.0140",
+        "x": 4.984940528869629,
+        "y": 5.531268119812012,
+        "cluster": 36
+      },
+      {
+        "title": "Establishing a non-hydrostatic global atmospheric modeling system\n  (iAMAS) at 3-km horizontal resolution with online integrated aerosol\n  feedbacks on the Sunway supercomputer of China",
+        "DOI": "2112.04668",
+        "x": 4.922132968902588,
+        "y": 5.401854515075684,
+        "cluster": 13
+      },
+      {
+        "title": "Chaos in core-halo gravitating systems",
+        "DOI": "astro-ph/0701491",
+        "x": 4.949106693267822,
+        "y": 5.54214334487915,
+        "cluster": 21
+      },
+      {
+        "title": "A Criterion for the Onset of Chaos in Compact, Eccentric Multiplanet\n  Systems",
+        "DOI": "2106.14863",
+        "x": 5.049553871154785,
+        "y": 5.403502464294434,
+        "cluster": 13
+      },
+      {
+        "title": "Do N-planet systems have a boundary between chaotic and regular motions?",
+        "DOI": "0705.3124",
+        "x": 4.99194860458374,
+        "y": 5.350358009338379,
+        "cluster": 13
+      },
+      {
+        "title": "Time in quantum gravity and black-hole information paradox",
+        "DOI": "1101.2744",
+        "x": 5.070891857147217,
+        "y": 5.51835823059082,
+        "cluster": 6
+      },
+      {
+        "title": "Chaotic dynamics around cometary nuclei",
+        "DOI": "1710.10110",
+        "x": 4.975093841552734,
+        "y": 5.588259696960449,
+        "cluster": 12
+      },
+      {
+        "title": "Kac-Moody instantons in space-time foam as an alternative solution to\n  the black hole information paradox",
+        "DOI": "1707.00347",
+        "x": 5.076347351074219,
+        "y": 5.41485595703125,
+        "cluster": 6
+      },
+      {
+        "title": "Isotopic profiles imply strong convective influence on water near the\n  tropical tropopause",
+        "DOI": "1612.01900",
+        "x": 5.088792324066162,
+        "y": 5.455587863922119,
+        "cluster": 33
+      }
+    ]
+  },
+  {
+    "void_id": 42,
+    "void_rank": 42,
+    "centroid": [
+      5.717652854712114,
+      4.671804467571221
+    ],
+    "log_density": -6.96462945399437,
+    "name": "Integrated Climate\u2011Infrastructure Imaging Analytics",
+    "name_reasoning": "The surrounding papers span climate network science, paleoclimate reconstruction, and advanced imaging of structures, yet there is no research uniting climate-driven risk models with high\u2011resolution imaging to evaluate and predict infrastructure vulnerability.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.733412742614746,
+          4.630971431732178
+        ],
+        [
+          5.67241096496582,
+          4.6662278175354
+        ],
+        [
+          5.645025253295898,
+          4.688360214233398
+        ],
+        [
+          5.618313312530518,
+          4.768671035766602
+        ],
+        [
+          5.690928936004639,
+          4.80051326751709
+        ],
+        [
+          5.807857036590576,
+          4.788379192352295
+        ],
+        [
+          5.7834296226501465,
+          4.636953353881836
+        ]
+      ]
+    },
+    "shape_area": 0.023175347003984825,
+    "border_papers": [
+      {
+        "title": "Visualizing the invisible the relentless pursuit of MTech Imaging",
+        "DOI": "1606.01430",
+        "x": 5.733412742614746,
+        "y": 4.630971431732178,
+        "cluster": 38
+      },
+      {
+        "title": "Climate Networks around the Globe are Significantly Effected by El Nino",
+        "DOI": "0804.1374",
+        "x": 5.67241096496582,
+        "y": 4.6662278175354,
+        "cluster": 36
+      },
+      {
+        "title": "The Snowball Earth transition in a climate model with drifting\n  parameters",
+        "DOI": "1906.00952",
+        "x": 5.734882831573486,
+        "y": 4.732231140136719,
+        "cluster": 13
+      },
+      {
+        "title": "Teleconnection patterns of different El Ni\\~no types revealed by climate\n  network curvature",
+        "DOI": "2203.07035",
+        "x": 5.7834296226501465,
+        "y": 4.636953353881836,
+        "cluster": 36
+      },
+      {
+        "title": "Investigation of condominium building collapse in Surfside, Florida: A\n  video feature tracking approach",
+        "DOI": "2109.06629",
+        "x": 5.645025253295898,
+        "y": 4.688360214233398,
+        "cluster": 36
+      },
+      {
+        "title": "Evaluating proxy influence in assimilated paleoclimate reconstructions\n  -- Testing the exchangeability of two ensembles of spatial processes",
+        "DOI": "1909.01273",
+        "x": 5.650171756744385,
+        "y": 4.7248921394348145,
+        "cluster": 36
+      },
+      {
+        "title": "Making the Invisible Visible: Toward High-Quality Terahertz Tomographic\n  Imaging via Physics-Guided Restoration",
+        "DOI": "2304.14894",
+        "x": 5.7059712409973145,
+        "y": 4.759283542633057,
+        "cluster": 26
+      },
+      {
+        "title": "A simple conceptual model of abrupt glacial climate events",
+        "DOI": "0803.4429",
+        "x": 5.690928936004639,
+        "y": 4.80051326751709,
+        "cluster": 36
+      },
+      {
+        "title": "The episode of Quasi-Biennial Oscillation in 2016 did not have its roots\n  in its distant past; the role of the strong El Ni\\~no event",
+        "DOI": "1708.05581",
+        "x": 5.618313312530518,
+        "y": 4.768671035766602,
+        "cluster": 36
+      },
+      {
+        "title": "Additive manufacturing for energy storage: Methods, designs and\n  materials selection for customizable 3D printed batteries and supercapacitors",
+        "DOI": "1912.04755",
+        "x": 5.807857036590576,
+        "y": 4.788379192352295,
+        "cluster": 32
+      }
+    ]
+  },
+  {
+    "void_id": 43,
+    "void_rank": 43,
+    "centroid": [
+      5.2979396916552135,
+      4.982441232156594
+    ],
+    "log_density": -6.9634758002596975,
+    "name": "Unnamed Void 43",
+    "name_reasoning": "",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.390172004699707,
+          4.895328998565674
+        ],
+        [
+          5.246819972991943,
+          4.913278102874756
+        ],
+        [
+          5.271303176879883,
+          5.006629467010498
+        ],
+        [
+          5.3672776222229,
+          5.05817174911499
+        ],
+        [
+          5.413497447967529,
+          4.988280296325684
+        ]
+      ]
+    },
+    "shape_area": 0.018278386288216097,
+    "border_papers": [
+      {
+        "title": "Chaotic response of global climate to long-term solar forcing\n  variability",
+        "DOI": "0903.2795",
+        "x": 5.271303176879883,
+        "y": 5.006629467010498,
+        "cluster": 13
+      },
+      {
+        "title": "Earth's surface fluid variations and deformations from GPS and GRACE in\n  global warming",
+        "DOI": "1105.1841",
+        "x": 5.267387866973877,
+        "y": 4.93388032913208,
+        "cluster": 13
+      },
+      {
+        "title": "A similarity in patterns of global seismicity after St. Patrick's Day\n  geomagnetic storms of 2013 and 2015",
+        "DOI": "2302.14173",
+        "x": 5.383240699768066,
+        "y": 4.989443778991699,
+        "cluster": 36
+      },
+      {
+        "title": "Statistics of the seasonal cycle of the 1951-2000 surface temperature\n  records in Italy",
+        "DOI": "physics/0407145",
+        "x": 5.246819972991943,
+        "y": 4.913278102874756,
+        "cluster": 36
+      },
+      {
+        "title": "Chaotic background of large-scale climate oscillations",
+        "DOI": "1003.0392",
+        "x": 5.390841484069824,
+        "y": 4.998512268066406,
+        "cluster": 4
+      },
+      {
+        "title": "Ice formation in the Arctic during summer: false-bottoms",
+        "DOI": "0807.2272",
+        "x": 5.397480487823486,
+        "y": 5.0053019523620605,
+        "cluster": 36
+      },
+      {
+        "title": "Some Mathematical and Numerical Issues in Geophysical Fluid Dynamics and\n  Climate Dynamics",
+        "DOI": "0711.1886",
+        "x": 5.3672776222229,
+        "y": 5.05817174911499,
+        "cluster": 33
+      },
+      {
+        "title": "Foldscope: Origami-based paper microscope",
+        "DOI": "1403.1211",
+        "x": 5.367048263549805,
+        "y": 4.9050703048706055,
+        "cluster": 36
+      },
+      {
+        "title": "Correlation measurements of Atmospheric Pressure variations and\n  Seismicity during Hurricane Dennis",
+        "DOI": "physics/0507137",
+        "x": 5.413497447967529,
+        "y": 4.988280296325684,
+        "cluster": 13
+      },
+      {
+        "title": "The Great Season Climatic Oscillation",
+        "DOI": "physics/0701283",
+        "x": 5.390172004699707,
+        "y": 4.895328998565674,
+        "cluster": 36
+      }
+    ]
+  },
+  {
+    "void_id": 44,
+    "void_rank": 44,
+    "centroid": [
+      2.9475459785365743,
+      4.0850461344655145
+    ],
+    "log_density": -6.963025938393599,
+    "name": "Orbital envelope dynamics",
+    "name_reasoning": "The surrounding papers link envelope mathematics, orbital architecture, and asteroid motion planning, yet there is no dedicated research uniting envelope theory with celestial mechanics to model and predict small-body trajectories and impact risks.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          2.880017042160034,
+          4.0390143394470215
+        ],
+        [
+          2.8304591178894043,
+          4.097264289855957
+        ],
+        [
+          2.8309640884399414,
+          4.142066955566406
+        ],
+        [
+          2.916710138320923,
+          4.195190906524658
+        ],
+        [
+          2.9787635803222656,
+          4.160284519195557
+        ],
+        [
+          3.0108959674835205,
+          4.056807994842529
+        ]
+      ]
+    },
+    "shape_area": 0.019389374497791323,
+    "border_papers": [
+      {
+        "title": "Envelopes of $\\alpha$-sections",
+        "DOI": "1509.02084",
+        "x": 2.902851104736328,
+        "y": 4.044262409210205,
+        "cluster": 11
+      },
+      {
+        "title": "Model-free Envelope Dimension Selection",
+        "DOI": "1709.03945",
+        "x": 3.0108959674835205,
+        "y": 4.056807994842529,
+        "cluster": 8
+      },
+      {
+        "title": "DREAM I. Orbital architecture orrery",
+        "DOI": "2301.07727",
+        "x": 2.9787635803222656,
+        "y": 4.160284519195557,
+        "cluster": 13
+      },
+      {
+        "title": "The Regularity of Envelopes",
+        "DOI": "2110.14314",
+        "x": 2.880017042160034,
+        "y": 4.0390143394470215,
+        "cluster": 11
+      },
+      {
+        "title": "Motion Planning on an Asteroid Surface with Irregular Gravity Fields",
+        "DOI": "1902.02065",
+        "x": 2.9385480880737305,
+        "y": 4.181460857391357,
+        "cluster": 13
+      },
+      {
+        "title": "New ellipsometric approach for determining small light ellipticities",
+        "DOI": "1706.06174",
+        "x": 2.8868186473846436,
+        "y": 4.161179065704346,
+        "cluster": 29
+      },
+      {
+        "title": "The sunspot number record supports the existence of Planet 9 and the\n  effect of planetary motion on solar activity",
+        "DOI": "2201.06745",
+        "x": 2.916710138320923,
+        "y": 4.195190906524658,
+        "cluster": 43
+      },
+      {
+        "title": "A simple and effective parametrisation for Earth-impacting orbits",
+        "DOI": "1712.08436",
+        "x": 2.8304591178894043,
+        "y": 4.097264289855957,
+        "cluster": 13
+      },
+      {
+        "title": "Solar wind-driven day-to-day effects on the Martian\n  thermosphere/exosphere composition",
+        "DOI": "2103.01930",
+        "x": 2.8382625579833984,
+        "y": 4.141619682312012,
+        "cluster": 13
+      },
+      {
+        "title": "Detecting solar system objects with convolutional neural networks",
+        "DOI": "1807.10912",
+        "x": 2.8309640884399414,
+        "y": 4.142066955566406,
+        "cluster": 5
+      }
+    ]
+  },
+  {
+    "void_id": 45,
+    "void_rank": 45,
+    "centroid": [
+      3.4931730905105436,
+      4.913410840026511
+    ],
+    "log_density": -6.962555998702177,
+    "name": "Laboratory high\u2011energy\u2011density plasma studies of coronal heating",
+    "name_reasoning": "The surrounding papers cluster around solar coronal MHD wave heating, space\u2011weather observations, and high\u2011energy plasma modeling, but lack an experimental bridge that reproduces coronal heating physics in the lab. A dedicated high\u2011energy\u2011density plasma research field would connect solar\u2010corona theory, heavy\u2011ion collision modeling, and space\u2011weather measurements.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.483015298843384,
+          4.876834869384766
+        ],
+        [
+          3.3662850856781006,
+          4.878175735473633
+        ],
+        [
+          3.378964900970459,
+          4.942927360534668
+        ],
+        [
+          3.4032585620880127,
+          5.005066871643066
+        ],
+        [
+          3.425967216491699,
+          5.015531539916992
+        ],
+        [
+          3.4404702186584473,
+          5.0159807205200195
+        ],
+        [
+          3.5797252655029297,
+          4.923585891723633
+        ],
+        [
+          3.515516757965088,
+          4.878755569458008
+        ]
+      ]
+    },
+    "shape_area": 0.019105015803916103,
+    "border_papers": [
+      {
+        "title": "Cause Identification of Electromagnetic Transient Events using\n  Spatiotemporal Feature Learning",
+        "DOI": "1903.04486",
+        "x": 3.483015298843384,
+        "y": 4.876834869384766,
+        "cluster": 26
+      },
+      {
+        "title": "Volume uncertainty assessment method of asteroid models from\n  disk-integrated visual photometry",
+        "DOI": "1904.10676",
+        "x": 3.515516757965088,
+        "y": 4.878755569458008,
+        "cluster": 13
+      },
+      {
+        "title": "Core-corona separation in the UrQMD hybrid model",
+        "DOI": "1104.3981",
+        "x": 3.44575572013855,
+        "y": 4.972722053527832,
+        "cluster": 38
+      },
+      {
+        "title": "Characterisation of Fourteenth-Century Bell-Casting Pit in Old Town Hall\n  Sibiu, Romania",
+        "DOI": "nucl-ex/9908006",
+        "x": 3.5797252655029297,
+        "y": 4.923585891723633,
+        "cluster": 36
+      },
+      {
+        "title": "Effects of Fieldline Topology on Energy Propagation in the Corona",
+        "DOI": "1611.03325",
+        "x": 3.4238436222076416,
+        "y": 4.981475830078125,
+        "cluster": 2
+      },
+      {
+        "title": "MHD Waves and Coronal Heating: Unifying Empirical and MHD Turbulence\n  Models",
+        "DOI": "1208.3141",
+        "x": 3.4404702186584473,
+        "y": 5.0159807205200195,
+        "cluster": 33
+      },
+      {
+        "title": "Stratospheric Modulation of the MJO through Cirrus Cloud Feedbacks",
+        "DOI": "2204.02379",
+        "x": 3.378964900970459,
+        "y": 4.942927360534668,
+        "cluster": 13
+      },
+      {
+        "title": "Uncertainties in polarimetric 3D reconstructions of coronal mass\n  ejections",
+        "DOI": "1503.00314",
+        "x": 3.425967216491699,
+        "y": 5.015531539916992,
+        "cluster": 13
+      },
+      {
+        "title": "Effects of background periodic flow on MHD fast wave propagation to a\n  coronal loop",
+        "DOI": "2212.01061",
+        "x": 3.4032585620880127,
+        "y": 5.005066871643066,
+        "cluster": 33
+      },
+      {
+        "title": "First analysis of in-situ observation of surface Alfv\\'en waves in ICME\n  flux rope",
+        "DOI": "2211.16972",
+        "x": 3.3662850856781006,
+        "y": 4.878175735473633,
+        "cluster": 26
+      }
+    ]
+  },
+  {
+    "void_id": 46,
+    "void_rank": 46,
+    "centroid": [
+      10.502382913560773,
+      4.87889564396147
+    ],
+    "log_density": -6.9614584304326526,
+    "name": "Probabilistic Monads and Measure-Theoretic Foundations",
+    "name_reasoning": "The surrounding papers focus on abstract categorical monads and a single probabilistic application, leaving a gap for a unified study of monads that model probability (e.g., the Giry monad) and their measure\u2011theoretic properties.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          10.452276229858398,
+          4.85117769241333
+        ],
+        [
+          10.414243698120117,
+          4.862223148345947
+        ],
+        [
+          10.399867057800293,
+          4.879051208496094
+        ],
+        [
+          10.404932975769043,
+          4.908732891082764
+        ],
+        [
+          10.414144515991211,
+          4.925949573516846
+        ]
+      ]
+    },
+    "shape_area": 0.0017616401694340311,
+    "border_papers": [
+      {
+        "title": "What we talk about when we talk about monads",
+        "DOI": "1803.10195",
+        "x": 10.452276229858398,
+        "y": 4.85117769241333,
+        "cluster": 11
+      },
+      {
+        "title": "Leibniz's Definition of Monad",
+        "DOI": "math/0608298",
+        "x": 10.417274475097656,
+        "y": 4.878316879272461,
+        "cluster": 11
+      },
+      {
+        "title": "Waiting Times for Ties in Random Competitions",
+        "DOI": "2105.01310",
+        "x": 10.414243698120117,
+        "y": 4.862223148345947,
+        "cluster": 4
+      },
+      {
+        "title": "Theories of analytic monads",
+        "DOI": "1204.2703",
+        "x": 10.406631469726562,
+        "y": 4.87430477142334,
+        "cluster": 18
+      },
+      {
+        "title": "One Monad to Prove Them All",
+        "DOI": "1805.08059",
+        "x": 10.40567398071289,
+        "y": 4.884087562561035,
+        "cluster": 49
+      },
+      {
+        "title": "The nucleus of an adjunction and the Street monad on monads",
+        "DOI": "2004.07353",
+        "x": 10.403297424316406,
+        "y": 4.888020038604736,
+        "cluster": 11
+      },
+      {
+        "title": "The enriched Vietoris monad on representable spaces",
+        "DOI": "1212.5539",
+        "x": 10.414144515991211,
+        "y": 4.925949573516846,
+        "cluster": 47
+      },
+      {
+        "title": "Notions of Monad Strength",
+        "DOI": "1309.5132",
+        "x": 10.402284622192383,
+        "y": 4.891744613647461,
+        "cluster": 11
+      },
+      {
+        "title": "Codensity Lifting of Monads and its Dual",
+        "DOI": "1810.07972",
+        "x": 10.404932975769043,
+        "y": 4.908732891082764,
+        "cluster": 11
+      },
+      {
+        "title": "Monads and comonads in module categories",
+        "DOI": "0804.1460",
+        "x": 10.399867057800293,
+        "y": 4.879051208496094,
+        "cluster": 11
+      }
+    ]
+  },
+  {
+    "void_id": 47,
+    "void_rank": 47,
+    "centroid": [
+      5.381882324266593,
+      4.844380447896428
+    ],
+    "log_density": -6.959485124141388,
+    "name": "Ice\u2011core micro\u2011microscopy for climate reconstruction",
+    "name_reasoning": "The surrounding works cover macro\u2011scale climate variability, paleoclimate proxies, and low\u2011cost microscopy, but lack a field that bridges high\u2011resolution microscopic analysis of ice\u2011core particles with climate reconstruction.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.471320629119873,
+          4.768590450286865
+        ],
+        [
+          5.367048263549805,
+          4.9050703048706055
+        ],
+        [
+          5.383240699768066,
+          4.989443778991699
+        ],
+        [
+          5.457346439361572,
+          4.961365699768066
+        ],
+        [
+          5.462748050689697,
+          4.947993755340576
+        ]
+      ]
+    },
+    "shape_area": 0.012877790995958094,
+    "border_papers": [
+      {
+        "title": "The Great Season Climatic Oscillation",
+        "DOI": "physics/0701283",
+        "x": 5.390172004699707,
+        "y": 4.895328998565674,
+        "cluster": 36
+      },
+      {
+        "title": "Foldscope: Origami-based paper microscope",
+        "DOI": "1403.1211",
+        "x": 5.367048263549805,
+        "y": 4.9050703048706055,
+        "cluster": 36
+      },
+      {
+        "title": "Dynamical anomalies in terrestrial proxies of North Atlantic climate\n  variability during the last 2 ka",
+        "DOI": "1809.09996",
+        "x": 5.457287788391113,
+        "y": 4.827891826629639,
+        "cluster": 36
+      },
+      {
+        "title": "Microscope Project for Undergraduate Laboratories",
+        "DOI": "1606.03052",
+        "x": 5.458539009094238,
+        "y": 4.82839298248291,
+        "cluster": 26
+      },
+      {
+        "title": "A link between an ice age era and a rapid polar shift",
+        "DOI": "physics/0407082",
+        "x": 5.4303789138793945,
+        "y": 4.948257923126221,
+        "cluster": 36
+      },
+      {
+        "title": "On the Warming of the Southern Hemisphere since 1955 and Recent\n  Slowing-Down: Role of Sea Ice, Sun Spot and El Nino Variability",
+        "DOI": "1807.05676",
+        "x": 5.471320629119873,
+        "y": 4.768590450286865,
+        "cluster": 36
+      },
+      {
+        "title": "Fluctuations in some climate parameters",
+        "DOI": "1104.3231",
+        "x": 5.4440016746521,
+        "y": 4.9547905921936035,
+        "cluster": 33
+      },
+      {
+        "title": "Decadal to seasonal variability of Arctic sea ice albedo",
+        "DOI": "1109.3058",
+        "x": 5.462748050689697,
+        "y": 4.947993755340576,
+        "cluster": 36
+      },
+      {
+        "title": "Phase Synchronization in Temperature and Precipitation Records",
+        "DOI": "physics/0211092",
+        "x": 5.457346439361572,
+        "y": 4.961365699768066,
+        "cluster": 36
+      },
+      {
+        "title": "A similarity in patterns of global seismicity after St. Patrick's Day\n  geomagnetic storms of 2013 and 2015",
+        "DOI": "2302.14173",
+        "x": 5.383240699768066,
+        "y": 4.989443778991699,
+        "cluster": 36
+      }
+    ]
+  },
+  {
+    "void_id": 48,
+    "void_rank": 48,
+    "centroid": [
+      5.633710222100733,
+      4.706319663636261
+    ],
+    "log_density": -6.957445649533202,
+    "name": "Terahertz Imaging of Paleoclimate Proxies",
+    "name_reasoning": "The surrounding works link advanced imaging techniques (terahertz tomography, microscopy) with climate dynamics and proxy-based reconstructions, yet no research bridges terahertz/optical imaging directly to the analysis of climate proxies such as ice cores or sediment records. This missing interdisciplinary field would connect high\u2011resolution imaging methods to paleoclimate proxy development.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          5.733412742614746,
+          4.630971431732178
+        ],
+        [
+          5.67241096496582,
+          4.6662278175354
+        ],
+        [
+          5.645025253295898,
+          4.688360214233398
+        ],
+        [
+          5.54934024810791,
+          4.7937211990356445
+        ],
+        [
+          5.575437545776367,
+          4.820389270782471
+        ],
+        [
+          5.690928936004639,
+          4.80051326751709
+        ],
+        [
+          5.734882831573486,
+          4.732231140136719
+        ]
+      ]
+    },
+    "shape_area": 0.018324741197147887,
+    "border_papers": [
+      {
+        "title": "Investigation of condominium building collapse in Surfside, Florida: A\n  video feature tracking approach",
+        "DOI": "2109.06629",
+        "x": 5.645025253295898,
+        "y": 4.688360214233398,
+        "cluster": 36
+      },
+      {
+        "title": "Evaluating proxy influence in assimilated paleoclimate reconstructions\n  -- Testing the exchangeability of two ensembles of spatial processes",
+        "DOI": "1909.01273",
+        "x": 5.650171756744385,
+        "y": 4.7248921394348145,
+        "cluster": 36
+      },
+      {
+        "title": "Climate Networks around the Globe are Significantly Effected by El Nino",
+        "DOI": "0804.1374",
+        "x": 5.67241096496582,
+        "y": 4.6662278175354,
+        "cluster": 36
+      },
+      {
+        "title": "The episode of Quasi-Biennial Oscillation in 2016 did not have its roots\n  in its distant past; the role of the strong El Ni\\~no event",
+        "DOI": "1708.05581",
+        "x": 5.618313312530518,
+        "y": 4.768671035766602,
+        "cluster": 36
+      },
+      {
+        "title": "Making the Invisible Visible: Toward High-Quality Terahertz Tomographic\n  Imaging via Physics-Guided Restoration",
+        "DOI": "2304.14894",
+        "x": 5.7059712409973145,
+        "y": 4.759283542633057,
+        "cluster": 26
+      },
+      {
+        "title": "The Snowball Earth transition in a climate model with drifting\n  parameters",
+        "DOI": "1906.00952",
+        "x": 5.734882831573486,
+        "y": 4.732231140136719,
+        "cluster": 13
+      },
+      {
+        "title": "A simple conceptual model of abrupt glacial climate events",
+        "DOI": "0803.4429",
+        "x": 5.690928936004639,
+        "y": 4.80051326751709,
+        "cluster": 36
+      },
+      {
+        "title": "Software for Microscopy Workshop White Paper",
+        "DOI": "2005.00082",
+        "x": 5.54934024810791,
+        "y": 4.7937211990356445,
+        "cluster": 26
+      },
+      {
+        "title": "Visualizing the invisible the relentless pursuit of MTech Imaging",
+        "DOI": "1606.01430",
+        "x": 5.733412742614746,
+        "y": 4.630971431732178,
+        "cluster": 38
+      },
+      {
+        "title": "Archean Paleo-climate: The first snowball?",
+        "DOI": "1006.4336",
+        "x": 5.575437545776367,
+        "y": 4.820389270782471,
+        "cluster": 36
+      }
+    ]
+  },
+  {
+    "void_id": 49,
+    "void_rank": 49,
+    "centroid": [
+      3.4931730905105436,
+      4.568258879376096
+    ],
+    "log_density": -6.954324366629606,
+    "name": "Coupled Solar PV and Air Quality Forecasting",
+    "name_reasoning": "The surrounding papers address solar photovoltaic forecasting, ozone concentration prediction, and atmospheric variability separately, but there is no work linking solar PV output models with air\u2011quality (ozone) forecasting, leaving a gap for integrated prediction systems.",
+    "shape": {
+      "type": "convex_hull",
+      "vertices": [
+        [
+          3.425358533859253,
+          4.449305057525635
+        ],
+        [
+          3.4070301055908203,
+          4.471874237060547
+        ],
+        [
+          3.3821749687194824,
+          4.538029193878174
+        ],
+        [
+          3.4357011318206787,
+          4.6937642097473145
+        ],
+        [
+          3.5055646896362305,
+          4.59433126449585
+        ],
+        [
+          3.53031587600708,
+          4.543283462524414
+        ],
+        [
+          3.503129005432129,
+          4.456433296203613
+        ]
+      ]
+    },
+    "shape_area": 0.02223874787227942,
+    "border_papers": [
+      {
+        "title": "Deep Photovoltaic Nowcasting",
+        "DOI": "1810.06327",
+        "x": 3.516852617263794,
+        "y": 4.552506923675537,
+        "cluster": 5
+      },
+      {
+        "title": "In-Situ Self-Monitoring of Real-Time Photovoltaic Degradation Only Using\n  Maximum Power Point: the Suns-Vmp Method",
+        "DOI": "1802.01206",
+        "x": 3.5055646896362305,
+        "y": 4.59433126449585,
+        "cluster": 26
+      },
+      {
+        "title": "Discrepancies in Southern Hemisphere Mid-latitude Atmospheric\n  Variability of the NCEP-NCAR and ECMWF Reanalyses",
+        "DOI": "physics/0509145",
+        "x": 3.470376968383789,
+        "y": 4.599063873291016,
+        "cluster": 36
+      },
+      {
+        "title": "In-Network Distributed Solar Current Prediction",
+        "DOI": "1410.7367",
+        "x": 3.53031587600708,
+        "y": 4.543283462524414,
+        "cluster": 14
+      },
+      {
+        "title": "SolarStat: Modeling Photovoltaic Sources through Stochastic Markov\n  Processes",
+        "DOI": "1311.1025",
+        "x": 3.4011828899383545,
+        "y": 4.553845405578613,
+        "cluster": 40
+      },
+      {
+        "title": "A class of covariate-dependent spatiotemporal covariance functions for\n  the analysis of daily ozone concentration",
+        "DOI": "1202.6172",
+        "x": 3.503129005432129,
+        "y": 4.456433296203613,
+        "cluster": 40
+      },
+      {
+        "title": "Transfer Learning in Spatial-Temporal Forecasting of the Solar Magnetic\n  Field",
+        "DOI": "1911.03193",
+        "x": 3.3821749687194824,
+        "y": 4.538029193878174,
+        "cluster": 13
+      },
+      {
+        "title": "A data-driven approach to the forecasting of ground-level ozone\n  concentration",
+        "DOI": "2012.00685",
+        "x": 3.4070301055908203,
+        "y": 4.471874237060547,
+        "cluster": 40
+      },
+      {
+        "title": "A real-time hourly ozone prediction system using deep convolutional\n  neural network",
+        "DOI": "1901.11079",
+        "x": 3.425358533859253,
+        "y": 4.449305057525635,
+        "cluster": 19
+      },
+      {
+        "title": "Large Scale Flows from Orion-South",
+        "DOI": "astro-ph/0701614",
+        "x": 3.4357011318206787,
+        "y": 4.6937642097473145,
+        "cluster": 33
+      }
+    ]
+  }
+]

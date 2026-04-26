@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { type Cluster, type ViewTransform } from '../types';
 import { hullToSmoothPath, expandHull, type Vec2 } from '../utils/convexHull';
 import { wrapLabel } from '../utils/measureLabels';
+import { MIN_LABEL_SCALE } from '../utils/computeLabelRevealScales';
 
 interface ClusterRingsProps {
   clusters:          Map<number, Cluster>;
@@ -22,11 +23,9 @@ function normToScreen(
   ny: number,
   transform: ViewTransform,
 ): [number, number] {
-  const ox = transform.offsetX / transform.scale;
-  const oy = transform.offsetY / transform.scale;
   return [
-    (nx + ox) * transform.scale,
-    (ny + oy) * transform.scale,
+    nx * transform.scale + transform.offsetX,
+    ny * transform.scale + transform.offsetY,
   ];
 }
 
@@ -40,8 +39,18 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
   onClusterClick,
   onClusterHover,
 }) => {
-  const rings = useMemo(() => {
+  // Static per-cluster data — only recomputes when clusters change
+  const staticData = useMemo(() => {
     return Array.from(clusters.values()).map(cluster => {
+      const lines    = wrapLabel(cluster.label ?? `Cluster ${cluster.id}`, LABEL_MAX_CHARS);
+      const linesSel = wrapLabel(cluster.label ?? `Cluster ${cluster.id}`, LABEL_MAX_CHARS_SEL);
+      return { cluster, lines, linesSel };
+    });
+  }, [clusters]);
+
+  // Screen-space data — recomputes on transform / selection / hover
+  const rings = useMemo(() => {
+    return staticData.map(({ cluster, lines, linesSel }) => {
       const screenHull: Vec2[] = cluster.hull.map(([nx, ny]) =>
         normToScreen(nx, ny, transform),
       );
@@ -57,19 +66,16 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
       const path           = hullToSmoothPath(displayHull);
       const centroidScreen = normToScreen(cluster.centroid[0], cluster.centroid[1], transform);
 
-      // Label is visible when:
-      //   - scale has reached or passed the precomputed reveal threshold, OR
-      //   - the cluster is selected / hovered (always show those)
       const showLabel =
         isSelected ||
         isHovered  ||
-        transform.scale >= (cluster.revealScale ?? Infinity);
+        (transform.scale >= MIN_LABEL_SCALE && transform.scale >= (cluster.revealScale ?? Infinity));
 
-      console.log(transform.scale)
+      const activeLines = isSelected ? linesSel : lines;
 
-      return { cluster, path, centroidScreen, isSelected, isHovered, showLabel };
+      return { cluster, path, centroidScreen, isSelected, isHovered, showLabel, activeLines };
     });
-  }, [clusters, transform, selectedClusterId, hoveredClusterId]);
+  }, [staticData, transform, selectedClusterId, hoveredClusterId]);
 
   return (
     <svg
@@ -97,7 +103,7 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
         ))}
       </defs>
 
-      {rings.map(({ cluster, path, centroidScreen, isSelected, isHovered, showLabel }) => {
+      {rings.map(({ cluster, path, centroidScreen, isSelected, isHovered, showLabel, activeLines }) => {
         const opacity =
           selectedClusterId !== null && !isSelected
             ? 0.12
@@ -116,10 +122,8 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
         if (!inView && !isSelected) return null;
 
         const fontSize    = isSelected ? 14 : 12;
-        const maxChars    = isSelected ? LABEL_MAX_CHARS_SEL : LABEL_MAX_CHARS;
-        const lines       = wrapLabel(cluster.label ?? `Cluster ${cluster.id}`, maxChars);
         const lineHeight  = fontSize * 1.3;
-        const blockHeight = lines.length * lineHeight;
+        const blockHeight = activeLines.length * lineHeight;
         const startY      = centroidScreen[1] - blockHeight / 2 + lineHeight / 2;
 
         return (
@@ -131,7 +135,7 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
             onMouseLeave={() => onClusterHover(null)}
           >
             {showLabel &&
-              lines.map((line, i) => (
+              activeLines.map((line, i) => (
                 <text
                   key={i}
                   x={centroidScreen[0]}

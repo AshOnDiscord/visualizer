@@ -24,6 +24,13 @@ const server = serve({
       });
     },
 
+    "/public/voids.json": async () => {
+      const file = Bun.file(resolve("public/voids.json"));
+      return new Response(file, {
+        headers: { "Content-Type": "application/json" },
+      });
+    },
+
 
     // Serve index.html for all unmatched routes.
     "/*": index,

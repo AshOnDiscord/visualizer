@@ -1,36 +1,59 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import * as arrow from 'apache-arrow';
 import type { ProcessedPaper, Cluster, AtlasState } from '../types';
 import { computeDensity, type Point2D } from '../utils/dbscan';
 import { convexHull, expandHull, centroid, type Vec2 } from '../utils/convexHull';
 import { clusterColor } from '../utils/colors';
-import { measureLabels } from '../utils/measureLabels';
+import { measureLabels, type LabelSizePx } from '../utils/measureLabels';
 import { computeLabelRevealScales } from '../utils/computeLabelRevealScales';
 
 const PARQUET_URL        = '/public/umap_200k.parquet';
 const CLUSTER_LABELS_URL = '/public/cluster_labels.json';
 
 const DENSITY_RADIUS = 0.015;
+const LABEL_FONT     = "500 12px 'JetBrains Mono', monospace";
 
-const LABEL_FONT = "500 12px 'JetBrains Mono', monospace";
+// Raw loaded data before reveal scales are stamped — never changes after load
+interface RawAtlasData {
+  papers:     ProcessedPaper[];
+  clusters:   Map<number, Cluster>;
+  labelSizes: Map<number, LabelSizePx>;
+}
 
 // ---------------------------------------------------------------------------
 // Hook
 // ---------------------------------------------------------------------------
 export function useParquetData(
-  canvasWidth  = 800,
-  canvasHeight = 600,
+  canvasWidth:  number,
+  canvasHeight: number,
 ): AtlasState & { reload: () => void } {
-  const [state, setState] = useState<AtlasState>({
-    papers: [],
-    clusters: new Map(),
-    loading: true,
+  const [loadState, setLoadState] = useState<{
+    loading:         boolean;
+    loadingProgress: string;
+    error:           string | null;
+    raw:             RawAtlasData | null;
+  }>({
+    loading:         true,
     loadingProgress: 'Initializing…',
-    error: null,
+    error:           null,
+    raw:             null,
   });
 
+  // Stable ref to raw data so the reveal-scale effect doesn't re-run the fetch
+  const rawRef = useRef<RawAtlasData | null>(null);
+
+  // Final state with reveal scales stamped in
+  const [atlasState, setAtlasState] = useState<AtlasState>({
+    papers:          [],
+    clusters:        new Map(),
+    loading:         true,
+    loadingProgress: 'Initializing…',
+    error:           null,
+  });
+
+  // ── Load parquet once ──────────────────────────────────────────────────────
   const load = useCallback(async () => {
-    setState(s => ({ ...s, loading: true, error: null, loadingProgress: 'Fetching parquet file…' }));
+    setLoadState(s => ({ ...s, loading: true, error: null, loadingProgress: 'Fetching parquet file…' }));
 
     try {
       const [res, labelsRes] = await Promise.all([
@@ -44,21 +67,21 @@ export function useParquetData(
         ? await labelsRes.json()
         : {};
 
-      setState(s => ({ ...s, loadingProgress: 'Reading parquet bytes…' }));
+      setLoadState(s => ({ ...s, loadingProgress: 'Reading parquet bytes…' }));
       const buffer = await res.arrayBuffer();
 
-      setState(s => ({ ...s, loadingProgress: 'Parsing parquet columns…' }));
+      setLoadState(s => ({ ...s, loadingProgress: 'Parsing parquet columns…' }));
       const table = await arrow.tableFromIPC(new Uint8Array(buffer));
 
-      setState(s => ({ ...s, loadingProgress: 'Extracting columns…' }));
+      setLoadState(s => ({ ...s, loadingProgress: 'Extracting columns…' }));
 
       const n = table.numRows;
       const ids: (string | number)[] = [];
-      const titles: string[]  = [];
-      const dois: string[]    = [];
-      const xs: number[]      = [];
-      const ys: number[]      = [];
-      const clusterIds: number[] = [];
+      const titles: string[]         = [];
+      const dois: string[]           = [];
+      const xs: number[]             = [];
+      const ys: number[]             = [];
+      const clusterIds: number[]     = [];
 
       const colNames = table.schema.fields.map(f => f.name.toLowerCase());
       const getCol = (names: string[]) => {
@@ -95,7 +118,7 @@ export function useParquetData(
         clusterIds.push(Number(clusterCol.get(i)));
       }
 
-      setState(s => ({ ...s, loadingProgress: 'Normalizing coordinates…' }));
+      setLoadState(s => ({ ...s, loadingProgress: 'Normalizing coordinates…' }));
 
       let minX = Infinity, maxX = -Infinity;
       let minY = Infinity, maxY = -Infinity;
@@ -111,12 +134,12 @@ export function useParquetData(
       const nxs = xs.map(v => (v - minX) / rangeX);
       const nys = ys.map(v => (v - minY) / rangeY);
 
-      setState(s => ({ ...s, loadingProgress: 'Computing density…' }));
+      setLoadState(s => ({ ...s, loadingProgress: 'Computing density…' }));
 
       const pts: Point2D[] = nxs.map((x, i) => ({ x, y: nys[i], index: i }));
       const density = computeDensity(pts, DENSITY_RADIUS);
 
-      setState(s => ({ ...s, loadingProgress: 'Building cluster hulls…' }));
+      setLoadState(s => ({ ...s, loadingProgress: 'Building cluster hulls…' }));
 
       const clusterPoints = new Map<number, Vec2[]>();
       for (let i = 0; i < n; i++) {
@@ -126,7 +149,6 @@ export function useParquetData(
         clusterPoints.get(cid)!.push([nxs[i], nys[i]]);
       }
 
-      // Single-pass density-weighted centroid accumulation
       const weightedSums = new Map<number, { wx: number; wy: number; w: number }>();
       for (const id of clusterPoints.keys()) {
         weightedSums.set(id, { wx: 0, wy: 0, w: 0 });
@@ -142,7 +164,7 @@ export function useParquetData(
         s.w  += w;
       }
 
-      // Build clusters (without revealScale yet)
+      // Build clusters without revealScale — that's stamped separately
       const clusters = new Map<number, Cluster>();
       for (const [id, cpts] of clusterPoints) {
         const hull     = convexHull([...cpts]);
@@ -160,16 +182,15 @@ export function useParquetData(
           centroid:    c,
           size:        cpts.length,
           label:       clusterLabelMap[String(id)] ?? `Cluster ${id}`,
-          revealScale: Infinity, // filled in below
+          revealScale: Infinity,
         });
       }
 
-      setState(s => ({ ...s, loadingProgress: 'Computing label visibility…' }));
+      setLoadState(s => ({ ...s, loadingProgress: 'Measuring labels…' }));
 
-      // Measure label sizes once (same font as ClusterRings)
-      const ids2       = Array.from(clusters.keys());
-      const strings    = ids2.map(id => clusters.get(id)!.label);
-      const measured   = measureLabels(strings, {
+      const ids2     = Array.from(clusters.keys());
+      const strings  = ids2.map(id => clusters.get(id)!.label);
+      const measured = measureLabels(strings, {
         font:     LABEL_FONT,
         maxChars: 16,
         paddingX: 6,
@@ -177,21 +198,6 @@ export function useParquetData(
         fontSize: 12,
       });
       const labelSizes = new Map(ids2.map((id, i) => [id, measured[i]]));
-
-      // Compute per-cluster reveal scale
-      const revealScales = computeLabelRevealScales(
-        clusters,
-        labelSizes,
-        canvasWidth,
-        canvasHeight,
-      );
-
-      // Stamp revealScale onto each cluster
-      for (const [id, scale] of revealScales) {
-        clusters.get(id)!.revealScale = scale;
-      }
-
-      setState(s => ({ ...s, loadingProgress: 'Assembling dataset…' }));
 
       const papers: ProcessedPaper[] = [];
       for (let i = 0; i < n; i++) {
@@ -208,23 +214,72 @@ export function useParquetData(
         });
       }
 
-      setState({
-        papers,
-        clusters,
+      const raw: RawAtlasData = { papers, clusters, labelSizes };
+      rawRef.current = raw;
+
+      setLoadState({
         loading:         false,
         loadingProgress: '',
         error:           null,
+        raw,
       });
     } catch (err) {
-      setState(s => ({
+      setLoadState(s => ({
         ...s,
         loading: false,
         error: err instanceof Error ? err.message : String(err),
+        raw: null,
       }));
     }
-  }, [canvasWidth, canvasHeight]);
+  }, []); // no canvas size deps — load never re-runs due to resize
 
   useEffect(() => { load(); }, [load]);
 
-  return { ...state, reload: load };
+  // ── Re-stamp reveal scales when canvas size changes ────────────────────────
+  // This is cheap (pure CPU, no fetch) so it's fine to re-run on resize
+  useEffect(() => {
+    const raw = rawRef.current;
+    if (!raw || loadState.loading || loadState.error) return;
+
+    const { papers, clusters, labelSizes } = raw;
+
+    // Clone clusters so we don't mutate the ref's data
+    const updated = new Map<number, Cluster>();
+    for (const [id, cluster] of clusters) {
+      updated.set(id, { ...cluster });
+    }
+
+    const revealScales = computeLabelRevealScales(
+      updated,
+      labelSizes,
+      canvasWidth,
+      canvasHeight,
+    );
+
+    for (const [id, scale] of revealScales) {
+      updated.get(id)!.revealScale = scale;
+    }
+
+    setAtlasState({
+      papers,
+      clusters: updated,
+      loading:         false,
+      loadingProgress: '',
+      error:           null,
+    });
+  }, [loadState.loading, loadState.error, loadState.raw, canvasWidth, canvasHeight]);
+
+  // Pass through loading/error states
+  if (loadState.loading || loadState.error) {
+    return {
+      papers:          [],
+      clusters:        new Map(),
+      loading:         loadState.loading,
+      loadingProgress: loadState.loadingProgress,
+      error:           loadState.error,
+      reload:          load,
+    };
+  }
+
+  return { ...atlasState, reload: load };
 }
