@@ -1,14 +1,5 @@
 /**
- * EmbeddingAtlas.tsx  — with void detection overlay
- *
- * New additions vs original:
- *  - useVoidData hook (loads voids.json, normalises coords)
- *  - VoidOverlay SVG layer (rings + border-paper dots + labels)
- *  - VoidPanel slide-in menu (list, detail, toggles)
- *  - WebGL dimming extended to handle void selection
- *  - Pan-to-void on selection (same pattern as cluster pan)
- *
- * Everything else is unchanged.
+ * EmbeddingAtlas.tsx  — with void detection overlay + dark mode
  */
 
 import React, {
@@ -49,10 +40,16 @@ export const EmbeddingAtlas: React.FC = () => {
   const canvasRef    = useRef<HTMLCanvasElement>(null);
   const [size, setSize] = useState({ width: 800, height: 600 });
 
+  // ── Dark mode ──────────────────────────────────────────────────────────────
+  const [darkMode, setDarkMode] = useState(() => {
+    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+  });
+
+  const dm = darkMode; // shorthand
+
   const { papers, clusters, loading, loadingProgress, error, reload } =
     useParquetData(size.width, size.height);
 
-  // ── Coordinate bounds from papers (same min/max useParquetData computes) ──
   const bounds = useMemo(() => {
     if (papers.length === 0) return { minX: 0, maxX: 1, minY: 0, maxY: 1 };
     let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
@@ -65,17 +62,15 @@ export const EmbeddingAtlas: React.FC = () => {
     return { minX, maxX, minY, maxY };
   }, [papers]);
 
-  // ── Void data ─────────────────────────────────────────────────────────────
   const { voids, loading: voidsLoading } = useVoidData(
     bounds.minX, bounds.maxX, bounds.minY, bounds.maxY,
-    papers.length > 0,   // only load after papers so bounds are real
+    papers.length > 0,
   );
 
   const [selectedVoidId,  setSelectedVoidId]  = useState<number | null>(null);
   const [voidsVisible,    setVoidsVisible]    = useState(true);
   const [showVoidLabels,  setShowVoidLabels]  = useState(false);
 
-  // ── General atlas state ───────────────────────────────────────────────────
   const [transform,         setTransform]         = useState<ViewTransform>({ scale: 600, offsetX: 50, offsetY: 50 });
   const [hovered,           setHovered]           = useState<ProcessedPaper | null>(null);
   const [mousePos,          setMousePos]          = useState({ x: 0, y: 0 });
@@ -90,26 +85,20 @@ export const EmbeddingAtlas: React.FC = () => {
   const transformRef = useRef(transform);
   transformRef.current = transform;
 
-  // ── Build a Set of border-paper DOIs for the selected void ───────────────
-  // Used to highlight those points in the WebGL layer
   const voidBorderIds = useMemo<Set<string | number> | null>(() => {
     if (selectedVoidId === null) return null;
     const v = voids.find(v => v.void_id === selectedVoidId);
     if (!v) return null;
-    // Match by DOI (same field used as paper id in ProcessedPaper)
-    const ids = new Set<string | number>(v.border_papers.map(p => p.DOI));
-    return ids;
+    return new Set<string | number>(v.border_papers.map(p => p.DOI));
   }, [selectedVoidId, voids]);
 
-  // The WebGL renderer receives either cluster/search highlights or void highlights.
-  // Void selection takes priority.
   const activeSearchResultIds = useMemo(() => {
     if (voidBorderIds !== null) return voidBorderIds;
     return searchResultIds;
   }, [voidBorderIds, searchResultIds]);
 
   const activeSelectedClusterId = useMemo(() => {
-    if (selectedVoidId !== null) return null;   // void mode dims clusters
+    if (selectedVoidId !== null) return null;
     return selectedClusterId;
   }, [selectedVoidId, selectedClusterId]);
 
@@ -126,12 +115,10 @@ export const EmbeddingAtlas: React.FC = () => {
     return () => ro.disconnect();
   }, []);
 
-  // ── Quadtree ──────────────────────────────────────────────────────────────
   useEffect(() => {
     if (papers.length > 0) qtRef.current = buildQuadtree(papers);
   }, [papers]);
 
-  // ── Initial fit ───────────────────────────────────────────────────────────
   useEffect(() => {
     if (papers.length === 0) return;
     setTransform({
@@ -141,7 +128,6 @@ export const EmbeddingAtlas: React.FC = () => {
     });
   }, [size.width, size.height, papers.length > 0]);
 
-  // ── WebGL renderer ────────────────────────────────────────────────────────
   useWebGLRenderer(canvasRef, {
     papers,
     width:             size.width,
@@ -150,6 +136,7 @@ export const EmbeddingAtlas: React.FC = () => {
     hoveredId:         hovered?.id ?? null,
     selectedClusterId: activeSelectedClusterId,
     searchResultIds:   activeSearchResultIds,
+    darkMode,
   });
 
   // ── Pointer events ────────────────────────────────────────────────────────
@@ -225,7 +212,6 @@ export const EmbeddingAtlas: React.FC = () => {
     });
   }, []);
 
-  // Touch / pinch
   const lastTouches = useRef<React.TouchList | null>(null);
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     lastTouches.current = e.touches;
@@ -262,7 +248,6 @@ export const EmbeddingAtlas: React.FC = () => {
     lastTouches.current = e.touches;
   }, []);
 
-  // ── Search callbacks ──────────────────────────────────────────────────────
   const handleSearchResults = useCallback((
     ids: Set<string | number> | null,
     focusPaper?: ProcessedPaper,
@@ -292,17 +277,13 @@ export const EmbeddingAtlas: React.FC = () => {
     }
   }, [clusters, size]);
 
-  // ── Void callbacks ────────────────────────────────────────────────────────
   const handleVoidSelect = useCallback((id: number | null) => {
     setSelectedVoidId(id);
     setSelectedClusterId(null);
     setSearchResultIds(null);
-
     if (id === null) return;
     const v = voids.find(v => v.void_id === id);
     if (!v) return;
-
-    // Pan so the void centroid is centred
     setTransform(t => ({
       ...t,
       offsetX: size.width  / 2 - v.ncx * t.scale,
@@ -310,29 +291,43 @@ export const EmbeddingAtlas: React.FC = () => {
     }));
   }, [voids, size]);
 
-  // ── Stats ─────────────────────────────────────────────────────────────────
   const stats = useMemo(() => ({
     total:        papers.length,
     clusterCount: clusters.size,
   }), [papers.length, clusters.size]);
 
+  // ── Theme tokens ──────────────────────────────────────────────────────────
+  const theme = {
+    bg:           dm ? 'linear-gradient(135deg, #0d0f14 0%, #111318 40%, #120f18 100%)' : 'linear-gradient(135deg, #f0f2f8 0%, #e8ecf5 40%, #f2eef8 100%)',
+    dot:          dm ? 'rgba(120,130,180,0.07)' : 'rgba(120,130,180,0.12)',
+    glass:        dm ? 'rgba(20,22,30,0.88)'    : 'rgba(255,255,255,0.82)',
+    glassBorder:  dm ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)',
+    glassShadow:  dm ? '0 4px 16px rgba(0,0,0,0.4)' : '0 4px 16px rgba(0,0,0,0.07)',
+    titleColor:   dm ? '#e2e8f0' : '#1e293b',
+    subColor:     dm ? '#6366f1' : '#94a3b8',
+    btnBg:        dm ? 'rgba(20,22,30,0.9)'     : 'rgba(255,255,255,0.9)',
+    btnBorder:    dm ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
+    btnColor:     dm ? '#94a3b8' : '#475569',
+    clusterBg:    dm ? 'rgba(20,22,30,0.92)'    : 'rgba(255,255,255,0.92)',
+  };
+
   // ── Render ────────────────────────────────────────────────────────────────
   return (
     <div
       className="relative w-full h-screen overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #f0f2f8 0%, #e8ecf5 40%, #f2eef8 100%)' }}
+      style={{ background: theme.bg, transition: 'background 0.4s' }}
     >
       {/* Grid texture */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(circle, rgba(120,130,180,0.12) 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle, ${theme.dot} 1px, transparent 1px)`,
           backgroundSize: '28px 28px',
           zIndex: 0,
         }}
       />
 
-      {/* ── Void panel (left slide-in) ── */}
+      {/* Void panel */}
       <VoidPanel
         voids={voids}
         selectedVoidId={selectedVoidId}
@@ -342,9 +337,10 @@ export const EmbeddingAtlas: React.FC = () => {
         onSelectVoid={handleVoidSelect}
         onToggleLabels={() => setShowVoidLabels(v => !v)}
         onToggleVoids={() => setVoidsVisible(v => !v)}
+        darkMode={dm}
       />
 
-      {/* ── Main canvas + overlay container ── */}
+      {/* Main canvas + overlay container */}
       <div
         ref={containerRef}
         className="absolute inset-0"
@@ -370,7 +366,6 @@ export const EmbeddingAtlas: React.FC = () => {
           style={{ zIndex: 1 }}
         />
 
-        {/* Cluster rings */}
         {!loading && (
           <ClusterRings
             clusters={clusters}
@@ -381,10 +376,10 @@ export const EmbeddingAtlas: React.FC = () => {
             height={size.height}
             onClusterClick={handleClusterClick}
             onClusterHover={setHoveredClusterId}
+            darkMode={dm}
           />
         )}
 
-        {/* Void overlay */}
         {!loading && voidsVisible && voids.length > 0 && (
           <VoidOverlay
             voids={voids}
@@ -398,16 +393,17 @@ export const EmbeddingAtlas: React.FC = () => {
         )}
       </div>
 
-      {/* ── Tooltip ── */}
+      {/* Tooltip */}
       <Tooltip
         paper={hovered}
         x={mousePos.x}
         y={mousePos.y}
         containerWidth={size.width}
         containerHeight={size.height}
+        darkMode={dm}
       />
 
-      {/* ── Search bar ── */}
+      {/* Search bar */}
       <div
         className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-3"
         style={{ zIndex: 50 }}
@@ -416,31 +412,47 @@ export const EmbeddingAtlas: React.FC = () => {
           papers={papers}
           onResults={handleSearchResults}
           disabled={loading}
+          darkMode={dm}
         />
       </div>
 
-      {/* ── Top-left title ── */}
+      {/* Top-left title */}
       <div className="absolute top-4 left-4" style={{ zIndex: 50 }}>
         <div
           style={{
-            background: 'rgba(255,255,255,0.82)',
+            background: theme.glass,
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
-            border: '1px solid rgba(0,0,0,0.07)',
+            border: `1px solid ${theme.glassBorder}`,
             borderRadius: 10,
             padding: '8px 14px',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.07)',
+            boxShadow: theme.glassShadow,
+            transition: 'background 0.4s, border-color 0.4s',
           }}
         >
           <h1
-            className="text-gray-800 font-semibold tracking-tight"
-            style={{ fontFamily: "'Crimson Pro', Georgia, serif", fontSize: 17, lineHeight: 1 }}
+            style={{
+              fontFamily: "'Crimson Pro', Georgia, serif",
+              fontSize: 17,
+              lineHeight: 1,
+              fontWeight: 600,
+              color: theme.titleColor,
+              margin: 0,
+              transition: 'color 0.4s',
+            }}
           >
             arXiv Atlas
           </h1>
           <p
-            className="text-gray-400 mt-0.5"
-            style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '0.04em' }}
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 9,
+              letterSpacing: '0.04em',
+              marginTop: 4,
+              marginBottom: 0,
+              color: theme.subColor,
+              transition: 'color 0.4s',
+            }}
           >
             {stats.total > 0
               ? `${stats.total.toLocaleString()} papers · ${stats.clusterCount} clusters · ${voids.length} voids`
@@ -449,7 +461,7 @@ export const EmbeddingAtlas: React.FC = () => {
         </div>
       </div>
 
-      {/* ── Bottom-right zoom controls ── */}
+      {/* Bottom-right controls: zoom + dark mode toggle */}
       <div
         className="absolute bottom-4 right-4 flex flex-col gap-2"
         style={{ zIndex: 50 }}
@@ -486,14 +498,14 @@ export const EmbeddingAtlas: React.FC = () => {
             }}
             style={{
               width: 36, height: 36,
-              background: 'rgba(255,255,255,0.9)',
+              background: theme.btnBg,
               backdropFilter: 'blur(12px)',
               WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(0,0,0,0.08)',
+              border: `1px solid ${theme.btnBorder}`,
               borderRadius: 8,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
+              boxShadow: dm ? '0 2px 8px rgba(0,0,0,0.4)' : '0 2px 8px rgba(0,0,0,0.07)',
               fontSize: label === '⊙' ? 16 : 20,
-              color: '#475569',
+              color: theme.btnColor,
               cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               transition: 'background 0.15s',
@@ -502,21 +514,44 @@ export const EmbeddingAtlas: React.FC = () => {
             {label}
           </button>
         ))}
+
+        {/* Dark mode toggle */}
+        <button
+          title={dm ? 'Switch to light mode' : 'Switch to dark mode'}
+          onClick={() => setDarkMode(v => !v)}
+          style={{
+            width: 36, height: 36,
+            background: theme.btnBg,
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: `1px solid ${theme.btnBorder}`,
+            borderRadius: 8,
+            boxShadow: dm ? '0 2px 8px rgba(0,0,0,0.4)' : '0 2px 8px rgba(0,0,0,0.07)',
+            fontSize: 16,
+            color: theme.btnColor,
+            cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transition: 'background 0.15s',
+          }}
+        >
+          {dm ? '☀︎' : '☽'}
+        </button>
       </div>
 
-      {/* ── Bottom-left cluster info ── */}
+      {/* Bottom-left cluster info */}
       {selectedClusterId !== null && selectedVoidId === null && (
         <div className="absolute bottom-4 left-4" style={{ zIndex: 50 }}>
           <div
             style={{
-              background: 'rgba(255,255,255,0.92)',
+              background: theme.clusterBg,
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: `1px solid ${clusters.get(selectedClusterId)?.color ?? '#ccc'}40`,
               borderRadius: 10,
               padding: '10px 14px',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+              boxShadow: dm ? '0 4px 20px rgba(0,0,0,0.5)' : '0 4px 20px rgba(0,0,0,0.08)',
               maxWidth: 260,
+              transition: 'background 0.4s',
             }}
           >
             <div className="flex items-center gap-2 mb-1">
@@ -525,22 +560,36 @@ export const EmbeddingAtlas: React.FC = () => {
                 background: clusters.get(selectedClusterId)?.color ?? '#ccc',
               }} />
               <span
-                className="text-gray-700 font-medium"
-                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11 }}
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 11,
+                  fontWeight: 500,
+                  color: dm ? '#e2e8f0' : '#374151',
+                }}
               >
                 {clusters.get(selectedClusterId)?.label ?? `Cluster ${selectedClusterId}`}
               </span>
               <button
                 onClick={() => setSelectedClusterId(null)}
-                className="ml-auto text-gray-300 hover:text-gray-500"
-                style={{ fontSize: 14 }}
+                style={{
+                  marginLeft: 'auto',
+                  fontSize: 14,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: dm ? '#4b5563' : '#d1d5db',
+                }}
               >
                 ×
               </button>
             </div>
             <p
-              className="text-gray-500"
-              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10 }}
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 10,
+                color: dm ? '#6b7280' : '#6b7280',
+                margin: 0,
+              }}
             >
               {clusters.get(selectedClusterId)?.size.toLocaleString() ?? 0} papers
             </p>
@@ -548,30 +597,43 @@ export const EmbeddingAtlas: React.FC = () => {
         </div>
       )}
 
-      {/* ── Loading overlay ── */}
+      {/* Loading overlay */}
       {loading && (
         <div
           className="absolute inset-0 flex flex-col items-center justify-center"
-          style={{ background: 'rgba(240,242,248,0.9)', zIndex: 100, backdropFilter: 'blur(4px)' }}
+          style={{
+            background: dm ? 'rgba(13,15,20,0.92)' : 'rgba(240,242,248,0.9)',
+            zIndex: 100,
+            backdropFilter: 'blur(4px)',
+          }}
         >
           <div className="flex flex-col items-center gap-4">
             <div style={{
               width: 44, height: 44,
-              border: '3px solid rgba(79,110,247,0.15)',
-              borderTop: '3px solid #4F6EF7',
+              border: `3px solid ${dm ? 'rgba(99,102,241,0.15)' : 'rgba(79,110,247,0.15)'}`,
+              borderTop: `3px solid ${dm ? '#6366f1' : '#4F6EF7'}`,
               borderRadius: '50%',
               animation: 'spin 0.8s linear infinite',
             }} />
             <div className="text-center">
               <p
-                className="text-gray-700 font-medium"
-                style={{ fontFamily: "'Crimson Pro', Georgia, serif", fontSize: 18 }}
+                style={{
+                  fontFamily: "'Crimson Pro', Georgia, serif",
+                  fontSize: 18,
+                  fontWeight: 500,
+                  color: dm ? '#e2e8f0' : '#374151',
+                  margin: 0,
+                }}
               >
                 arXiv Atlas
               </p>
               <p
-                className="text-gray-400 mt-1"
-                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11 }}
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 11,
+                  color: dm ? '#6b7280' : '#9ca3af',
+                  marginTop: 4,
+                }}
               >
                 {loadingProgress}
               </p>
@@ -581,43 +643,69 @@ export const EmbeddingAtlas: React.FC = () => {
         </div>
       )}
 
-      {/* ── Error overlay ── */}
+      {/* Error overlay */}
       {error && (
         <div
           className="absolute inset-0 flex items-center justify-center"
-          style={{ background: 'rgba(240,242,248,0.95)', zIndex: 100 }}
+          style={{
+            background: dm ? 'rgba(13,15,20,0.96)' : 'rgba(240,242,248,0.95)',
+            zIndex: 100,
+          }}
         >
           <div style={{
-            background: 'white',
+            background: dm ? '#161820' : 'white',
             border: '1px solid rgba(232,86,74,0.3)',
             borderRadius: 12,
             padding: '24px 28px',
             maxWidth: 440,
-            boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
           }}>
             <p
-              className="text-gray-800 font-semibold mb-2"
-              style={{ fontFamily: "'Crimson Pro', Georgia, serif", fontSize: 17 }}
+              style={{
+                fontFamily: "'Crimson Pro', Georgia, serif",
+                fontSize: 17,
+                fontWeight: 600,
+                color: dm ? '#e2e8f0' : '#1f2937',
+                margin: '0 0 8px',
+              }}
             >
               Failed to load data
             </p>
             <p
-              className="text-gray-500 mb-4"
-              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, wordBreak: 'break-all' }}
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 11,
+                color: dm ? '#6b7280' : '#6b7280',
+                marginBottom: 16,
+                wordBreak: 'break-all',
+              }}
             >
               {error}
             </p>
-            <p className="text-gray-400 text-xs mb-4">
-              Make sure <code className="bg-gray-100 px-1 py-0.5 rounded">umap_200k.parquet</code> and{' '}
-              <code className="bg-gray-100 px-1 py-0.5 rounded">voids.json</code> are in your{' '}
-              <code className="bg-gray-100 px-1 py-0.5 rounded">public/</code> folder.
+            <p style={{ color: dm ? '#6b7280' : '#9ca3af', fontSize: 12, marginBottom: 16 }}>
+              Make sure{' '}
+              <code style={{ background: dm ? '#1f2228' : '#f3f4f6', padding: '1px 4px', borderRadius: 3 }}>
+                umap_200k.parquet
+              </code>{' '}
+              and{' '}
+              <code style={{ background: dm ? '#1f2228' : '#f3f4f6', padding: '1px 4px', borderRadius: 3 }}>
+                voids.json
+              </code>{' '}
+              are in your{' '}
+              <code style={{ background: dm ? '#1f2228' : '#f3f4f6', padding: '1px 4px', borderRadius: 3 }}>
+                public/
+              </code>{' '}
+              folder.
             </p>
             <button
               onClick={reload}
               style={{
-                background: '#4F6EF7', color: 'white',
-                border: 'none', borderRadius: 7,
-                padding: '8px 16px', fontSize: 13,
+                background: dm ? '#6366f1' : '#4F6EF7',
+                color: 'white',
+                border: 'none',
+                borderRadius: 7,
+                padding: '8px 16px',
+                fontSize: 13,
                 cursor: 'pointer',
                 fontFamily: "'JetBrains Mono', monospace",
               }}

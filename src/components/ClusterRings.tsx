@@ -13,6 +13,7 @@ interface ClusterRingsProps {
   height:            number;
   onClusterClick:    (id: number) => void;
   onClusterHover:    (id: number | null) => void;
+  darkMode:          boolean;
 }
 
 const LABEL_MAX_CHARS     = 16;
@@ -38,8 +39,8 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
   height,
   onClusterClick,
   onClusterHover,
+  darkMode,
 }) => {
-  // Static per-cluster data — only recomputes when clusters change
   const staticData = useMemo(() => {
     return Array.from(clusters.values()).map(cluster => {
       const lines    = wrapLabel(cluster.label ?? `Cluster ${cluster.id}`, LABEL_MAX_CHARS);
@@ -48,7 +49,6 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
     });
   }, [clusters]);
 
-  // Screen-space data — recomputes on transform / selection / hover
   const rings = useMemo(() => {
     return staticData.map(({ cluster, lines, linesSel }) => {
       const screenHull: Vec2[] = cluster.hull.map(([nx, ny]) =>
@@ -76,6 +76,10 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
       return { cluster, path, centroidScreen, isSelected, isHovered, showLabel, activeLines };
     });
   }, [staticData, transform, selectedClusterId, hoveredClusterId]);
+
+  // Dark mode: outline text with a dark halo; light mode: white fill + dark stroke (original)
+  const textFill   = darkMode ? 'rgba(230,235,255,0.95)' : 'white';
+  const haloColor  = darkMode ? 'rgba(0,0,5,0.92)'       : 'rgba(0,0,0,0.85)';
 
   return (
     <svg
@@ -111,7 +115,8 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
               ? 1
               : isHovered
                 ? 0.75
-                : 0.35;
+                : darkMode ? 0.45 : 0.35;
+
         const strokeWidth = isSelected ? 2 : isHovered ? 1.5 : 1;
         const color       = cluster.color;
 
@@ -134,6 +139,19 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
             onMouseEnter={() => onClusterHover(cluster.id)}
             onMouseLeave={() => onClusterHover(null)}
           >
+            {/* Hull path */}
+            {/* {path && (
+              <path
+                d={path}
+                fill={`${color}${darkMode ? '18' : '0d'}`}
+                stroke={color}
+                strokeWidth={strokeWidth}
+                strokeOpacity={opacity}
+                fillOpacity={opacity * 0.5}
+                style={{ pointerEvents: 'none' }}
+              />
+            )} */}
+
             {showLabel &&
               activeLines.map((line, i) => (
                 <text
@@ -148,8 +166,8 @@ export const ClusterRings: React.FC<ClusterRingsProps> = ({
                   style={{ pointerEvents: 'none', userSelect: 'none' }}
                 >
                   <tspan
-                    fill="white"
-                    stroke="rgba(0,0,0,0.85)"
+                    fill={textFill}
+                    stroke={haloColor}
                     strokeWidth={isSelected ? 3.5 : 2.5}
                     strokeLinejoin="round"
                     paintOrder="stroke"
