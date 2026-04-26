@@ -1,19 +1,5 @@
 /**
  * VoidOverlay.tsx
- * ---------------
- * SVG overlay that renders:
- *  - A smoothed (rounded) convex-hull polygon per void, via Catmull-Rom spline
- *  - Halo dots on each border paper
- *  - The LLM-generated void name as a label at the centroid
- *  - A filled interior tint when selected
- *
- * Color assignment:
- *  - A small palette of amber-adjacent hues (tight arc around gold/amber)
- *  - Graph-colored: two voids sharing the same color only if their AABB hulls
- *    don't overlap in normalised space, so visually adjacent voids are always
- *    distinguishable while non-overlapping ones freely reuse slots.
- *
- * Sits in the same layer stack as ClusterRings (zIndex 11).
  */
 
 import React, { useMemo } from 'react';
@@ -36,10 +22,6 @@ function normToScreen(nx: number, ny: number, t: ViewTransform): [number, number
   return [nx * t.scale + t.offsetX, ny * t.scale + t.offsetY];
 }
 
-/**
- * Smooth closed polygon via Catmull-Rom → cubic Bézier.
- * tension: 0 = sharp, ~0.4 = organic blob.
- */
 function smoothHullPath(pts: [number, number][], tension = 0.38): string {
   const n = pts.length;
   if (n < 3) return '';
@@ -90,7 +72,6 @@ function hullScreenBounds(nv: [number, number][], t: ViewTransform) {
   return { minX: x0, maxX: x1, minY: y0, maxY: y1 };
 }
 
-/** AABB overlap test in normalised space (fast proxy for hull intersection). */
 function aabbOverlap(
   a: { minX: number; maxX: number; minY: number; maxY: number },
   b: { minX: number; maxX: number; minY: number; maxY: number },
@@ -100,19 +81,10 @@ function aabbOverlap(
 }
 
 // ── Graph coloring ────────────────────────────────────────────────────────────
-//
-// Palette: 5 hues in a tight amber arc (35°–78° in OKLCH hue).
-// These are all close to the original amber gold — orange-gold, gold, warm-yellow,
-// amber, yellow — so the map reads as one coherent warm family.
-// Adjacent (overlapping) voids always get different slots; others freely share.
 
-const PALETTE_HUES = [55, 42, 68, 35, 78] as const; // gold → amber → warm-yellow → orange-gold → yellow
+const PALETTE_HUES = [55, 42, 68, 35, 78] as const;
 const N_COLORS     = PALETTE_HUES.length;
 
-/**
- * Greedy graph-coloring over voids (processed in void_rank order).
- * Returns a map: void_id → palette index 0…N_COLORS-1.
- */
 function assignColors(voids: Void[]): Map<number, number> {
   const boxes = new Map<number, ReturnType<typeof hullNormBounds>>();
   for (const v of voids) {
@@ -122,31 +94,23 @@ function assignColors(voids: Void[]): Map<number, number> {
   }
 
   const assignment = new Map<number, number>();
-
   for (const v of voids) {
     const box = boxes.get(v.void_id);
     if (!box) continue;
-
     const forbidden = new Set<number>();
     for (const [otherId, otherBox] of boxes) {
       if (otherId === v.void_id) continue;
       if (!assignment.has(otherId)) continue;
-      if (aabbOverlap(box, otherBox)) {
-        forbidden.add(assignment.get(otherId)!);
-      }
+      if (aabbOverlap(box, otherBox)) forbidden.add(assignment.get(otherId)!);
     }
-
     let chosen = 0;
     while (forbidden.has(chosen) && chosen < N_COLORS - 1) chosen++;
     assignment.set(v.void_id, chosen);
   }
-
   return assignment;
 }
 
 // ── Color helpers ─────────────────────────────────────────────────────────────
-// All values tuned to stay close to the original amber (fbbf24 ≈ oklch 0.83 0.17 84).
-// Slightly pulled darker/more chroma for stroke readability.
 
 function makeColor(hue: number, alpha: number): string {
   return `oklch(0.70 0.17 ${hue} / ${alpha})`;
@@ -185,8 +149,8 @@ export const VoidOverlay: React.FC<VoidOverlayProps> = ({
       if (sb.maxX < -pad || sb.minX > width + pad ||
           sb.maxY < -pad || sb.minY > height + pad) return null;
 
-      const pathD     = smoothHullPath(hullScreenPoints(nvertices, transform));
-      const [cx, cy]  = normToScreen(v.ncx, v.ncy, transform);
+      const pathD    = smoothHullPath(hullScreenPoints(nvertices, transform));
+      const [cx, cy] = normToScreen(v.ncx, v.ncy, transform);
 
       const slot = colorAssignment.get(v.void_id) ?? 0;
       const hue  = PALETTE_HUES[slot];
@@ -196,23 +160,79 @@ export const VoidOverlay: React.FC<VoidOverlayProps> = ({
       const strokeSolid  = makeSolid(hue);
       const strokeDim    = makeColor(hue, 0.60);
       const glowColor    = makeGlow(hue);
-      const dotColor     = makeColor(hue, 0.60);
-      const dotColorSel  = makeColor(hue, 0.95);
 
       const rawName   = v.name ?? `Void ${v.void_rank}`;
       const labelText = rawName.length > 38 ? rawName.slice(0, 36) + '…' : rawName;
       const showLabel = showVoidLabels || isSelected;
 
-      const borderDots = v.border_papers.map((p, i) => {
+      // Build a Set of selected paper DOIs for fast lookup
+      const selectedDOIs = new Set(
+        (v.selected_papers ?? []).map(p => p.DOI)
+      );
+
+      // ── Border paper dots ──
+      // Render border-only papers first (below), then selected on top
+      const borderOnlyDots = v.border_papers
+        .filter(p => !selectedDOIs.has(p.DOI))
+        .map((p, i) => {
+          const [px, py] = normToScreen(p.nx, p.ny, transform);
+          return (
+            <circle
+              key={`b-${i}`}
+              cx={px} cy={py}
+              r={isSelected ? 3.5 : 2.5}
+              fill={makeColor(hue, isSelected ? 0.7 : 0.45)}
+              style={{ pointerEvents: 'none' }}
+            />
+          );
+        });
+
+      // ── Selected paper markers ──
+      // Diamond shape + brighter dot for papers in selected_papers
+      const selectedMarkers = (v.selected_papers ?? []).map((p, i) => {
         const [px, py] = normToScreen(p.nx, p.ny, transform);
+        const r        = isSelected ? 5.5 : 4;
+        // rank 0 gets slightly larger
+        const size     = p.rank === 0 ? r * 1.25 : r;
+
         return (
-          <circle
-            key={i}
-            cx={px} cy={py}
-            r={isSelected ? 4.5 : 3}
-            fill={isSelected ? dotColorSel : dotColor}
-            style={{ pointerEvents: 'none' }}
-          />
+          <g key={`s-${i}`} style={{ pointerEvents: 'none' }}>
+            {/* Glow halo behind diamond */}
+            <circle
+              cx={px} cy={py}
+              r={size + 3}
+              fill={strokeSolid}
+              opacity={isSelected ? 0.18 : 0.10}
+            />
+            {/* Diamond */}
+            <rect
+              x={px - size * 0.62}
+              y={py - size * 0.62}
+              width={size * 1.24}
+              height={size * 1.24}
+              fill={strokeSolid}
+              opacity={isSelected ? 0.92 : 0.60}
+              stroke="rgba(255,255,255,0.95)"
+              strokeWidth={isSelected ? 1.8 : 1.2}
+              strokeLinejoin="round"
+              transform={`rotate(45 ${px} ${py})`}
+            />
+            {/* Rank number inside diamond when selected and zoomed enough */}
+            {isSelected && size >= 5 && (
+              <text
+                x={px} y={py}
+                textAnchor="middle"
+                dominantBaseline="central"
+                fontFamily="'JetBrains Mono', monospace"
+                fontSize={size * 0.85}
+                fontWeight={700}
+                fill="rgba(0,0,0,0.55)"
+                style={{ pointerEvents: 'none', userSelect: 'none' }}
+              >
+                {p.rank + 1}
+              </text>
+            )}
+          </g>
         );
       });
 
@@ -223,6 +243,7 @@ export const VoidOverlay: React.FC<VoidOverlayProps> = ({
           style={{ pointerEvents: 'all' }}
           onClick={() => onVoidClick(v.void_id)}
         >
+          {/* Hull fill + glow + dashed stroke */}
           {pathD && (
             <>
               <path
@@ -259,8 +280,13 @@ export const VoidOverlay: React.FC<VoidOverlayProps> = ({
             </>
           )}
 
-          {borderDots}
+          {/* Border-only dots (dimmer, smaller, circles) */}
+          {borderOnlyDots}
 
+          {/* Selected paper diamonds (brighter, on top) */}
+          {selectedMarkers}
+
+          {/* Void centroid marker when selected */}
           {isSelected && (
             <g transform={`translate(${cx},${cy})`} style={{ pointerEvents: 'none' }}>
               <rect
@@ -271,6 +297,7 @@ export const VoidOverlay: React.FC<VoidOverlayProps> = ({
             </g>
           )}
 
+          {/* Label */}
           {showLabel && (
             <text
               x={cx} y={cy - 14}

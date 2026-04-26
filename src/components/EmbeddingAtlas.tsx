@@ -203,7 +203,7 @@ export const EmbeddingAtlas: React.FC = () => {
     }
     const doi = hovered.doi;
     if (doi && doi !== 'null' && doi.trim()) {
-      const url = doi.startsWith('http') ? doi : `https://doi.org/${doi}`;
+      const url = `https://arxiv.org/abs/${doi}`;
       window.open(url, '_blank', 'noopener,noreferrer');
     }
   }, [hovered, selectedClusterId, selectedVoidId]);

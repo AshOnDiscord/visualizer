@@ -1,49 +1,62 @@
-/**
- * useVoidData.ts
- * --------------
- * Loads voids.json and normalises centroid / border-paper coordinates
- * and convex-hull shape vertices using the same min/max bounds that
- * useParquetData derives from the parquet x/y columns.
- */
 import { useState, useEffect, useCallback } from 'react';
 
-const VOIDS_URL = '/public/voids.json';
-
-// ── Types ─────────────────────────────────────────────────────────────────────
+const VOIDS_URL = '/public/voids_ranked.json';
 
 export interface BorderPaper {
-  title:   string;
-  DOI:     string;
-  x:       number;   // raw UMAP
-  y:       number;
-  nx:      number;   // normalised [0,1]
-  ny:      number;
-  cluster: number;
+  title:          string;
+  DOI:            string;
+  x:              number;
+  y:              number;
+  nx:             number;
+  ny:             number;
+  cluster:        number;
+  citation_count: number | null;
+  year:           number | null;
+  abstract:       string | null;
+  enriched_via:   string | null;
+}
+
+export interface SelectedPaper {
+  rank:           number;
+  title:          string;
+  DOI:            string;
+  x:              number;
+  y:              number;
+  nx:             number;
+  ny:             number;
+  cluster:        number;
+  citation_count: number | null;
+  year:           number | null;
+  abstract:       string | null;
+  enriched_via:   string | null;
+  scores: {
+    combined:  number;
+    citation:  number;
+    recency:   number;
+    sector:    number;
+    angle_deg: number;
+  };
 }
 
 export interface VoidShape {
-  type:        'convex_hull';
-  /** raw UMAP vertices, ordered CCW, open polygon */
-  vertices:    [number, number][];
-  /** normalised [0,1] vertices — ready to multiply by canvas scale */
-  nvertices:   [number, number][];
+  type:      'convex_hull';
+  vertices:  [number, number][];
+  nvertices: [number, number][];
 }
 
 export interface Void {
-  void_id:          number;
-  void_rank:        number;
-  /** raw UMAP centroid */
-  centroid:         [number, number];
-  /** normalised centroid */
-  ncx:              number;
-  ncy:              number;
-  log_density:      number;
-  /** LLM-generated topic name for the gap */
-  name:             string;
-  name_reasoning:   string;
-  shape:            VoidShape;
-  shape_area:       number;
-  border_papers:    BorderPaper[];
+  void_id:         number;
+  void_rank:       number;
+  centroid:        [number, number];
+  ncx:             number;
+  ncy:             number;
+  empty_radius:    number;
+  name:            string;
+  name_reasoning:  string;
+  shape:           VoidShape;
+  shape_area:      number;
+  border_papers:   BorderPaper[];
+  selected_papers: SelectedPaper[];
 }
 
 interface VoidDataState {
@@ -52,14 +65,11 @@ interface VoidDataState {
   error:   string | null;
 }
 
-// ── Hook ──────────────────────────────────────────────────────────────────────
-
 export function useVoidData(
   minX:  number,
   maxX:  number,
   minY:  number,
   maxY:  number,
-  /** pass false to skip loading until bounds are known */
   ready: boolean = true,
 ): VoidDataState {
   const [state, setState] = useState<VoidDataState>({
@@ -78,7 +88,6 @@ export function useVoidData(
 
       const rangeX = maxX - minX || 1;
       const rangeY = maxY - minY || 1;
-
       const normXY = (x: number, y: number): [number, number] => [
         (x - minX) / rangeX,
         (y - minY) / rangeY,
@@ -87,7 +96,6 @@ export function useVoidData(
       const voids: Void[] = raw.map(v => {
         const [ncx, ncy] = normXY(v.centroid[0], v.centroid[1]);
 
-        // Normalise convex hull vertices
         const rawVerts: [number, number][] = v.shape?.vertices ?? [];
         const nvertices: [number, number][] = rawVerts.map(
           ([vx, vy]) => normXY(vx, vy),
@@ -98,27 +106,32 @@ export function useVoidData(
           return { ...p, nx, ny };
         });
 
+        const selected_papers: SelectedPaper[] = (v.selected_papers ?? []).map((p: any) => {
+          const [nx, ny] = normXY(p.x, p.y);
+          return { ...p, nx, ny };
+        });
+
         return {
-          void_id:        v.void_id,
-          void_rank:      v.void_rank,
-          centroid:       v.centroid  as [number, number],
+          void_id:         v.void_id,
+          void_rank:       v.void_rank,
+          centroid:        v.centroid as [number, number],
           ncx,
           ncy,
-          log_density:    v.log_density,
-          name:           v.name           ?? `Void ${v.void_id}`,
-          name_reasoning: v.name_reasoning ?? '',
+          empty_radius:    v.empty_radius ?? 0,
+          name:            v.name            ?? `Void ${v.void_id}`,
+          name_reasoning:  v.name_reasoning  ?? '',
           shape: {
             type:      'convex_hull' as const,
             vertices:  rawVerts,
             nvertices,
           },
-          shape_area:    v.shape_area ?? 0,
+          shape_area:      v.shape_area ?? 0,
           border_papers,
+          selected_papers,
         };
       });
 
-      // Sort emptiest first (most negative log_density)
-      voids.sort((a, b) => a.log_density - b.log_density);
+      voids.sort((a, b) => b.empty_radius - a.empty_radius);
       setState({ voids, loading: false, error: null });
     } catch (err) {
       setState({
@@ -130,5 +143,6 @@ export function useVoidData(
   }, [ready, minX, maxX, minY, maxY]);
 
   useEffect(() => { load(); }, [load]);
+
   return state;
 }

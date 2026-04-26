@@ -24,8 +24,8 @@ const server = serve({
       });
     },
 
-    "/public/voids.json": async () => {
-      const file = Bun.file(resolve("public/voids.json"));
+    "/public/voids_ranked.json": async () => {
+      const file = Bun.file(resolve("public/voids_ranked.json"));
       return new Response(file, {
         headers: { "Content-Type": "application/json" },
       });
