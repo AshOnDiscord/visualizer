@@ -8,8 +8,8 @@ const server = serve({
   routes: {
 
 
-    "/public/umap_200k.parquet": async () => {
-      const bytes = await Bun.file(resolve("public/umap_200k.parquet")).arrayBuffer();
+    "/public/umap_cv.parquet": async () => {
+      const bytes = await Bun.file(resolve("public/umap_cv.parquet")).arrayBuffer();
       const table = readParquet(new Uint8Array(bytes));
       const arrowBytes = table.intoIPCStream(); // ← this gives you the raw IPC bytes
       return new Response(arrowBytes, {
@@ -17,15 +17,15 @@ const server = serve({
       });
     },
     
-    "/public/cluster_labels.json": async () => {
-      const file = Bun.file(resolve("public/cluster_labels.json"));
+    "/public/cluster_labels_cv.json": async () => {
+      const file = Bun.file(resolve("public/cluster_labels_cv.json"));
       return new Response(file, {
         headers: { "Content-Type": "application/json" },
       });
     },
 
-    "/public/voids_ranked.json": async () => {
-      const file = Bun.file(resolve("public/voids_ranked.json"));
+    "/public/voids_ranked_cv.json": async () => {
+      const file = Bun.file(resolve("public/voids_ranked_cv.json"));
       return new Response(file, {
         headers: { "Content-Type": "application/json" },
       });

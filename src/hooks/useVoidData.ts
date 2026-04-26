@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const VOIDS_URL = '/public/voids_ranked.json';
+const VOIDS_URL = '/public/voids_ranked_cv.json';
 
 export interface BorderPaper {
   title:          string;

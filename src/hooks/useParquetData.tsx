@@ -7,8 +7,8 @@ import { clusterColor } from '../utils/colors';
 import { measureLabels, type LabelSizePx } from '../utils/measureLabels';
 import { computeLabelRevealScales } from '../utils/computeLabelRevealScales';
 
-const PARQUET_URL        = '/public/umap_200k.parquet';
-const CLUSTER_LABELS_URL = '/public/cluster_labels.json';
+const PARQUET_URL        = '/public/umap_cv.parquet';
+const CLUSTER_LABELS_URL = '/public/cluster_labels_cv.json';
 
 const DENSITY_RADIUS = 0.015;
 const LABEL_FONT     = "500 12px 'JetBrains Mono', monospace";
