@@ -25,10 +25,9 @@ export function useWebGLRenderer(
   canvasRef: React.RefObject<HTMLCanvasElement>,
   options: RendererOptions,
 ) {
-  const glStateRef  = useRef<GLState | null>(null);
+  const glStateRef   = useRef<GLState | null>(null);
   const animFrameRef = useRef<number>(0);
 
-  // ── Init (only when papers change) ───────────────────────────────────────
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || options.papers.length === 0) return;
@@ -47,11 +46,11 @@ export function useWebGLRenderer(
         const p = options.papers[i];
         positions[i * 2]     = p.nx;
         positions[i * 2 + 1] = p.ny;
-        const [r, g, b] = densityToRGB(p.density, p.clusterId);
+        const [r, g, b] = densityToRGB(p.density, p.clusterId, options.darkMode);
         colors[i * 4]     = r;
         colors[i * 4 + 1] = g;
         colors[i * 4 + 2] = b;
-        colors[i * 4 + 3] = 0.85;
+          colors[i * 4 + 3] = options.darkMode ? 0.75 : 0.85;
       }
 
       const posBuffer   = regl.buffer(positions);
@@ -80,15 +79,12 @@ export function useWebGLRenderer(
           precision mediump float;
           varying vec4 vColor;
           uniform float dimFactor;
-          uniform float brightBoost;
           void main() {
             vec2 cxy = 2.0 * gl_PointCoord - 1.0;
             float r = dot(cxy, cxy);
             if (r > 1.0) discard;
             float alpha = vColor.a * (1.0 - smoothstep(0.6, 1.0, r)) * dimFactor;
-            // In dark mode we boost brightness slightly
-            vec3 col = min(vColor.rgb * brightBoost, vec3(1.0));
-            gl_FragColor = vec4(col, alpha);
+            gl_FragColor = vec4(vColor.rgb, alpha);
           }
         `,
         attributes: {
@@ -96,12 +92,11 @@ export function useWebGLRenderer(
           color:    colorBuffer,
         },
         uniforms: {
-          offset:      regl.prop<any, 'offset'>('offset'),
-          scale:       regl.prop<any, 'scale'>('scale'),
-          viewport:    regl.prop<any, 'viewport'>('viewport'),
-          pointSize:   regl.prop<any, 'pointSize'>('pointSize'),
-          dimFactor:   regl.prop<any, 'dimFactor'>('dimFactor'),
-          brightBoost: regl.prop<any, 'brightBoost'>('brightBoost'),
+          offset:    regl.prop<any, 'offset'>('offset'),
+          scale:     regl.prop<any, 'scale'>('scale'),
+          viewport:  regl.prop<any, 'viewport'>('viewport'),
+          pointSize: regl.prop<any, 'pointSize'>('pointSize'),
+          dimFactor: regl.prop<any, 'dimFactor'>('dimFactor'),
         },
         count:     n,
         primitive: 'points',
@@ -122,33 +117,26 @@ export function useWebGLRenderer(
         glStateRef.current = null;
       }
     };
-  }, [options.papers]);
+    }, [options.papers, options.darkMode]);
 
-  // ── Render frame ──────────────────────────────────────────────────────────
   const render = useCallback(() => {
     const gl     = glStateRef.current;
     const canvas = canvasRef.current;
     if (!gl || !canvas) return;
 
-    const { regl, drawPoints, pointCount } = gl;
-    const {
-      transform, width, height,
-      selectedClusterId, searchResultIds,
-      darkMode,
-    } = options;
+    const { regl, drawPoints } = gl;
+    const { transform, width, height, selectedClusterId, searchResultIds, darkMode } = options;
 
-    const baseSize   = Math.max(1.5, Math.min(8, transform.scale * 0.004));
-    const brightBoost = darkMode ? 1.25 : 1.0;
+    const baseSize = Math.max(1.5, Math.min(8, transform.scale * 0.004));
 
     regl.clear({ color: [0, 0, 0, 0], depth: 1 });
 
     const uniformBase = {
-      offset:      [transform.offsetX / transform.scale, transform.offsetY / transform.scale],
-      scale:       transform.scale,
-      viewport:    [width, height],
-      pointSize:   baseSize,
-      dimFactor:   1.0,
-      brightBoost,
+      offset:    [transform.offsetX / transform.scale, transform.offsetY / transform.scale],
+      scale:     transform.scale,
+      viewport:  [width, height],
+      pointSize: baseSize,
+      dimFactor: 1.0,
     };
 
     if (selectedClusterId !== null || searchResultIds !== null) {
@@ -156,16 +144,17 @@ export function useWebGLRenderer(
       const newColors = new Float32Array(n * 4);
 
       for (let i = 0; i < n; i++) {
-        const p = options.papers[i];
+        const p             = options.papers[i];
         const isHighlighted =
           (selectedClusterId !== null && p.clusterId === selectedClusterId) ||
-          (searchResultIds !== null && searchResultIds.has(p.id));
+          (searchResultIds   !== null && searchResultIds.has(p.id));
 
         const [r, g, b] = densityToRGB(p.density, p.clusterId, darkMode);
         newColors[i * 4]     = r;
         newColors[i * 4 + 1] = g;
         newColors[i * 4 + 2] = b;
-        newColors[i * 4 + 3] = isHighlighted ? 0.9 : (darkMode ? 0.05 : 0.08);
+        // Dimmed points go nearly invisible in dark mode so highlights pop
+        newColors[i * 4 + 3] = isHighlighted ? 0.9 : (darkMode ? 0.0 : 0.08);
       }
 
       const tempBuf = regl.buffer(newColors);
@@ -182,7 +171,6 @@ export function useWebGLRenderer(
     }
   }, [options, canvasRef]);
 
-  // ── Animation loop ────────────────────────────────────────────────────────
   useEffect(() => {
     const loop = () => {
       render();
